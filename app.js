@@ -656,6 +656,7 @@ const AppState = {
     chartTimeframe: "1M",
     chartInstance: null,
     searchQuery: "",
+    sortBy: "default",
     sectorFilter: "all",
     signalFilter: "all"
 };
@@ -711,6 +712,47 @@ function updateFavoritesBadge() {
     }
 }
 
+// معالجة الفرز من رؤوس الأعمدة وقائمة الفرز
+function handleHeaderSort(field) {
+    if (field === 'name') {
+        AppState.sortBy = (AppState.sortBy === 'name_asc') ? 'name_desc' : 'name_asc';
+    } else if (field === 'price') {
+        AppState.sortBy = (AppState.sortBy === 'price_desc') ? 'price_asc' : 'price_desc';
+    } else if (field === 'change') {
+        AppState.sortBy = (AppState.sortBy === 'change_desc') ? 'change_asc' : 'change_desc';
+    }
+
+    const select = document.getElementById("sortByFilter");
+    if (select) select.value = AppState.sortBy;
+
+    updateSortHeaderIcons();
+    renderScanTable();
+}
+
+function updateSortHeaderIcons() {
+    const nameIcon = document.getElementById("sortIcon-name");
+    const priceIcon = document.getElementById("sortIcon-price");
+    const changeIcon = document.getElementById("sortIcon-change");
+
+    if (nameIcon) nameIcon.className = "fa-solid fa-sort text-[10px] text-gray-500";
+    if (priceIcon) priceIcon.className = "fa-solid fa-sort text-[10px] text-gray-500";
+    if (changeIcon) changeIcon.className = "fa-solid fa-sort text-[10px] text-gray-500";
+
+    if (AppState.sortBy === 'name_asc' && nameIcon) {
+        nameIcon.className = "fa-solid fa-arrow-down-a-z text-[11px] text-emerald-400 font-bold";
+    } else if (AppState.sortBy === 'name_desc' && nameIcon) {
+        nameIcon.className = "fa-solid fa-arrow-up-z-a text-[11px] text-emerald-400 font-bold";
+    } else if (AppState.sortBy === 'price_desc' && priceIcon) {
+        priceIcon.className = "fa-solid fa-arrow-down-9-1 text-[11px] text-emerald-400 font-bold";
+    } else if (AppState.sortBy === 'price_asc' && priceIcon) {
+        priceIcon.className = "fa-solid fa-arrow-up-1-9 text-[11px] text-emerald-400 font-bold";
+    } else if (AppState.sortBy === 'change_desc' && changeIcon) {
+        changeIcon.className = "fa-solid fa-arrow-trend-up text-[11px] text-emerald-400 font-bold";
+    } else if (AppState.sortBy === 'change_asc' && changeIcon) {
+        changeIcon.className = "fa-solid fa-arrow-trend-down text-[11px] text-rose-400 font-bold";
+    }
+}
+
 // تبديل التبويبات (Tab Switching)
 function switchTab(tabId) {
     AppState.currentTab = tabId;
@@ -741,6 +783,12 @@ function initEventListeners() {
     // البحث والفلاتر
     document.getElementById("stockSearch")?.addEventListener("input", (e) => {
         AppState.searchQuery = e.target.value.trim().toLowerCase();
+        renderScanTable();
+    });
+
+    document.getElementById("sortByFilter")?.addEventListener("change", (e) => {
+        AppState.sortBy = e.target.value;
+        updateSortHeaderIcons();
         renderScanTable();
     });
 
@@ -1012,6 +1060,21 @@ function renderScanTable() {
         const matchesSignal = (AppState.signalFilter === "all") || (s.action === AppState.signalFilter);
         return matchesSearch && matchesSector && matchesSignal;
     });
+
+    // تطبيق الترتيب والفرز حسب الاختيار (الاسم، السعر، التغير)
+    if (AppState.sortBy === "name_asc") {
+        filtered.sort((a, b) => a.name_ar.localeCompare(b.name_ar, 'ar'));
+    } else if (AppState.sortBy === "name_desc") {
+        filtered.sort((a, b) => b.name_ar.localeCompare(a.name_ar, 'ar'));
+    } else if (AppState.sortBy === "price_desc") {
+        filtered.sort((a, b) => b.price - a.price);
+    } else if (AppState.sortBy === "price_asc") {
+        filtered.sort((a, b) => a.price - b.price);
+    } else if (AppState.sortBy === "change_desc") {
+        filtered.sort((a, b) => b.change_pct - a.change_pct);
+    } else if (AppState.sortBy === "change_asc") {
+        filtered.sort((a, b) => a.change_pct - b.change_pct);
+    }
 
     tableBody.innerHTML = filtered.map((stock, index) => {
         const isFav = isFavorite(stock.symbol);

@@ -196,14 +196,30 @@
         <!-- ============================================================ -->
         <section id="tab-scan" class="tab-content hidden space-y-6">
             
-            <!-- Filters Bar (3 Columns: Pure Stocks Only) -->
-            <div class="glass-card p-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Filters Bar (4 Columns: Search, Sort, Sector, Signal) -->
+            <div class="glass-card p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
                         <span>بحث عن سهم أو رمز</span>
                     </label>
-                    <input type="text" id="stockSearch" placeholder="مثال: TMGH أو طلعت مصطفى..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <input type="text" id="stockSearch" placeholder="مثال: CAED أو القاهرة..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrow-down-short-wide text-emerald-400"></i>
+                        <span>الترتيب والفرز (اسم / سعر / تغير)</span>
+                    </label>
+                    <select id="sortByFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <option value="default">الافتراضي (حسب القائمة)</option>
+                        <option value="name_asc">الاسم (أبجدياً أ - ي)</option>
+                        <option value="name_desc">الاسم (أبجدياً ي - أ)</option>
+                        <option value="price_desc">السعر (من الأعلى للأقل)</option>
+                        <option value="price_asc">السعر (من الأقل للأعلى)</option>
+                        <option value="change_desc">التغير % (الأعلى ربحاً)</option>
+                        <option value="change_asc">التغير % (الأكثر تراجعاً)</option>
+                    </select>
                 </div>
 
                 <div>
@@ -245,13 +261,28 @@
                 <div class="overflow-x-auto">
                     <table class="w-full text-right border-collapse">
                         <thead>
-                            <tr class="border-b border-gray-800 bg-gray-900/80 text-xs text-gray-400">
+                            <tr class="border-b border-gray-800 bg-gray-900/80 text-xs text-gray-400 select-none">
                                 <th class="py-3.5 px-4 text-center"><i class="fa-solid fa-star text-amber-400"></i></th>
-                                <th class="py-3.5 px-4">السهم</th>
+                                <th onclick="handleHeaderSort('name')" class="py-3.5 px-4 cursor-pointer hover:text-emerald-400 transition">
+                                    <div class="flex items-center gap-1.5">
+                                        <span>السهم</span>
+                                        <i id="sortIcon-name" class="fa-solid fa-sort text-[10px] text-gray-500"></i>
+                                    </div>
+                                </th>
                                 <th class="py-3.5 px-4 text-center">الشرعية والتطهير</th>
                                 <th class="py-3.5 px-4">القطاع</th>
-                                <th class="py-3.5 px-4 text-left">السعر</th>
-                                <th class="py-3.5 px-4 text-left">التغير %</th>
+                                <th onclick="handleHeaderSort('price')" class="py-3.5 px-4 text-left cursor-pointer hover:text-emerald-400 transition">
+                                    <div class="flex items-center justify-end gap-1.5">
+                                        <i id="sortIcon-price" class="fa-solid fa-sort text-[10px] text-gray-500"></i>
+                                        <span>السعر</span>
+                                    </div>
+                                </th>
+                                <th onclick="handleHeaderSort('change')" class="py-3.5 px-4 text-left cursor-pointer hover:text-emerald-400 transition">
+                                    <div class="flex items-center justify-end gap-1.5">
+                                        <i id="sortIcon-change" class="fa-solid fa-sort text-[10px] text-gray-500"></i>
+                                        <span>التغير %</span>
+                                    </div>
+                                </th>
                                 <th class="py-3.5 px-4">الهدف</th>
                                 <th class="py-3.5 px-4">وقف الخسارة</th>
                                 <th class="py-3.5 px-4 text-center">الإشارة</th>
@@ -334,6 +365,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=8.0"></script>
+    <script src="app.js?v=9.0"></script>
 </body>
 </html>
