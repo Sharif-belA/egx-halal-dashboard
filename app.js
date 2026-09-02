@@ -1233,30 +1233,30 @@ function renderStockDetailCard(symbol) {
     const isUp = stock.change_pct >= 0;
 
     cardEl.innerHTML = `
-        <div class="flex items-start justify-between gap-3">
-            <div class="flex items-start gap-3.5 min-w-0">
+        <div class="flex items-start justify-between gap-2.5">
+            <div class="flex items-start gap-3 min-w-0 flex-1">
                 <!-- المربع: رمز السهم -->
-                <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-lg shadow-md shrink-0">
+                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-base sm:text-lg shadow-md shrink-0">
                     ${stock.symbol}
                 </div>
                 
                 <!-- البيانات مرتبة رأسياً -->
-                <div class="space-y-1.5 min-w-0">
-                    <!-- 1. اسم السهم كله في سطر واحد -->
-                    <h3 class="text-base sm:text-lg font-black text-white whitespace-nowrap overflow-hidden text-ellipsis leading-tight">${stock.name_ar}</h3>
+                <div class="space-y-1.5 min-w-0 flex-1">
+                    <!-- 1. اسم السهم بالكامل في سطر واحد بدون أي قص أو نقاط -->
+                    <h3 class="text-sm sm:text-base font-black text-white whitespace-nowrap leading-tight tracking-tight">${stock.name_ar}</h3>
                     
                     <!-- 2. تحته تاج القطاع -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300">
-                            <i class="fa-solid fa-layer-group text-[10px] text-blue-400"></i>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300 whitespace-nowrap">
+                            <i class="fa-solid fa-layer-group text-[9px] text-blue-400"></i>
                             <span>قطاع ${stock.sector}</span>
                         </span>
                     </div>
 
                     <!-- 3. تحته تاج نقي (أيقونة الدرع + نقي) -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 rounded-md font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
-                            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 whitespace-nowrap">
+                            <i class="fa-solid fa-shield-halved text-[9px]"></i>
                             <span>${stock.purity_label || 'نقي'}</span>
                         </span>
                     </div>
@@ -1264,7 +1264,7 @@ function renderStockDetailCard(symbol) {
             </div>
 
             <!-- زر المفضلة -->
-            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-2xl transition hover:scale-110 p-1 shrink-0" title="إضافة / إزالة من المفضلة">
+            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-xl sm:text-2xl transition hover:scale-110 p-1 shrink-0" title="إضافة / إزالة من المفضلة">
                 <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
             </button>
         </div>
