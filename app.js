@@ -844,20 +844,6 @@ function renderStockDetailCard(symbol) {
             ${stock.description}
         </div>
     `;
-
-    if (aiBoxEl) {
-        aiBoxEl.innerHTML = `
-            <div class="flex items-center gap-2 mb-2">
-                <span class="text-base">🤖</span>
-                <h4 class="font-bold text-white text-sm">تحليل Gemini AI الفوري لسهم ${stock.name_ar} (${stock.symbol})</h4>
-            </div>
-            <p class="text-xs text-gray-300 leading-relaxed mb-3">${stock.description}</p>
-            <div class="flex items-center justify-between text-xs pt-2 border-t border-gray-800">
-                <span class="text-gray-400">التوصية النهائية: <b class="${stock.action === 'BUY' ? 'text-emerald-400' : 'text-gray-300'}">${stock.action_ar}</b></span>
-                <span class="text-gray-500">الضوابط الشرعية: معتمد 100% ✅</span>
-            </div>
-        `;
-    }
 }
 
 // إنشاء وتحديث الرسم البياني (Chart.js Interactive Graph)

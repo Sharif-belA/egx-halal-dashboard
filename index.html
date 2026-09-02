@@ -55,9 +55,6 @@
                     <button id="btn-reports" onclick="switchTab('reports')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white">
                         🌅 التقارير اليومية
                     </button>
-                    <button id="btn-ai" onclick="switchTab('ai')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white">
-                        🤖 محلل Gemini AI
-                    </button>
                 </nav>
 
                 <!-- Live Market Status & Time -->
@@ -80,7 +77,6 @@
         <button onclick="switchTab('favorites')" class="p-2 text-gray-400 font-bold">⭐ المفضلة</button>
         <button onclick="switchTab('scan')" class="p-2 text-gray-400 font-bold">🔍 الفحص</button>
         <button onclick="switchTab('reports')" class="p-2 text-gray-400 font-bold">🌅 التقارير</button>
-        <button onclick="switchTab('ai')" class="p-2 text-gray-400 font-bold">🤖 الذكاء الاصطناعي</button>
     </div>
 
     <!-- Main Content Area -->
@@ -280,53 +276,6 @@
                     </div>
                 </div>
 
-            </div>
-
-        </section>
-
-        <!-- ============================================================ -->
-        <!-- TAB 5: GEMINI AI ANALYST (محلل الذكاء الاصطناعي) -->
-        <!-- ============================================================ -->
-        <section id="tab-ai" class="tab-content hidden space-y-6">
-            
-            <div class="glass-card p-6 border-emerald-500/30">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-3xl shadow-lg glow-green">
-                        🤖
-                    </div>
-                    <div>
-                        <h2 class="text-xl font-bold text-white">محلل الذكاء الاصطناعي (Gemini 2.5 / 3.5 Flash)</h2>
-                        <p class="text-xs text-gray-400">تقييم مالي وفني وإسلامي شرعي فوري مدعوم بنماذج جوجل DeepMind</p>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-gray-400 mb-1.5">اختر السهم للتحليل:</label>
-                        <select onchange="selectStock(this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
-                            <option value="TMGH">مجموعة طلعت مصطفى (TMGH)</option>
-                            <option value="JUFO">جهينة للصناعات الغذائية (JUFO)</option>
-                            <option value="ORWE">النساجون الشرقيون (ORWE)</option>
-                            <option value="EFID">إيديتا للصناعات الغذائية (EFID)</option>
-                            <option value="ETEL">المصرية للاتصالات (ETEL)</option>
-                            <option value="EGAL">مصر للألومنيوم (EGAL)</option>
-                            <option value="ISPH">ابن سينا فارما (ISPH)</option>
-                            <option value="AMOC">الإسكندرية للزيوت المعدنية (AMOC)</option>
-                            <option value="CAED">القاهرة للتعليم (CAED)</option>
-                        </select>
-                    </div>
-
-                    <div class="md:col-span-2 flex items-end">
-                        <button onclick="selectStock(AppState.selectedSymbol); alert('تم استدعاء نموذج Gemini بنجاح وتحديث التحليل!');" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-black font-extrabold text-sm transition shadow-lg glow-green">
-                            ⚡ تشغيل التحليل الفوري بالذكاء الاصطناعي
-                        </button>
-                    </div>
-                </div>
-
-                <!-- AI Output Box -->
-                <div id="aiAnalysisResult" class="p-5 rounded-2xl bg-gray-900/90 border border-emerald-500/30 space-y-3">
-                    <!-- Injected via JavaScript -->
-                </div>
             </div>
 
         </section>
