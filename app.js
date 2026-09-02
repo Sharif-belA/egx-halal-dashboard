@@ -1072,7 +1072,7 @@ function generateMockPriceHistory(symbol, timeframe) {
     const ema = [];
 
     const now = new Date();
-    // بناء التواريخ الحقيقية رجوعاً من اليوم
+    // بناء التواريخ الحقيقية رجوعاً من اليوم بتنسيق (DD/MM/YYYY) أو بتوقيت الجلسة اللحظي
     for (let i = 0; i < count; i++) {
         if (isIntraday) {
             // أوقات جلسة البورصة المصرية من 10:00 ص إلى 02:30 م
@@ -1084,15 +1084,12 @@ function generateMockPriceHistory(symbol, timeframe) {
         } else {
             const dateOffset = (count - 1 - i) * daysStep;
             const d = new Date(now.getTime() - dateOffset * 24 * 60 * 60 * 1000);
-            const dayNum = d.getDate();
-            const monthName = arabicMonths[d.getMonth()];
+            const dayStr = String(d.getDate()).padStart(2, '0');
+            const monthStr = String(d.getMonth() + 1).padStart(2, '0');
+            const yearStr = d.getFullYear();
             
-            if (timeframe === "1Y") {
-                const yearShort = d.getFullYear().toString().slice(-2);
-                labels.push(`${dayNum} ${monthName} '${yearShort}`);
-            } else {
-                labels.push(`${dayNum} ${monthName}`);
-            }
+            // تاريخ صريح ومباشر: DD/MM/YYYY
+            labels.push(`${dayStr}/${monthStr}/${yearStr}`);
         }
     }
 
