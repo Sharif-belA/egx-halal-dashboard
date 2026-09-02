@@ -992,6 +992,7 @@ function initChart(symbol) {
                     padding: 12,
                     displayColors: false,
                     callbacks: {
+                        title: (items) => `التاريخ: ${items[0].label}`,
                         label: (context) => `السعر: ${context.parsed.y.toFixed(2)} ج.م`
                     }
                 }
@@ -999,7 +1000,13 @@ function initChart(symbol) {
             scales: {
                 x: {
                     grid: { color: 'rgba(255, 255, 255, 0.04)' },
-                    ticks: { color: '#6B7280', font: { family: 'Cairo', size: 11 } }
+                    ticks: {
+                        color: '#9CA3AF',
+                        font: { family: 'Cairo', size: 10 },
+                        maxTicksLimit: 9,
+                        maxRotation: 0,
+                        autoSkip: true
+                    }
                 },
                 y: {
                     position: 'right',
@@ -1029,36 +1036,73 @@ function updateChartData(symbol) {
     AppState.chartInstance.update();
 }
 
-// توليد نقاط بيانية واقعية للرسم البياني
+// توليد تواريخ تقويمية واقعية ونقاط بيانية دقيقة بالتواريخ
 function generateMockPriceHistory(symbol, timeframe) {
     const stock = AppState.stocks.find(s => s.symbol === symbol) || AppState.stocks[0];
     const basePrice = stock.price;
-    let count = 30;
     
-    if (timeframe === "1D") count = 24;
-    else if (timeframe === "1W") count = 7;
-    else if (timeframe === "1M") count = 30;
-    else if (timeframe === "6M") count = 45;
-    else if (timeframe === "1Y") count = 52;
+    const arabicMonths = [
+        "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
+        "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+    ];
+
+    let count = 25;
+    let daysStep = 1;
+    let isIntraday = false;
+
+    if (timeframe === "1D") {
+        count = 10;
+        isIntraday = true;
+    } else if (timeframe === "1W") {
+        count = 7;
+        daysStep = 1;
+    } else if (timeframe === "1M") {
+        count = 22; // أيام تداول الشهر
+        daysStep = 1.35;
+    } else if (timeframe === "6M") {
+        count = 26;
+        daysStep = 7; // كل أسبوع تاريخ محدد
+    } else if (timeframe === "1Y") {
+        count = 24;
+        daysStep = 15; // كل نصف شهر تاريخ محدد
+    }
 
     const labels = [];
     const prices = [];
     const ema = [];
 
+    const now = new Date();
+    // بناء التواريخ الحقيقية رجوعاً من اليوم
+    for (let i = 0; i < count; i++) {
+        if (isIntraday) {
+            // أوقات جلسة البورصة المصرية من 10:00 ص إلى 02:30 م
+            const hours = [10, 10, 11, 11, 12, 12, 13, 13, 14, 14];
+            const mins = ["00", "30", "00", "30", "00", "30", "00", "30", "00", "30"];
+            const period = hours[i] < 12 ? "ص" : "م";
+            const displayHour = hours[i] > 12 ? hours[i] - 12 : hours[i];
+            labels.push(`${displayHour}:${mins[i]} ${period}`);
+        } else {
+            const dateOffset = (count - 1 - i) * daysStep;
+            const d = new Date(now.getTime() - dateOffset * 24 * 60 * 60 * 1000);
+            const dayNum = d.getDate();
+            const monthName = arabicMonths[d.getMonth()];
+            
+            if (timeframe === "1Y") {
+                const yearShort = d.getFullYear().toString().slice(-2);
+                labels.push(`${dayNum} ${monthName} '${yearShort}`);
+            } else {
+                labels.push(`${dayNum} ${monthName}`);
+            }
+        }
+    }
+
     let current = basePrice * (1 - (stock.change_pct / 100));
     const step = basePrice * 0.015;
 
     for (let i = 0; i < count; i++) {
-        if (timeframe === "1D") labels.push(`${10 + Math.floor(i / 6)}:${(i % 6) * 10 || '00'}`);
-        else if (timeframe === "1W") labels.push(`يوم ${i + 1}`);
-        else if (timeframe === "1M") labels.push(`${i + 1} أغسطس`);
-        else if (timeframe === "6M") labels.push(`أسبوع ${i + 1}`);
-        else labels.push(`شهر ${Math.floor(i / 4) + 1}`);
-
         const randomFactor = (Math.random() - 0.47) * step;
         current = Math.max(current + randomFactor, basePrice * 0.7);
         if (i === count - 1) current = basePrice;
-
         prices.push(parseFloat(current.toFixed(2)));
     }
 
