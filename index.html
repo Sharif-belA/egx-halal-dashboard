@@ -196,8 +196,8 @@
         <!-- ============================================================ -->
         <section id="tab-scan" class="tab-content hidden space-y-6">
             
-            <!-- Filters Bar (4 Columns including Kashef Purity Filter) -->
-            <div class="glass-card p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Filters Bar (3 Columns: Pure Stocks Only) -->
+            <div class="glass-card p-5 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
@@ -208,35 +208,20 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
-                        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
-                        <span>درجة النقاء (موقع كاشف)</span>
-                    </label>
-                    <select id="purityFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        <option value="all">الكل (نقي + شبه نقي)</option>
-                        <option value="PURE">نقي 100% (تطهير 0%)</option>
-                        <option value="SEMI_PURE">شبه نقي (متوافق مع تطهير)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-layer-group text-blue-400"></i>
                         <span>تصفية حسب القطاع</span>
                     </label>
                     <select id="sectorFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        <option value="all">جميع القطاعات</option>
+                        <option value="all">جميع القطاعات النقية</option>
                         <option value="عقارات">عقارات وإنشاءات</option>
                         <option value="أغذية ومشروبات">أغذية ومشروبات</option>
                         <option value="اتصالات وتكنولوجيا">اتصالات وتكنولوجيا</option>
-                        <option value="صناعة وطاقة">صناعة وكهرباء</option>
                         <option value="صناعة ومنسوجات">صناعة ومنسوجات</option>
-                        <option value="بتروكيماويات وأسمدة">بتروكيماويات وأسمدة</option>
                         <option value="موارد أساسية ومعادن">موارد أساسية ومعادن</option>
                         <option value="خدمات تعليمية">خدمات تعليمية</option>
                         <option value="رعاية صحية وأدوية">رعاية صحية وأدوية</option>
-                        <option value="بنوك وخدمات مالية">بنوك وخدمات مالية</option>
-                        <option value="نقل ولوجستيات">نقل ولوجستيات</option>
                         <option value="استثمار زراعي">استثمار زراعي</option>
+                        <option value="تجارة وتوزيع">تجارة وتوزيع</option>
                     </select>
                 </div>
 
@@ -262,7 +247,7 @@
                             <tr class="border-b border-gray-800 bg-gray-900/80 text-xs text-gray-400">
                                 <th class="py-3.5 px-4 text-center"><i class="fa-solid fa-star text-amber-400"></i></th>
                                 <th class="py-3.5 px-4">السهم</th>
-                                <th class="py-3.5 px-4 text-center">تصنيف كاشف</th>
+                                <th class="py-3.5 px-4 text-center">الشرعية والتطهير</th>
                                 <th class="py-3.5 px-4">القطاع</th>
                                 <th class="py-3.5 px-4 text-left">السعر</th>
                                 <th class="py-3.5 px-4 text-left">التغير %</th>
@@ -296,7 +281,7 @@
                         </div>
                         <div>
                             <h3 class="text-lg font-bold text-white">توصيات افتتاح جلسة اليوم</h3>
-                            <p class="text-xs text-gray-400">التقرير الصباحي الشامل لفرص الشراء والتجميع</p>
+                            <p class="text-xs text-gray-400">التقرير الصباحي لفرص الشراء للأسهم النقية 100%</p>
                         </div>
                     </div>
                     <div class="space-y-3" id="morningRecommendationsList">
@@ -316,8 +301,8 @@
                                 <p class="text-xs text-gray-400">مرتبة تنازلياً من الأعلى ربحاً إلى الأكثر تراجعاً</p>
                             </div>
                         </div>
-                        <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 border border-gray-700">
-                            18 سهم نقي
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                            16 سهماً نقياً 100%
                         </span>
                     </div>
 
@@ -348,6 +333,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=6.0"></script>
+    <script src="app.js?v=7.0"></script>
 </body>
 </html>
