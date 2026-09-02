@@ -1360,7 +1360,7 @@ function renderAllViews() {
     updateFavoritesBadge();
 }
 
-// بطاقات ملخص قمة الجلسة (أفضل 3 أسهم + سهم للاستثمار)
+// بطاقات ملخص قمة الجلسة (أفضل 3 أسهم في الجلسة)
 function renderTopGainerHero() {
     const heroEl = document.getElementById("topGainerHero");
     if (!heroEl) return;
@@ -1370,15 +1370,8 @@ function renderTopGainerHero() {
     const second = sorted[1] || sorted[0];
     const third = sorted[2] || sorted[1] || sorted[0];
 
-    // اختيار سهم الاستثمار المدروس من بين أفضل الأسهم الموثوقة مالياً وفنياً
-    const investmentCandidates = ["EGAS", "SMFR", "CAED", "AMES", "MBSC"];
-    const topInvestmentPick = AppState.stocks.find(s => investmentCandidates.includes(s.symbol) && s.action === "BUY") || 
-                              AppState.stocks.find(s => s.symbol === "EGAS") || 
-                              first;
-    const upsidePct = (((topInvestmentPick.target - topInvestmentPick.price) / topInvestmentPick.price) * 100).toFixed(1);
-
     heroEl.innerHTML = `
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4 w-full">
             
             <!-- 1. الأفضل في الجلسة -->
             <div onclick="selectStock('${first.symbol}')" class="glass-card glass-card-interactive p-4 border-amber-500/40 bg-gradient-to-b from-amber-500/10 to-transparent relative overflow-hidden group">
@@ -1448,30 +1441,6 @@ function renderTopGainerHero() {
                     <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
                         <span>+${third.change_pct.toFixed(2)}%</span>
                         <i class="fa-solid fa-arrow-trend-up text-[10px]"></i>
-                    </span>
-                </div>
-            </div>
-
-            <!-- 4. سهم للاستثمار -->
-            <div onclick="selectStock('${topInvestmentPick.symbol}')" class="glass-card glass-card-interactive p-4 border-emerald-500/50 bg-gradient-to-b from-emerald-500/15 to-transparent relative overflow-hidden group glow-green">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-extrabold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1.5">
-                        <i class="fa-solid fa-gem text-emerald-300 text-xs"></i>
-                        <span>سهم للاستثمار</span>
-                    </span>
-                    <i class="fa-solid fa-star text-emerald-400 text-lg"></i>
-                </div>
-                <h4 class="font-extrabold text-white text-base mt-1 truncate">${topInvestmentPick.name_ar}</h4>
-                <div class="text-xs text-emerald-400/80 mb-3">${topInvestmentPick.symbol} | الهدف: <b>${topInvestmentPick.target.toFixed(2)} ج.م</b></div>
-                
-                <div class="flex items-baseline justify-between pt-2 border-t border-gray-800">
-                    <div>
-                        <span class="text-xl font-black text-white">${topInvestmentPick.price.toFixed(2)}</span>
-                        <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
-                    </div>
-                    <span class="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40 flex items-center gap-1">
-                        <span>+${upsidePct}% ربح</span>
-                        <i class="fa-solid fa-bullseye text-[10px]"></i>
                     </span>
                 </div>
             </div>
