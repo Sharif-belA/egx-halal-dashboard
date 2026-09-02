@@ -830,7 +830,149 @@ document.addEventListener("DOMContentLoaded", () => {
     initChart(AppState.selectedSymbol);
     updateLiveClock();
     setInterval(updateLiveClock, 1000);
+
+    // سحب وتحديث الأسعار اللحظية فوراً من مباشر مصر وتفعيل التحديث التلقائي
+    fetchMubasherLivePrices(false);
+    setInterval(() => {
+        fetchMubasherLivePrices(false);
+    }, 20000); // تحديث دوري تلقائي كل 20 ثانية بدون أي ريفريش
 });
+
+// نظام التحديث اللحظي المباشر للأسعار من منصة مباشر مصر (Mubasher Live Engine)
+let isFetchingLivePrices = false;
+let lastLiveSyncTime = null;
+
+async function fetchMubasherLivePrices(isManual = false) {
+    if (isFetchingLivePrices) return;
+    isFetchingLivePrices = true;
+
+    const spinIcon = document.getElementById("syncSpinIcon");
+    if (spinIcon) spinIcon.classList.add("fa-spin");
+
+    const endpoint = "https://www.mubasher.info/api/1/stocks/prices?country=eg";
+    const urls = [
+        endpoint,
+        `https://proxy.cors.sh/${endpoint}`,
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`,
+        `https://corsproxy.io/?${encodeURIComponent(endpoint)}`
+    ];
+
+    let liveData = null;
+
+    for (const url of urls) {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5500);
+            
+            const response = await fetch(url, {
+                signal: controller.signal,
+                headers: { 'Accept': 'application/json' }
+            });
+            clearTimeout(timeoutId);
+
+            if (response.ok) {
+                const json = await response.json();
+                if (json && json.prices && Array.isArray(json.prices) && json.prices.length > 0) {
+                    liveData = json;
+                    break;
+                }
+            }
+        } catch (e) {
+            // تجربة الرابط التالي
+        }
+    }
+
+    if (liveData && liveData.prices) {
+        applyMubasherLivePrices(liveData.prices, liveData.lastUpdate);
+        lastLiveSyncTime = new Date();
+        updateMarketStatusDisplay(true);
+        if (isManual) {
+            showToastNotification("تم تحديث الأسعار اللحظية بنجاح من مباشر مصر!");
+        }
+    } else {
+        if (isManual) {
+            showToastNotification("الأسعار محدثة وفقاً لآخر بيانات متاحة.");
+        }
+    }
+
+    if (spinIcon) spinIcon.classList.remove("fa-spin");
+    isFetchingLivePrices = false;
+}
+
+function applyMubasherLivePrices(mubasherPrices, lastUpdateStr) {
+    const priceMap = {};
+    mubasherPrices.forEach(item => {
+        if (item.code) {
+            priceMap[item.code.toUpperCase().trim()] = item;
+        }
+    });
+
+    let anyUpdated = false;
+
+    AppState.stocks.forEach(stock => {
+        const liveItem = priceMap[stock.symbol.toUpperCase()];
+        if (liveItem) {
+            const livePrice = parseFloat(liveItem.value);
+            const liveChange = parseFloat(liveItem.change);
+            const livePctStr = (liveItem.changePercentage || "0%").replace('%', '').trim();
+            const livePct = parseFloat(livePctStr);
+
+            if (!isNaN(livePrice) && livePrice > 0) {
+                stock.price = livePrice;
+                if (!isNaN(liveChange)) stock.change = liveChange;
+                if (!isNaN(livePct)) stock.change_pct = livePct;
+                if (liveItem.volume) stock.volume = liveItem.volume;
+
+                // تحديث الأهداف والدعوم والمقاومات بنسب ديناميكية
+                stock.support = parseFloat((livePrice * 0.94).toFixed(2));
+                stock.resistance = parseFloat((livePrice * 1.07).toFixed(2));
+                stock.target = parseFloat((livePrice * 1.15).toFixed(2));
+                stock.stop_loss = parseFloat((livePrice * 0.90).toFixed(2));
+                
+                anyUpdated = true;
+            }
+        }
+    });
+
+    if (anyUpdated) {
+        // تحديث كل البطاقات والجداول والشارت على الفور بدون ريفريش!
+        renderAllViews();
+        updateChartData(AppState.selectedSymbol);
+    }
+}
+
+function triggerManualLiveUpdate() {
+    fetchMubasherLivePrices(true);
+}
+
+function updateMarketStatusDisplay(isLiveSuccess = false) {
+    const statusEl = document.getElementById("marketStatusBadge");
+    if (!statusEl) return;
+
+    const timeStr = lastLiveSyncTime ? lastLiveSyncTime.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : "";
+
+    if (isLiveSuccess) {
+        statusEl.innerHTML = `<span class="live-indicator inline-block"></span> <span>مباشر (${timeStr})</span>`;
+        statusEl.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5";
+    }
+}
+
+function showToastNotification(msg) {
+    let toast = document.getElementById("liveToast");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "liveToast";
+        toast.className = "fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-2xl z-50 transition-all duration-300 pointer-events-none flex items-center gap-2 border border-emerald-400";
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i class="fa-solid fa-circle-check text-sm"></i> <span>${msg}</span>`;
+    toast.style.opacity = "1";
+    toast.style.transform = "translate(-50%, 0)";
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translate(-50%, 20px)";
+    }, 2800);
+}
 
 // إدارة المفضلة الدائمة في المتصفح (Persistent Favorites Management)
 function initFavorites() {
