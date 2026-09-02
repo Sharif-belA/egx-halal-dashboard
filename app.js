@@ -1269,29 +1269,51 @@ function renderStockDetailCard(symbol) {
             </button>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4">
-            <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
-                <span class="text-xs text-gray-500 block">السعر الحالي</span>
-                <span class="text-xl font-black text-white">${stock.price.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
-                <span class="text-xs font-bold flex items-center gap-1 ${isUp ? 'text-emerald-400' : 'text-rose-400'} block">
-                    <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'} text-[10px]"></i>
-                    <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
-                </span>
+        <!-- شبكة المؤشرات: مقسمة إلى 4 خانات (2 × 2) متساوية وأنيقة -->
+        <div class="grid grid-cols-2 gap-3.5 my-4">
+            <!-- الخانة 1: السعر الحالي -->
+            <div class="bg-gray-800/50 hover:bg-gray-800/80 transition rounded-xl p-3.5 border border-gray-800 flex flex-col justify-between">
+                <span class="text-xs text-gray-400 font-semibold block mb-1">السعر الحالي</span>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black text-white">${stock.price.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
+                    <span class="text-xs font-bold flex items-center gap-1 ${isUp ? 'text-emerald-400' : 'text-rose-400'} mt-1">
+                        <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'} text-[10px]"></i>
+                        <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
+                    </span>
+                </div>
             </div>
-            <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
-                <span class="text-xs text-gray-500 block">الهدف المستهدف</span>
-                <span class="text-xl font-black text-emerald-400">${stock.target.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
-                <span class="text-xs text-emerald-500 block">+${(((stock.target - stock.price) / stock.price) * 100).toFixed(1)}% ربح</span>
+
+            <!-- الخانة 2: الهدف المستهدف -->
+            <div class="bg-gray-800/50 hover:bg-gray-800/80 transition rounded-xl p-3.5 border border-gray-800 flex flex-col justify-between">
+                <span class="text-xs text-gray-400 font-semibold block mb-1">الهدف المستهدف</span>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black text-emerald-400">${stock.target.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
+                    <span class="text-xs font-bold text-emerald-400/90 flex items-center gap-1 mt-1">
+                        <i class="fa-solid fa-bullseye text-[10px]"></i>
+                        <span>+${(((stock.target - stock.price) / stock.price) * 100).toFixed(1)}% ربح</span>
+                    </span>
+                </div>
             </div>
-            <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
-                <span class="text-xs text-gray-500 block">وقف الخسارة</span>
-                <span class="text-xl font-black text-rose-400">${stock.stop_loss.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
-                <span class="text-xs text-rose-500 block">${(((stock.stop_loss - stock.price) / stock.price) * 100).toFixed(1)}% حماية</span>
+
+            <!-- الخانة 3: وقف الخسارة -->
+            <div class="bg-gray-800/50 hover:bg-gray-800/80 transition rounded-xl p-3.5 border border-gray-800 flex flex-col justify-between">
+                <span class="text-xs text-gray-400 font-semibold block mb-1">وقف الخسارة</span>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black text-rose-400">${stock.stop_loss.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
+                    <span class="text-xs font-bold text-rose-400/90 flex items-center gap-1 mt-1">
+                        <i class="fa-solid fa-shield text-[10px]"></i>
+                        <span>${(((stock.stop_loss - stock.price) / stock.price) * 100).toFixed(1)}% حماية</span>
+                    </span>
+                </div>
             </div>
-            <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
-                <span class="text-xs text-gray-500 block">مؤشر القوة RSI</span>
-                <span class="text-xl font-black text-amber-400">${stock.rsi}</span>
-                <span class="text-xs text-gray-400 block">${stock.rsi > 70 ? 'تشبع شراء' : stock.rsi < 30 ? 'تشبع بيع' : 'منطقة متوازنة'}</span>
+
+            <!-- الخانة 4: مؤشر القوة RSI -->
+            <div class="bg-gray-800/50 hover:bg-gray-800/80 transition rounded-xl p-3.5 border border-gray-800 flex flex-col justify-between">
+                <span class="text-xs text-gray-400 font-semibold block mb-1">مؤشر القوة (RSI)</span>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black text-amber-400">${stock.rsi}</span>
+                    <span class="text-xs font-semibold text-gray-400 block mt-1">${stock.rsi > 70 ? 'تشبع شراء' : stock.rsi < 30 ? 'تشبع بيع' : 'منطقة تجميع متوازنة'}</span>
+                </div>
             </div>
         </div>
 
