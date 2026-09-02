@@ -196,22 +196,22 @@
         <!-- ============================================================ -->
         <section id="tab-scan" class="tab-content hidden space-y-6">
             
-            <!-- Filters Bar (4 Columns: Search, Sort, Sector, Signal) -->
-            <div class="glass-card p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Filters Bar (5 Columns: Search, Sort, Purity, Sector, Signal) -->
+            <div class="glass-card p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
                         <span>بحث عن سهم أو رمز</span>
                     </label>
-                    <input type="text" id="stockSearch" placeholder="مثال: CAED أو القاهرة..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <input type="text" id="stockSearch" placeholder="مثال: CAED أو القاهرة..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-arrow-down-short-wide text-emerald-400"></i>
-                        <span>الترتيب والفرز (اسم / سعر / تغير)</span>
+                        <span>الترتيب والفرز</span>
                     </label>
-                    <select id="sortByFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <select id="sortByFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
                         <option value="default">الافتراضي (حسب القائمة)</option>
                         <option value="name_asc">الاسم (أبجدياً أ - ي)</option>
                         <option value="name_desc">الاسم (أبجدياً ي - أ)</option>
@@ -224,10 +224,22 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                        <span>درجة النقاء الشرعي</span>
+                    </label>
+                    <select id="purityFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <option value="all">الكل (نقي وشبه نقي)</option>
+                        <option value="pure">نقي 100% (تطهير 0%)</option>
+                        <option value="semi_pure">شبه نقي (مع نسبة تطهير)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-layer-group text-blue-400"></i>
                         <span>تصفية حسب القطاع</span>
                     </label>
-                    <select id="sectorFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <select id="sectorFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
                         <option value="all">جميع القطاعات (32 سهماً)</option>
                         <option value="عقارات ومقاولات">عقارات ومقاولات</option>
                         <option value="خدمات تعليمية">خدمات تعليمية</option>
@@ -247,7 +259,7 @@
                         <i class="fa-solid fa-bullseye text-amber-400"></i>
                         <span>تصفية حسب الإشارة</span>
                     </label>
-                    <select id="signalFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <select id="signalFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
                         <option value="all">جميع الإشارات</option>
                         <option value="BUY">شراء فقط (فرص تجميع)</option>
                         <option value="HOLD">احتفاظ ومتابعة</option>
@@ -366,6 +378,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=16.0"></script>
+    <script src="app.js?v=17.0"></script>
 </body>
 </html>

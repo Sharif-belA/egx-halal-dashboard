@@ -1,7 +1,7 @@
 /**
  * EGX Halal Trading Web Platform & Interactive Dashboard
- * منصة التداول والتحليل للأسهم النقية 100% بالبورصة المصرية
- * قائمة الأسهم النقية المعتمدة حصراً (32 سهماً) مع التحليل الفني والتوقع المستقبلي
+ * منصة التداول والتحليل للأسهم الحلال (نقي وشبه نقي) بالبورصة المصرية
+ * قائمة الأسهم المعتمدة وفقاً لمعايير الفحص الشرعي (32 سهماً)
  */
 
 const HALAL_STOCKS_DATA = [
@@ -10,6 +10,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "بي آي جي للتجارة والاستثمار",
         name_en: "B.I.G Trade & Investment",
         sector: "تجارة وتوزيع",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 0.24,
         change: 0.00,
         change_pct: 0.00,
@@ -23,7 +27,7 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 16.5,
         eps_growth: 4.0,
         rsi: 50.0,
-        tech_analysis: "السهم يتداول في اتجاه عرضي مائل للتجميع فوق الدعم 0.21 ج.م مع كثافة تنفيذ وضيق نطاق التذبذب، ومؤشر RSI عند 50 في منطقة حيادية.",
+        tech_analysis: "السهم يتداول في مسار عرضي تجميعي مستقر فوق مستوى الدعم 0.21 ج.م مع كثافة تنفيذ وضيق نطاق التذبذب، ومؤشر RSI عند 50 في منطقة حيادية.",
         future_outlook: "اختراق مستوى المقاومة 0.28 ج.م سيفتح الباب لموجة صاعدة سريعة نحو الهدف 0.32 ج.م بفرصة ربح متوقعة تتجاوز 33%."
     },
     {
@@ -31,6 +35,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "القاهرة للخدمات التعليمية",
         name_en: "Cairo Education Services",
         sector: "خدمات تعليمية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 154.00,
         change: 1.50,
         change_pct: 0.98,
@@ -52,6 +60,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الأولى للاستثمار والتنمية العقارية",
         name_en: "First Investment & Real Estate",
         sector: "عقارات ومقاولات",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 4.35,
         change: 0.09,
         change_pct: 2.11,
@@ -73,6 +85,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الفنار للمقاولات العمومية والإنشاءات",
         name_en: "El Fanar Construction",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.25%",
         price: 12.33,
         change: -0.22,
         change_pct: -1.75,
@@ -94,6 +110,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "إيجي ستون (مصر للأعمال الهندسية)",
         name_en: "EgyStone (Misr Engineering)",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.30%",
         price: 18.20,
         change: 0.35,
         change_pct: 1.96,
@@ -115,6 +135,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "المصرية لنظم التعليم الحديثة",
         name_en: "Modern Education Systems",
         sector: "خدمات تعليمية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 0.82,
         change: -0.01,
         change_pct: -1.20,
@@ -136,6 +160,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "شمال الصعيد للتنمية والإنتاج الزراعي (نيوداب)",
         name_en: "North Upper Egypt Development",
         sector: "استثمار زراعي",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 2.75,
         change: -0.04,
         change_pct: -1.43,
@@ -157,6 +185,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الاتحاد الصيدلي للخدمات الطبية والاستثمار",
         name_en: "Pharma Union Medical Services",
         sector: "رعاية صحية وأدوية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 3.15,
         change: 0.06,
         change_pct: 1.94,
@@ -178,6 +210,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الإسكندرية للخدمات الطبية (المركز الطبي الجديد)",
         name_en: "Alexandria Medical Services",
         sector: "رعاية صحية وأدوية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 19.50,
         change: 0.40,
         change_pct: 2.09,
@@ -199,6 +235,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "جلاكسو سميثكلاين / بيوكام",
         name_en: "GlaxoSmithKline Egypt / Bioc",
         sector: "رعاية صحية وأدوية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 42.80,
         change: 0.70,
         change_pct: 1.66,
@@ -220,6 +260,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "مطاحن مصر الوسطى",
         name_en: "Middle Egypt Flour Mills",
         sector: "أغذية ومطاحن",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 48.60,
         change: 0.95,
         change_pct: 1.99,
@@ -241,6 +285,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الدلتا للإنشاء والتعمير",
         name_en: "Delta Construction & Rebuilding",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.35%",
         price: 26.40,
         change: 0.50,
         change_pct: 1.93,
@@ -262,6 +310,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "غاز مصر",
         name_en: "Egypt Gas",
         sector: "طاقة ومرافق",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.45%",
         price: 36.50,
         change: 0.80,
         change_pct: 2.24,
@@ -283,6 +335,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "النصر للحاصلات الزراعية",
         name_en: "El Nasr Agricultural Products",
         sector: "استثمار زراعي",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 36.80,
         change: 0.90,
         change_pct: 2.51,
@@ -304,6 +360,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الوادي العالمية للاستثمار والتنمية",
         name_en: "El Wadi for International Investment",
         sector: "استثمار وتنمية",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 0.88,
         change: 0.01,
         change_pct: 1.15,
@@ -325,6 +385,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "فيوتشر كير للصناعات الطبية",
         name_en: "Future Care Medical Industries",
         sector: "رعاية صحية وأدوية",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.20%",
         price: 0.38,
         change: 0.00,
         change_pct: 0.00,
@@ -346,6 +410,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "جو جرين للاستثمار الزراعي والتنمية",
         name_en: "Go Green Agricultural Investment",
         sector: "استثمار زراعي",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 2.10,
         change: 0.04,
         change_pct: 1.94,
@@ -367,6 +435,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الدولية للأسمدة والكيماويات",
         name_en: "International Fertilizers & Chemicals",
         sector: "أسمدة وكيماويات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.50%",
         price: 16.40,
         change: 0.35,
         change_pct: 2.18,
@@ -388,6 +460,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "المشروعات الصناعية والهندسية",
         name_en: "Industrial & Engineering Projects",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.40%",
         price: 0.42,
         change: 0.01,
         change_pct: 2.44,
@@ -409,6 +485,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "المجموعة المتكاملة للأعمال الهندسية",
         name_en: "Integrated Engineering Group",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.30%",
         price: 0.22,
         change: 0.00,
         change_pct: 0.00,
@@ -430,6 +510,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الإسماعيلية الوطنية للصناعات الغذائية (فوديكو)",
         name_en: "Ismailia National Food (Foodico)",
         sector: "أغذية ومشروبات",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 44.50,
         change: 0.90,
         change_pct: 2.06,
@@ -451,6 +535,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "إم بي للهندسة",
         name_en: "M.B Engineering",
         sector: "صناعة وتكنولوجيا",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.40%",
         price: 2.35,
         change: 0.05,
         change_pct: 2.17,
@@ -472,6 +560,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "مطاحن ومخابز شمال القاهرة",
         name_en: "North Cairo Flour Mills",
         sector: "أغذية ومطاحن",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 41.20,
         change: 0.70,
         change_pct: 1.73,
@@ -493,6 +585,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "مصر للزيوت والصابون",
         name_en: "Misr Oils & Soap",
         sector: "أغذية ومشروبات",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 33.80,
         change: 0.60,
         change_pct: 1.81,
@@ -514,6 +610,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الوطنية لحفر وخدمات البترول",
         name_en: "National Drilling Company",
         sector: "خدمات بترولية",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.60%",
         price: 4.80,
         change: 0.08,
         change_pct: 1.69,
@@ -535,6 +635,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "العبور للاستثمار العقاري",
         name_en: "El Obour Real Estate Investment",
         sector: "عقارات ومقاولات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.35%",
         price: 9.85,
         change: 0.15,
         change_pct: 1.55,
@@ -556,6 +660,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "بريميم هيلثكير جروب",
         name_en: "Premium Healthcare Group",
         sector: "رعاية صحية وأدوية",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.25%",
         price: 0.36,
         change: 0.01,
         change_pct: 2.86,
@@ -577,6 +685,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "العامة لمنتجات الخزف والصيني (شيني)",
         name_en: "General Ceramic & China (Sheeni)",
         sector: "مواد بناء وصناعة",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.45%",
         price: 15.20,
         change: 0.30,
         change_pct: 2.01,
@@ -598,6 +710,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "سبأ الدولية للأدوية والصناعات الكيماوية",
         name_en: "Sabaa International Pharma",
         sector: "رعاية صحية وأدوية",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.30%",
         price: 0.95,
         change: 0.02,
         change_pct: 2.15,
@@ -619,6 +735,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "سماد مصر (إيجيفرت)",
         name_en: "Egypt Fertilizers (Egyfert)",
         sector: "أسمدة وكيماويات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.55%",
         price: 52.00,
         change: 1.20,
         change_pct: 2.36,
@@ -640,6 +760,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "فرتيكا للصناعة والتجارة",
         name_en: "Vertika for Industry & Trade",
         sector: "تكنولوجيا وبرمجيات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.20%",
         price: 3.80,
         change: 0.08,
         change_pct: 2.15,
@@ -661,6 +785,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الزيوت المستخلصة ومنتجاتها",
         name_en: "Extracted Oils & Derivatives",
         sector: "أغذية ومشروبات",
+        purity_type: "PURE",
+        purity_label: "نقي 100%",
+        badge_short: "نقي",
+        purification_ratio: "0.00%",
         price: 3.40,
         change: 0.05,
         change_pct: 1.49,
@@ -690,7 +818,8 @@ const AppState = {
     searchQuery: "",
     sortBy: "default",
     sectorFilter: "all",
-    signalFilter: "all"
+    signalFilter: "all",
+    purityFilter: "all"
 };
 
 // تهيئة التطبيق عند تحميل الصفحة
@@ -710,7 +839,6 @@ function initFavorites() {
         try {
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed)) {
-                // تصفية أي رمز قديم غير موجود بالقائمة
                 AppState.favorites = parsed.filter(sym => HALAL_STOCKS_DATA.some(s => s.symbol === sym));
             } else {
                 AppState.favorites = [];
@@ -719,7 +847,6 @@ function initFavorites() {
             AppState.favorites = [];
         }
     } else {
-        // إذا كانت أول زيارة للمستخدم، وضع أسهم افتراضية
         AppState.favorites = ["CAED", "EGAS", "ELNA"];
         localStorage.setItem("egx_pure_favorites_list", JSON.stringify(AppState.favorites));
     }
@@ -848,6 +975,11 @@ function initEventListeners() {
 
     document.getElementById("signalFilter")?.addEventListener("change", (e) => {
         AppState.signalFilter = e.target.value;
+        renderScanTable();
+    });
+
+    document.getElementById("purityFilter")?.addEventListener("change", (e) => {
+        AppState.purityFilter = e.target.value;
         renderScanTable();
     });
 
@@ -1037,6 +1169,8 @@ function renderFavoritesGrid() {
     ` : favStocks.map(stock => {
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isUp = stock.change_pct >= 0;
+        const isPure = stock.purity_type === "PURE";
+
         return `
             <div onclick="selectStock('${stock.symbol}')" class="glass-card glass-card-interactive p-5 relative overflow-hidden ${isSelected ? 'border-emerald-500 glow-green' : ''}">
                 <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn active absolute top-4 left-4 text-base text-amber-400 hover:scale-125 transition" title="إزالة من المفضلة">
@@ -1049,8 +1183,8 @@ function renderFavoritesGrid() {
                     <div>
                         <div class="flex items-center gap-1.5">
                             <h4 class="font-bold text-white text-sm leading-tight">${stock.name_ar}</h4>
-                            <span class="text-emerald-400 bg-emerald-500/15 border-emerald-500/30 text-[10px] font-bold px-1.5 py-0.2 rounded border">
-                                نقي 100%
+                            <span class="${isPure ? 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-400 bg-amber-500/15 border-amber-500/30'} text-[10px] font-bold px-1.5 py-0.2 rounded border">
+                                ${stock.badge_short}
                             </span>
                         </div>
                         <span class="text-xs text-gray-400">${stock.sector}</span>
@@ -1084,7 +1218,7 @@ function renderFavoritesGrid() {
                         <i class="fa-solid ${stock.action === 'BUY' ? 'fa-circle-check' : stock.action === 'SELL' ? 'fa-circle-xmark' : 'fa-circle-pause'} text-[10px]"></i>
                         <span>${stock.action === 'BUY' ? 'شراء' : stock.action === 'SELL' ? 'بيع' : 'احتفاظ'}</span>
                     </span>
-                    <span class="text-xs text-gray-400">تطهير: <b>0.00%</b></span>
+                    <span class="text-xs text-gray-400">تطهير: <b class="${isPure ? 'text-emerald-400' : 'text-amber-400'}">${stock.purification_ratio}</b></span>
                 </div>
             </div>
         `;
@@ -1094,7 +1228,7 @@ function renderFavoritesGrid() {
     if (favTabList) favTabList.innerHTML = content;
 }
 
-// جدول الفحص الشامل للأسهم النقية 100% (Scan Table)
+// جدول الفحص الشامل للأسهم (Scan Table)
 function renderScanTable() {
     const tableBody = document.getElementById("scanTableBody");
     if (!tableBody) return;
@@ -1105,7 +1239,10 @@ function renderScanTable() {
                               s.name_en.toLowerCase().includes(AppState.searchQuery);
         const matchesSector = (AppState.sectorFilter === "all") || (s.sector === AppState.sectorFilter);
         const matchesSignal = (AppState.signalFilter === "all") || (s.action === AppState.signalFilter);
-        return matchesSearch && matchesSector && matchesSignal;
+        const matchesPurity = (AppState.purityFilter === "all") || 
+                              (AppState.purityFilter === "pure" && s.purity_type === "PURE") ||
+                              (AppState.purityFilter === "semi_pure" && s.purity_type === "SEMI_PURE");
+        return matchesSearch && matchesSector && matchesSignal && matchesPurity;
     });
 
     // تطبيق الترتيب والفرز حسب الاختيار (الاسم، السعر، التغير)
@@ -1127,6 +1264,7 @@ function renderScanTable() {
         const isFav = isFavorite(stock.symbol);
         const isUp = stock.change_pct >= 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
+        const isPure = stock.purity_type === "PURE";
 
         return `
             <tr onclick="selectStock('${stock.symbol}')" class="border-b border-gray-800/60 hover:bg-gray-800/40 cursor-pointer transition ${isSelected ? 'bg-emerald-950/20' : ''}">
@@ -1147,14 +1285,14 @@ function renderScanTable() {
                     </div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
-                        <i class="fa-solid fa-shield-halved text-[10px]"></i>
-                        <span>نقي 100%</span>
+                    <span class="${isPure ? 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-300 bg-amber-500/15 border-amber-500/30'} text-xs font-bold px-2.5 py-1 rounded-full border inline-flex items-center gap-1.5 whitespace-nowrap">
+                        <i class="fa-solid ${isPure ? 'fa-shield-halved' : 'fa-shield'} text-[10px]"></i>
+                        <span>${stock.purity_label}</span>
                     </span>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="text-xs font-bold font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 inline-block">
-                        ${stock.purification_ratio || '0.00%'}
+                    <span class="text-xs font-bold font-mono ${isPure ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-400 bg-amber-500/10 border-amber-500/20'} px-2.5 py-1 rounded-lg border inline-block">
+                        ${stock.purification_ratio}
                     </span>
                 </td>
                 <td class="py-4 px-4 text-sm text-gray-400">${stock.sector}</td>
@@ -1199,7 +1337,7 @@ function renderMorningCards() {
                 <div>
                     <div class="flex items-center gap-1.5">
                         <h5 class="font-bold text-white text-sm">${s.name_ar} (${s.symbol})</h5>
-                        <span class="text-[10px] text-emerald-400 font-semibold">(نقي 100%)</span>
+                        <span class="text-[10px] ${s.purity_type === 'PURE' ? 'text-emerald-400' : 'text-amber-400'} font-semibold">(${s.badge_short})</span>
                     </div>
                     <p class="text-xs text-gray-400">سعر الدخول: ${s.price.toFixed(2)} ج.م | الهدف: <b class="text-emerald-400">${s.target.toFixed(2)} ج.م</b></p>
                 </div>
@@ -1224,6 +1362,7 @@ function renderEndOfDayFullRanking() {
         const isUp = stock.change_pct > 0;
         const isDown = stock.change_pct < 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
+        const isPure = stock.purity_type === "PURE";
 
         let rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs border border-gray-700">${rank}</span>`;
         if (rank === 1) {
@@ -1242,7 +1381,7 @@ function renderEndOfDayFullRanking() {
                         <div class="flex items-center gap-1.5">
                             <span class="font-bold text-white text-sm">${stock.name_ar}</span>
                             <span class="text-[10px] text-gray-500 font-mono">(${stock.symbol})</span>
-                            <span class="text-emerald-400 text-[10px] font-semibold">• نقي 100%</span>
+                            <span class="${isPure ? 'text-emerald-400' : 'text-amber-400'} text-[10px] font-semibold">• ${stock.badge_short} (${stock.purification_ratio})</span>
                         </div>
                         <span class="text-[11px] text-gray-400">${stock.sector} | حجم: ${stock.volume}</span>
                     </div>
@@ -1281,12 +1420,13 @@ function renderStockDetailCard(symbol) {
 
     const isFav = isFavorite(stock.symbol);
     const isUp = stock.change_pct >= 0;
+    const isPure = stock.purity_type === "PURE";
 
     cardEl.innerHTML = `
         <div class="flex items-start justify-between gap-2.5">
             <div class="flex items-start gap-3 min-w-0 flex-1">
                 <!-- المربع: رمز السهم -->
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-base sm:text-lg shadow-md shrink-0">
+                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl ${isPure ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'} border flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0">
                     ${stock.symbol}
                 </div>
                 
@@ -1303,11 +1443,11 @@ function renderStockDetailCard(symbol) {
                         </span>
                     </div>
 
-                    <!-- 3. تحته تاج نقي (أيقونة الدرع + نقي) -->
+                    <!-- 3. تحته تاج نقي / شبه نقي -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 whitespace-nowrap">
-                            <i class="fa-solid fa-shield-halved text-[9px]"></i>
-                            <span>${stock.purity_label || 'نقي'}</span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold ${isPure ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
+                            <i class="fa-solid ${isPure ? 'fa-shield-halved' : 'fa-shield'} text-[9px]"></i>
+                            <span>${stock.purity_label} (تطهير ${stock.purification_ratio})</span>
                         </span>
                     </div>
                 </div>
