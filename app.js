@@ -1422,31 +1422,42 @@ function renderStockDetailCard(symbol) {
     const isUp = stock.change_pct >= 0;
     const isZeroPurify = stock.purification_ratio === "0.00%";
 
+    // تحجيم ذكي وتلقائي للخط بناءً على طول اسم السهم حتى لا يخرج عن الحاوية
+    let dynamicFontSize = "text-base sm:text-lg";
+    const nameLen = stock.name_ar.length;
+    if (nameLen > 36) {
+        dynamicFontSize = "text-[10.5px] sm:text-[12px]";
+    } else if (nameLen > 26) {
+        dynamicFontSize = "text-[11.5px] sm:text-[13px]";
+    } else if (nameLen > 18) {
+        dynamicFontSize = "text-[13px] sm:text-[14.5px]";
+    }
+
     cardEl.innerHTML = `
-        <div class="flex items-start justify-between gap-2.5">
-            <div class="flex items-start gap-3 min-w-0 flex-1">
+        <div class="flex items-start justify-between gap-2">
+            <div class="flex items-start gap-2.5 min-w-0 flex-1 overflow-hidden">
                 <!-- المربع: رمز السهم -->
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl ${isZeroPurify ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'} border flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${isZeroPurify ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'} border flex items-center justify-center font-black text-sm sm:text-base shadow-md shrink-0">
                     ${stock.symbol}
                 </div>
                 
-                <!-- البيانات مرتبة رأسياً -->
-                <div class="space-y-1.5 min-w-0 flex-1">
-                    <!-- 1. اسم السهم بالكامل في سطر واحد بدون أي قص أو نقاط -->
-                    <h3 class="text-sm sm:text-base font-black text-white whitespace-nowrap leading-tight tracking-tight">${stock.name_ar}</h3>
+                <!-- البيانات مرتبة رأسياً بدون أي تداخل أو خروج -->
+                <div class="space-y-1 min-w-0 flex-1 overflow-hidden">
+                    <!-- 1. اسم السهم بحجم خط ديناميكي مناسب للمساحة تماماً -->
+                    <h3 class="${dynamicFontSize} font-black text-white whitespace-nowrap leading-tight tracking-tight">${stock.name_ar}</h3>
                     
                     <!-- 2. تحته تاج القطاع -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300 whitespace-nowrap">
-                            <i class="fa-solid fa-layer-group text-[9px] text-blue-400"></i>
+                        <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300 whitespace-nowrap">
+                            <i class="fa-solid fa-layer-group text-[8.5px] text-blue-400"></i>
                             <span>قطاع ${stock.sector}</span>
                         </span>
                     </div>
 
                     <!-- 3. تحته تاج نقي / شبه نقي مع نسبة التطهير -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold ${isZeroPurify ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
-                            <i class="fa-solid ${isZeroPurify ? 'fa-shield-halved' : 'fa-shield'} text-[9px]"></i>
+                        <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md font-bold ${isZeroPurify ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
+                            <i class="fa-solid ${isZeroPurify ? 'fa-shield-halved' : 'fa-shield'} text-[8.5px]"></i>
                             <span>شبه نقي (تطهير ${stock.purification_ratio})</span>
                         </span>
                     </div>
@@ -1454,7 +1465,7 @@ function renderStockDetailCard(symbol) {
             </div>
 
             <!-- زر المفضلة -->
-            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-xl sm:text-2xl transition hover:scale-110 p-1 shrink-0" title="إضافة / إزالة من المفضلة">
+            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-xl sm:text-2xl transition hover:scale-110 p-0.5 shrink-0 ml-1" title="إضافة / إزالة من المفضلة">
                 <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
             </button>
         </div>
