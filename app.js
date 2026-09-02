@@ -1,7 +1,7 @@
 /**
  * EGX Halal Trading Web Platform & Interactive Dashboard
  * منصة التداول والتحليل للأسهم المتوافقة مع الشريعة بالبورصة المصرية
- * قائمة الأسهم المعتمدة وفقاً لمنصة كاشف (Kasheif) الرسمية (32 سهماً) مع نسب التطهير وزمن التسوية (T+0 / T+1)
+ * قائمة الأسهم المعتمدة وفقاً لمنصة كاشف (Kasheif) الرسمية (32 سهماً) مع نسب التطهير وزمن التسوية (T0 / T1)
  */
 
 const HALAL_STOCKS_DATA = [
@@ -14,8 +14,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 19.50,
         change: 0.40,
         change_pct: 2.09,
@@ -41,8 +40,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.69%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 42.80,
         change: 0.70,
         change_pct: 1.66,
@@ -68,8 +66,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "3.80%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 48.60,
         change: 0.95,
         change_pct: 1.99,
@@ -95,8 +92,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.72%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 26.40,
         change: 0.50,
         change_pct: 1.93,
@@ -122,8 +118,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.06%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 36.50,
         change: 0.80,
         change_pct: 2.24,
@@ -149,8 +144,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 36.80,
         change: 0.90,
         change_pct: 2.51,
@@ -176,8 +170,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "2.12%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.88,
         change: 0.01,
         change_pct: 1.15,
@@ -203,8 +196,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.31%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 0.38,
         change: 0.00,
         change_pct: 0.00,
@@ -230,8 +222,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.01%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 2.10,
         change: 0.04,
         change_pct: 1.94,
@@ -257,8 +248,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.10%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 16.40,
         change: 0.35,
         change_pct: 2.18,
@@ -284,8 +274,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.48%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.42,
         change: 0.01,
         change_pct: 2.44,
@@ -311,8 +300,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.52%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.22,
         change: 0.00,
         change_pct: 0.00,
@@ -338,8 +326,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.39%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 44.50,
         change: 0.90,
         change_pct: 2.06,
@@ -365,8 +352,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.28%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 43.50,
         change: 0.85,
         change_pct: 1.99,
@@ -392,8 +378,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.89%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 41.20,
         change: 0.70,
         change_pct: 1.73,
@@ -419,8 +404,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.08%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 33.80,
         change: 0.60,
         change_pct: 1.81,
@@ -446,8 +430,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 4.80,
         change: 0.08,
         change_pct: 1.69,
@@ -473,8 +456,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.94%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 9.85,
         change: 0.15,
         change_pct: 1.55,
@@ -500,8 +482,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.36,
         change: 0.01,
         change_pct: 2.86,
@@ -527,8 +508,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.07%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 15.20,
         change: 0.30,
         change_pct: 2.01,
@@ -554,8 +534,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.95,
         change: 0.02,
         change_pct: 2.15,
@@ -581,8 +560,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "1.95%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 52.00,
         change: 1.20,
         change_pct: 2.36,
@@ -608,8 +586,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 3.80,
         change: 0.08,
         change_pct: 2.15,
@@ -635,8 +612,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
         purification_ratio: "0.47%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 3.40,
         change: 0.05,
         change_pct: 1.49,
@@ -662,8 +638,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 0.24,
         change: 0.00,
         change_pct: 0.00,
@@ -689,8 +664,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 154.00,
         change: 1.50,
         change_pct: 0.98,
@@ -716,8 +690,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 4.35,
         change: 0.09,
         change_pct: 2.11,
@@ -743,8 +716,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 12.33,
         change: -0.22,
         change_pct: -1.75,
@@ -770,8 +742,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 18.20,
         change: 0.35,
         change_pct: 1.96,
@@ -797,8 +768,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 0.82,
         change: -0.01,
         change_pct: -1.20,
@@ -824,8 +794,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+1",
-        settlement_label: "T+1 (اليوم التالي)",
+        settlement: "T1",
         price: 2.75,
         change: -0.04,
         change_pct: -1.43,
@@ -851,8 +820,7 @@ const HALAL_STOCKS_DATA = [
         purity_label: "شبه نقي (0% تطهير)",
         badge_short: "0% تطهير",
         purification_ratio: "0.00%",
-        settlement: "T+0",
-        settlement_label: "T+0 (نفس الجلسة)",
+        settlement: "T0",
         price: 3.15,
         change: 0.06,
         change_pct: 1.94,
@@ -1365,7 +1333,7 @@ function renderFavoritesGrid() {
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isUp = stock.change_pct >= 0;
         const isZeroPurify = stock.purification_ratio === "0.00%";
-        const isT0 = stock.settlement === "T+0";
+        const isT0 = stock.settlement === "T0";
 
         return `
             <div onclick="selectStock('${stock.symbol}')" class="glass-card glass-card-interactive p-5 relative overflow-hidden ${isSelected ? 'border-emerald-500 glow-green' : ''}">
@@ -1471,7 +1439,7 @@ function renderScanTable() {
         const isUp = stock.change_pct >= 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isZeroPurify = stock.purification_ratio === "0.00%";
-        const isT0 = stock.settlement === "T+0";
+        const isT0 = stock.settlement === "T0";
 
         return `
             <tr onclick="selectStock('${stock.symbol}')" class="border-b border-gray-800/60 hover:bg-gray-800/40 cursor-pointer transition ${isSelected ? 'bg-emerald-950/20' : ''}">
@@ -1505,7 +1473,7 @@ function renderScanTable() {
                 <td class="py-4 px-4 text-center">
                     <span class="text-xs font-bold ${isT0 ? 'text-cyan-300 bg-cyan-500/10 border-cyan-500/30' : 'text-indigo-300 bg-indigo-500/10 border-indigo-500/30'} px-2.5 py-1 rounded-lg border inline-flex items-center gap-1 whitespace-nowrap">
                         <i class="fa-solid ${isT0 ? 'fa-bolt text-cyan-400' : 'fa-clock text-indigo-400'} text-[9px]"></i>
-                        <span>${isT0 ? 'T+0 (نفس الجلسة)' : 'T+1 (اليوم التالي)'}</span>
+                        <span>${stock.settlement}</span>
                     </span>
                 </td>
                 <td class="py-4 px-4 text-sm text-gray-400">${stock.sector}</td>
@@ -1550,7 +1518,7 @@ function renderMorningCards() {
                 <div>
                     <div class="flex items-center gap-1.5">
                         <h5 class="font-bold text-white text-sm">${s.name_ar} (${s.symbol})</h5>
-                        <span class="text-[10px] ${s.settlement === 'T+0' ? 'text-cyan-400' : 'text-indigo-400'} font-semibold">• ${s.settlement}</span>
+                        <span class="text-[10px] ${s.settlement === 'T0' ? 'text-cyan-400' : 'text-indigo-400'} font-semibold">• ${s.settlement}</span>
                     </div>
                     <p class="text-xs text-gray-400">سعر الدخول: ${s.price.toFixed(2)} ج.م | الهدف: <b class="text-emerald-400">${s.target.toFixed(2)} ج.م</b></p>
                 </div>
@@ -1576,7 +1544,7 @@ function renderEndOfDayFullRanking() {
         const isDown = stock.change_pct < 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isZeroPurify = stock.purification_ratio === "0.00%";
-        const isT0 = stock.settlement === "T+0";
+        const isT0 = stock.settlement === "T0";
 
         let rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs border border-gray-700">${rank}</span>`;
         if (rank === 1) {
@@ -1636,7 +1604,7 @@ function renderStockDetailCard(symbol) {
     const isFav = isFavorite(stock.symbol);
     const isUp = stock.change_pct >= 0;
     const isZeroPurify = stock.purification_ratio === "0.00%";
-    const isT0 = stock.settlement === "T+0";
+    const isT0 = stock.settlement === "T0";
 
     // تحجيم ذكي وتلقائي للخط بناءً على طول اسم السهم حتى لا يخرج عن الحاوية
     let dynamicFontSize = "text-base sm:text-lg";
@@ -1676,10 +1644,10 @@ function renderStockDetailCard(symbol) {
                             <span>${isZeroPurify ? 'نقي (0.00% تطهير)' : `شبه نقي (تطهير ${stock.purification_ratio})`}</span>
                         </span>
 
-                        <!-- تاج زمن التسوية (T+0 / T+1) -->
+                        <!-- تاج زمن التسوية (T0 / T1) -->
                         <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md font-bold ${isT0 ? 'bg-cyan-500/15 border-cyan-500/30 text-cyan-300' : 'bg-indigo-500/15 border-indigo-500/30 text-indigo-300'} border whitespace-nowrap" title="${isT0 ? 'متاح الشراء والبيع في ذات الجلسة فوري' : 'تسوية بيع وشراء في اليوم التالي'}">
                             <i class="fa-solid ${isT0 ? 'fa-bolt' : 'fa-clock'} text-[8.5px]"></i>
-                            <span>${isT0 ? 'T+0 (نفس الجلسة)' : 'T+1 (اليوم التالي)'}</span>
+                            <span>${stock.settlement}</span>
                         </span>
                     </div>
                 </div>

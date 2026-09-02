@@ -244,12 +244,12 @@
                 <div>
                     <label class="block text-xs font-semibold text-gray-400 mb-1.5 flex items-center gap-1.5">
                         <i class="fa-solid fa-bolt text-cyan-400"></i>
-                        <span>زمن التسوية (T+0 / T+1)</span>
+                        <span>زمن التسوية (T0 / T1)</span>
                     </label>
                     <select id="settlementFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
-                        <option value="all">جميع أنواع التسوية</option>
-                        <option value="T+0">T+0 (نفس الجلسة - فوري)</option>
-                        <option value="T+1">T+1 (تسوية اليوم التالي)</option>
+                        <option value="all">الكل (T0 و T1)</option>
+                        <option value="T0">T0</option>
+                        <option value="T1">T1</option>
                     </select>
                 </div>
 
@@ -398,6 +398,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=23.0"></script>
+    <script src="app.js?v=24.0"></script>
 </body>
 </html>
