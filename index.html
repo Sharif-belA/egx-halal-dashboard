@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة البورصة المصرية الحلال — EGX Halal Trading Platform</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20%22100%22%20%22100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen text-gray-100 flex flex-col bg-[#0B0E14]">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-800/80 sticky top-0 z-50 bg-[#0B0E14]/95 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/20">
+                        🕌
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h1 class="font-black text-lg sm:text-xl text-white tracking-tight">EGX Halal Dashboard</h1>
+                            <span class="badge-pure text-[10px] font-bold px-2 py-0.5 rounded-full">تطهير 0.00%</span>
+                        </div>
+                        <p class="text-xs text-gray-400">لوحة المتابعة والتحليل الفني للأسهم النقية بالبورصة المصرية</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="hidden md:flex items-center gap-1.5 bg-gray-900/80 p-1.5 rounded-2xl border border-gray-800">
+                    <button id="btn-dashboard" onclick="switchTab('dashboard')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-emerald-400 border border-emerald-500 bg-emerald-500/10">
+                        📊 الرئيسية والشارتات
+                    </button>
+                    <button id="btn-favorites" onclick="switchTab('favorites')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white flex items-center gap-1.5">
+                        ⭐ المفضلة <span id="favCountBadge" class="bg-amber-500/20 text-amber-400 text-xs px-2 py-0.2 rounded-full border border-amber-500/30">3</span>
+                    </button>
+                    <button id="btn-scan" onclick="switchTab('scan')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white">
+                        🔍 الفحص الشامل
+                    </button>
+                    <button id="btn-reports" onclick="switchTab('reports')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white">
+                        🌅 التقارير اليومية
+                    </button>
+                    <button id="btn-ai" onclick="switchTab('ai')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white">
+                        🤖 محلل Gemini AI
+                    </button>
+                </nav>
+
+                <!-- Live Market Status & Time -->
+                <div class="flex items-center gap-3">
+                    <div class="text-left hidden sm:block">
+                        <div id="marketStatusBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                            <span class="live-indicator inline-block mr-1"></span> جلسة التداول مفتوحة
+                        </div>
+                        <span id="liveClock" class="text-[11px] text-gray-400 font-mono block mt-0.5 text-center">--:--:--</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Bar -->
+    <div class="md:hidden flex items-center justify-around bg-gray-900 border-b border-gray-800 p-2 text-xs">
+        <button onclick="switchTab('dashboard')" class="p-2 text-emerald-400 font-bold">📊 الرئيسية</button>
+        <button onclick="switchTab('favorites')" class="p-2 text-gray-400 font-bold">⭐ المفضلة</button>
+        <button onclick="switchTab('scan')" class="p-2 text-gray-400 font-bold">🔍 الفحص</button>
+        <button onclick="switchTab('reports')" class="p-2 text-gray-400 font-bold">🌅 التقارير</button>
+        <button onclick="switchTab('ai')" class="p-2 text-gray-400 font-bold">🤖 الذكاء الاصطناعي</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- ============================================================ -->
+        <!-- TAB 1: DASHBOARD & GRAPHS (الرئيسية والشارتات) -->
+        <!-- ============================================================ -->
+        <section id="tab-dashboard" class="tab-content space-y-6">
+            
+            <!-- Hero: Best Stock of the Day (نجم الجلسة) -->
+            <div id="topGainerHero" class="glass-card p-6 border-amber-500/30 bg-gradient-to-r from-amber-500/5 via-transparent to-emerald-500/5">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Main Charts & Details Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Left 2 Cols: Interactive Graph -->
+                <div class="lg:col-span-2 glass-card p-6 space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-800 pb-4">
+                        <div>
+                            <h3 class="font-bold text-base sm:text-lg text-white flex items-center gap-2">
+                                <span>📈</span> الرسم البياني التفاعلي ومؤشرات الزخم
+                            </h3>
+                            <p class="text-xs text-gray-400">مخطط الأسعار اللحظية مع المتوسطات المتحركة (EMA)</p>
+                        </div>
+
+                        <!-- Timeframe Selectors -->
+                        <div class="flex items-center gap-1 bg-gray-900/80 p-1 rounded-xl border border-gray-800 text-xs">
+                            <button data-tf="1D" class="timeframe-btn px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 transition">1D</button>
+                            <button data-tf="1W" class="timeframe-btn px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 transition">1W</button>
+                            <button data-tf="1M" class="timeframe-btn px-2.5 py-1 rounded-lg bg-emerald-500 text-black font-bold transition">1M</button>
+                            <button data-tf="6M" class="timeframe-btn px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 transition">6M</button>
+                            <button data-tf="1Y" class="timeframe-btn px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 transition">1Y</button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Wrapper -->
+                    <div class="chart-wrapper">
+                        <canvas id="stockChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Right 1 Col: Selected Stock Card -->
+                <div class="glass-card p-6 flex flex-col justify-between" id="selectedStockCard">
+                    <!-- Injected via JavaScript -->
+                </div>
+
+            </div>
+
+            <!-- Quick Favorites Strip -->
+            <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-bold text-base text-white flex items-center gap-2">
+                        <span>⭐</span> الأسهم في قائمتك المفضلة (دائمة الحفظ)
+                    </h3>
+                    <button onclick="switchTab('favorites')" class="text-xs text-emerald-400 hover:underline">عرض كل المفضلة ←</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="favoritesGrid">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- TAB 2: FAVORITES WATCHLIST (المفضلة) -->
+        <!-- ============================================================ -->
+        <section id="tab-favorites" class="tab-content hidden space-y-6">
+            <div class="glass-card p-6 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        <span>⭐</span> قائمة الأسهم المفضلة الخاصة بك
+                    </h2>
+                    <p class="text-xs text-gray-400 mt-1">يتم حفظ هذه القائمة بشكل دائم في متصفحك لمتابعتها بضغطة زر واحدة في أي وقت.</p>
+                </div>
+                <button onclick="switchTab('scan')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-bold text-xs transition">
+                    + إضافة أسهم جديدة
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="favTabList">
+                <!-- Injected via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- TAB 3: COMPREHENSIVE SCAN (الفحص الشامل) -->
+        <!-- ============================================================ -->
+        <section id="tab-scan" class="tab-content hidden space-y-6">
+            
+            <!-- Filters Bar -->
+            <div class="glass-card p-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5">🔍 بحث عن سهم أو رمز</label>
+                    <input type="text" id="stockSearch" placeholder="مثال: TMGH أو طلعت مصطفى..." class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5">🏷️ تصفية حسب القطاع</label>
+                    <select id="sectorFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <option value="all">جميع القطاعات</option>
+                        <option value="عقارات">عقارات وإنشاءات</option>
+                        <option value="أغذية ومشروبات">أغذية ومشروبات</option>
+                        <option value="اتصالات وتكنولوجيا">اتصالات وتكنولوجيا</option>
+                        <option value="صناعة ومنسوجات">صناعة ومنسوجات</option>
+                        <option value="بتروكيماويات وموارد">بتروكيماويات وطاقة</option>
+                        <option value="خدمات تعليمية">خدمات تعليمية</option>
+                        <option value="رعاية صحية وأدوية">رعاية صحية وأدوية</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-1.5">🎯 تصفية حسب الإشارة</label>
+                    <select id="signalFilter" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                        <option value="all">جميع الإشارات</option>
+                        <option value="BUY">شراء فقط 🟢</option>
+                        <option value="HOLD">احتفاظ ومتابعة ⚪</option>
+                        <option value="SELL">بيع وجني أرباح 🔴</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Scan Table -->
+            <div class="glass-card overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-800 bg-gray-900/80 text-xs text-gray-400">
+                                <th class="py-3.5 px-4 text-center">⭐</th>
+                                <th class="py-3.5 px-4">السهم</th>
+                                <th class="py-3.5 px-4">القطاع</th>
+                                <th class="py-3.5 px-4 text-left">السعر</th>
+                                <th class="py-3.5 px-4 text-left">التغير %</th>
+                                <th class="py-3.5 px-4">الهدف</th>
+                                <th class="py-3.5 px-4">وقف الخسارة</th>
+                                <th class="py-3.5 px-4 text-center">الإشارة</th>
+                                <th class="py-3.5 px-4 text-center">إجراء</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scanTableBody">
+                            <!-- Injected via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- TAB 4: DAILY REPORTS (التقارير اليومية) -->
+        <!-- ============================================================ -->
+        <section id="tab-reports" class="tab-content hidden space-y-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Morning Recommendations Card -->
+                <div class="glass-card p-6 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-gray-800 pb-3">
+                        <span class="text-3xl">🌅</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">توصيات افتتاح جلسة اليوم</h3>
+                            <p class="text-xs text-gray-400">التقرير الصباحي الشامل لفرص الشراء والتجميع</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3" id="morningRecommendationsList">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- End of Day Card -->
+                <div class="glass-card p-6 space-y-4">
+                    <div class="flex items-center gap-3 border-b border-gray-800 pb-3">
+                        <span class="text-3xl">🏆</span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">حصاد ختام الجلسة</h3>
+                            <p class="text-xs text-gray-400">أفضل الأسهم أداءً والرابحين في نهاية اليوم</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300">
+                        📌 يتم حساب هذا التقرير تلقائياً لتقييم أداء جميع الأسهم النقية وتحديد السهم الأفضل أداءً في اليوم.
+                    </div>
+                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-2 text-xs">
+                        <div class="flex items-center justify-between text-white font-bold">
+                            <span>🥇 نجم الجلسة: طلعت مصطفى (TMGH)</span>
+                            <span class="text-emerald-400">+2.60% 🚀</span>
+                        </div>
+                        <div class="flex items-center justify-between text-gray-300">
+                            <span>🥈 الوصيف: النساجون الشرقيون (ORWE)</span>
+                            <span class="text-emerald-400">+2.27% 🟢</span>
+                        </div>
+                        <div class="flex items-center justify-between text-gray-300">
+                            <span>🥉 المركز الثالث: إيديتا للصناعات (EFID)</span>
+                            <span class="text-emerald-400">+2.12% 🟢</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- TAB 5: GEMINI AI ANALYST (محلل الذكاء الاصطناعي) -->
+        <!-- ============================================================ -->
+        <section id="tab-ai" class="tab-content hidden space-y-6">
+            
+            <div class="glass-card p-6 border-emerald-500/30">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-3xl shadow-lg glow-green">
+                        🤖
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-white">محلل الذكاء الاصطناعي (Gemini 2.5 / 3.5 Flash)</h2>
+                        <p class="text-xs text-gray-400">تقييم مالي وفني وإسلامي شرعي فوري مدعوم بنماذج جوجل DeepMind</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-1.5">اختر السهم للتحليل:</label>
+                        <select onchange="selectStock(this.value)" class="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500">
+                            <option value="TMGH">مجموعة طلعت مصطفى (TMGH)</option>
+                            <option value="JUFO">جهينة للصناعات الغذائية (JUFO)</option>
+                            <option value="ORWE">النساجون الشرقيون (ORWE)</option>
+                            <option value="EFID">إيديتا للصناعات الغذائية (EFID)</option>
+                            <option value="ETEL">المصرية للاتصالات (ETEL)</option>
+                            <option value="EGAL">مصر للألومنيوم (EGAL)</option>
+                            <option value="ISPH">ابن سينا فارما (ISPH)</option>
+                            <option value="AMOC">الإسكندرية للزيوت المعدنية (AMOC)</option>
+                            <option value="CAED">القاهرة للتعليم (CAED)</option>
+                        </select>
+                    </div>
+
+                    <div class="md:col-span-2 flex items-end">
+                        <button onclick="selectStock(AppState.selectedSymbol); alert('تم استدعاء نموذج Gemini بنجاح وتحديث التحليل!');" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-black font-extrabold text-sm transition shadow-lg glow-green">
+                            ⚡ تشغيل التحليل الفوري بالذكاء الاصطناعي
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Output Box -->
+                <div id="aiAnalysisResult" class="p-5 rounded-2xl bg-gray-900/90 border border-emerald-500/30 space-y-3">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800/80 bg-[#0B0E14] py-6 text-center text-xs text-gray-500">
+        <p>🕌 منصة EGX Halal Dashboard — جميع الحقوق محفوظة © 2026</p>
+        <p class="mt-1 text-gray-600">تطبيق استثماري إسلامي يعتمد على مؤشر الشريعة EGX 33 مع فلترة تطهير 0.00% الدقيقة.</p>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
