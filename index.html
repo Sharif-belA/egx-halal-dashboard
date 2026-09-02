@@ -28,43 +28,43 @@
     <!-- Header Navigation -->
     <header class="border-b border-gray-800/80 sticky top-0 z-50 bg-[#0B0E14]/95 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between gap-6 h-20 w-full">
                 
-                <!-- Logo & Brand (No "تطهير 0%" badge) -->
-                <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-xl text-white shadow-lg shadow-emerald-500/20">
+                <!-- Logo & Brand (Clean & No Wrap) -->
+                <div class="flex items-center gap-3.5 flex-shrink-0 whitespace-nowrap">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-xl text-white shadow-lg shadow-emerald-500/20">
                         <i class="fa-solid fa-mosque"></i>
                     </div>
                     <div>
-                        <h1 class="font-black text-lg sm:text-xl text-white tracking-tight">EGX Halal Dashboard</h1>
-                        <p class="text-xs text-gray-400">لوحة المتابعة والتحليل الفني للأسهم النقية بالبورصة المصرية</p>
+                        <h1 class="font-black text-lg sm:text-xl text-white tracking-tight leading-tight">EGX Halal Dashboard</h1>
+                        <p class="text-[11px] text-gray-400">لوحة المتابعة والتحليل الفني للأسهم النقية بالبورصة المصرية</p>
                     </div>
                 </div>
 
-                <!-- Navigation Tabs with Vector Icons -->
-                <nav class="hidden md:flex items-center gap-1.5 bg-gray-900/80 p-1.5 rounded-2xl border border-gray-800">
-                    <button id="btn-dashboard" onclick="switchTab('dashboard')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-emerald-400 border border-emerald-500 bg-emerald-500/10 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-line"></i>
+                <!-- Navigation Tabs with Vector Icons & Single Line (whitespace-nowrap) -->
+                <nav class="hidden md:flex items-center gap-2 bg-gray-900/90 p-1.5 rounded-2xl border border-gray-800 flex-shrink-0 whitespace-nowrap">
+                    <button id="btn-dashboard" onclick="switchTab('dashboard')" class="nav-btn px-4 py-2.5 rounded-xl text-sm font-bold transition text-emerald-400 border border-emerald-500 bg-emerald-500/10 inline-flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-chart-line text-sm"></i>
                         <span>الصفحة الرئيسية</span>
                     </button>
-                    <button id="btn-favorites" onclick="switchTab('favorites')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-star text-amber-400"></i>
+                    <button id="btn-favorites" onclick="switchTab('favorites')" class="nav-btn px-4 py-2.5 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white inline-flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-star text-amber-400 text-sm"></i>
                         <span>المفضلة</span>
-                        <span id="favCountBadge" class="bg-amber-500/20 text-amber-400 text-xs px-2 py-0.2 rounded-full border border-amber-500/30">3</span>
+                        <span id="favCountBadge" class="bg-amber-500/20 text-amber-400 text-xs px-2 py-0.5 rounded-full border border-amber-500/30">3</span>
                     </button>
-                    <button id="btn-scan" onclick="switchTab('scan')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <button id="btn-scan" onclick="switchTab('scan')" class="nav-btn px-4 py-2.5 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white inline-flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
                         <span>الفحص الشامل</span>
                     </button>
-                    <button id="btn-reports" onclick="switchTab('reports')" class="nav-btn px-4 py-2 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white flex items-center gap-2">
-                        <i class="fa-solid fa-newspaper text-sky-400"></i>
+                    <button id="btn-reports" onclick="switchTab('reports')" class="nav-btn px-4 py-2.5 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white inline-flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-newspaper text-sky-400 text-sm"></i>
                         <span>التقارير اليومية</span>
                     </button>
                 </nav>
 
                 <!-- Live Market Status & Time -->
-                <div class="flex items-center gap-3">
-                    <div class="text-left hidden sm:block">
+                <div class="flex items-center gap-3 flex-shrink-0 whitespace-nowrap">
+                    <div class="text-left hidden lg:block">
                         <div id="marketStatusBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                             <span class="live-indicator inline-block mr-1"></span> جلسة التداول مفتوحة (EGX)
                         </div>
