@@ -1,7 +1,7 @@
 /**
  * EGX Halal Trading Web Platform & Interactive Dashboard
  * منصة التداول والتحليل للأسهم النقية 100% بالبورصة المصرية
- * قائمة الأسهم النقية المعتمدة حصراً (32 سهماً)
+ * قائمة الأسهم النقية المعتمدة حصراً (32 سهماً) مع التحليل الفني والتوقع المستقبلي
  */
 
 const HALAL_STOCKS_DATA = [
@@ -23,7 +23,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 16.5,
         eps_growth: 4.0,
         rsi: 50.0,
-        description: "سهم نقي 100% (تطهير 0%). تداولات أفقية مستقرة مع كثافة تنفيذ في النطاق السعري الضيق."
+        tech_analysis: "السهم يتداول في اتجاه عرضي مائل للتجميع فوق الدعم 0.21 ج.م مع كثافة تنفيذ وضيق نطاق التذبذب، ومؤشر RSI عند 50 في منطقة حيادية.",
+        future_outlook: "اختراق مستوى المقاومة 0.28 ج.م سيفتح الباب لموجة صاعدة سريعة نحو الهدف 0.32 ج.م بفرصة ربح متوقعة تتجاوز 33%."
     },
     {
         symbol: "CAED",
@@ -43,13 +44,14 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 11.5,
         eps_growth: 15.0,
         rsi: 53.0,
-        description: "سهم نقي 100% (تطهير 0%). قطاع تعليمي دفاعي بإيرادات مضمونة وبدون أي قروض أو معاملات ربوية."
+        tech_analysis: "اتجاه صاعد رئيسي وثبات مريح فوق متوسط 20 يوم وخط الدعم 145 ج.م، مع إشارات إيجابية من مؤشرات السيولة والزخم.",
+        future_outlook: "من المتوقع استمرار الزخم الشرائي لاختبار حاجز 170 ج.م ثم الوصول للمستهدف التاريخي 185 ج.م مدعوماً بالتدفقات النقدية التشغيلية القوية لقطاع التعليم."
     },
     {
         symbol: "FIRE",
         name_ar: "الأولى للاستثمار والتنمية العقارية",
         name_en: "First Investment & Real Estate",
-        sector: "عقارات",
+        sector: "عقارات ومقاولات",
         price: 4.35,
         change: 0.09,
         change_pct: 2.11,
@@ -63,7 +65,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 10.8,
         eps_growth: 16.0,
         rsi: 57.4,
-        description: "سهم نقي 100% (تطهير 0%). نشاط تطوير عقاري وسكني وتماسك سعري ممتاز بالقرب من مناطق الدعم."
+        tech_analysis: "ارتداد إيجابي قوي من قاع القناة السعرية الصاعدة 4.10 ج.م مع تقاطع إيجابي لمؤشر الماكد وتصاعد في أحجام التداول اليومية.",
+        future_outlook: "يرجح اختبار مستوى المقاومة 4.70 ج.م خلال الجلسات القادمة، والاندفاع نحو المستهدف 5.10 ج.م بنسبة نمو مستهدفة +17.2%."
     },
     {
         symbol: "FNAR",
@@ -83,7 +86,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 12.4,
         eps_growth: 8.5,
         rsi: 44.2,
-        description: "سهم نقي 100% (تطهير 0%). حركة تصحيحية مؤقتة مع التماسك فوق مستوى الدعم 11.80 ج.م."
+        tech_analysis: "حركة تصحيحية هادئة لإعادة اختبار مستوى الدعم الرئيسي 11.80 ج.م، مع انحسار قوى البيع واقتراب مؤشر RSI من مناطق التشبع البيعي.",
+        future_outlook: "استقرار السهم أعلى 11.80 ج.م يؤهله لمعاودة الانطلاق نحو 14.50 ثم 15.20 ج.م مع تسليمات المشروعات الجديدة."
     },
     {
         symbol: "MISR",
@@ -103,7 +107,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 11.2,
         eps_growth: 14.0,
         rsi: 55.8,
-        description: "سهم نقي 100% (تطهير 0%). أعمال إنشائية ورخام وهندسة مع عقود توريد متزايدة."
+        tech_analysis: "اختراق لنموذج مثلث تجميعي صاعد مع ثبات السعر فوق المتوسط المتحرك 50 يوم، وزيادة ملحوظة في طلبات الشراء عند مستوى 17.50 ج.م.",
+        future_outlook: "استمرار المسار الصاعد يستهدف مستوى 20.50 ج.م ثم الوصول للمستهدف النهائي 22.00 ج.م محققاً عائداً متوقعاً يتجاوز 20%."
     },
     {
         symbol: "MOED",
@@ -123,7 +128,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 14.0,
         eps_growth: 6.0,
         rsi: 43.5,
-        description: "سهم نقي 100% (تطهير 0%). تداولات عرضية ضمن نطاق الدعم مع كثافة تنفيذ في سوق المشروعات الصغيرة."
+        tech_analysis: "تذبذب أفقي في نطاق ضيق بين 0.78 و 0.86 ج.م مع بناء مراكز تدريجية في سوق المشروعات الصغيرة والمتوسطة.",
+        future_outlook: "اختراق مستوى المقاومة 0.95 ج.م يمثل إشارة دخول قوية لاستهداف حاجز 1.05 ج.م مع عودة السيولة للمضاربات السريعة."
     },
     {
         symbol: "NEDA",
@@ -143,7 +149,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 15.2,
         eps_growth: 9.0,
         rsi: 47.1,
-        description: "سهم نقي 100% (تطهير 0%). تداولات عرضية ومؤشرات الزخم في وضعية تجميع تمهيداً لموجة صاعدة."
+        tech_analysis: "السهم يستند إلى قاعدة دعم أفقية قوية عند 2.50 ج.م مع تناقص ملحوظ في أحجام البيع ما يشير لقرب اكتمال دورة التصحيح.",
+        future_outlook: "يتوقع حدوث ارتداد فني صاعد نحو مستوى 3.15 ج.م ثم 3.45 ج.م بدعم من مشروعات الاستصلاح الزراعي وزيادة الإنتاج."
     },
     {
         symbol: "UPMS",
@@ -163,7 +170,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 12.6,
         eps_growth: 13.0,
         rsi: 56.0,
-        description: "سهم نقي 100% (تطهير 0%). خدمات رعاية وتوزيع صيدلاني بنشاط تشغيلي خالص."
+        tech_analysis: "نمط فني صاعد يعكس تجميعاً هادئاً، مع ثبات السعر فوق المتوسط المتحرك 20 يوم وارتفاع مؤشر RSI إلى 56.0.",
+        future_outlook: "التحرك نحو المقاومة 3.50 ج.م مدعوم بفرص توسع شبكة التوزيع الدوائي واستهداف مستوى 3.85 ج.م بنسبة ربح متوقعة +22.2%."
     },
     {
         symbol: "AMES",
@@ -183,7 +191,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 13.2,
         eps_growth: 17.0,
         rsi: 58.2,
-        description: "سهم نقي 100% (تطهير 0%). خدمات مستشفيات ومراكز طبية تخصصية بإيرادات نقدية مباشرة."
+        tech_analysis: "زخم صاعد قوي وتكوين قمم سعرية أعلى فوق الدعم 18.20 ج.م، مع ثبات السيولة المؤسسية داخل السهم.",
+        future_outlook: "استهداف مباشر لمستوى 22.00 ج.م ثم التوجه نحو 24.00 ج.م مدفوعاً بزيادة الطاقة الاستيعابية والخدمات التخصصية للمستشفى."
     },
     {
         symbol: "BIOC",
@@ -203,7 +212,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 10.4,
         eps_growth: 21.0,
         rsi: 55.0,
-        description: "سهم نقي 100% (تطهير 0%). ريادة في تصنيع الأدوية الحيوية ومستحضرات العلاج الأساسية."
+        tech_analysis: "السهم يمر بمرحلة صعود صحي وثبات أعلى المتوسط المتحرك 50 يوم ومستوى الدعم الصلب 40.00 ج.م.",
+        future_outlook: "توقعات بنتائج مالية ممتازة تدفع السهم لاختراق مقاومة 46.50 ج.م والوصول نحو 49.00 ج.م بعائد مستهدف يتجاوز 14.5%."
     },
     {
         symbol: "CEFM",
@@ -223,7 +233,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 8.7,
         eps_growth: 19.5,
         rsi: 57.8,
-        description: "سهم نقي 100% (تطهير 0%). طحن دقيق وإنتاج أغذية وتوزيعات أرباح نقدية سنوية مجزية."
+        tech_analysis: "سلوك سعري دفاعي ممتاز مع اختراق مقاومة فرعية عند 47.50 ج.م، وتوليد إشارة شراء مؤكدة على مؤشر الماكد.",
+        future_outlook: "استهداف مستويات 53.00 ج.م ثم 57.00 ج.م مع الإعلان عن التوزيعات النقدية السنوية المجزية لقطاع المطاحن."
     },
     {
         symbol: "DCRC",
@@ -243,7 +254,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 9.9,
         eps_growth: 15.0,
         rsi: 54.6,
-        description: "سهم نقي 100% (تطهير 0%). مشروعات سكنية وتجارية بمحافظات الدلتا ومحفظة أراضٍ جيدة."
+        tech_analysis: "استقرار سعري وتماسك فوق الدعم 24.80 ج.م بعد موجة جني أرباح سابقة، ومؤشر RSI يظهر بدء انعكاس صاعد.",
+        future_outlook: "إعادة اختبار مستويات 29.00 ج.م مع احتمالية اختراقها نحو 31.50 ج.م مدعوماً بتسويق مشروعات سكنية جديدة في الدلتا."
     },
     {
         symbol: "EGAS",
@@ -263,7 +275,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 8.5,
         eps_growth: 23.0,
         rsi: 60.5,
-        description: "سهم نقي 100% (تطهير 0%). مشروعات توصيل شبكات الغاز الطبيعي داخل مصر وخارجها بأرباح قوية."
+        tech_analysis: "نمط قاع مزدوج إيجابي مكتمل فوق 34.20 ج.م مع تزايد قوي في أحجام التداول اليومية وثبات فوق مؤشر EMA20.",
+        future_outlook: "انطلاقة مرتقبة لاختراق حاجز 40.00 ج.م نحو المستهدف السعري 43.50 ج.م بفضل عقود توصيل الغاز ومشروعات البنية التحتية."
     },
     {
         symbol: "ELNA",
@@ -283,7 +296,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 11.8,
         eps_growth: 16.5,
         rsi: 59.2,
-        description: "سهم نقي 100% (تطهير 0%). طلب متزايد على الصادرات الزراعية مع تحسن معدلات الربحية."
+        tech_analysis: "قناة صاعدة واضحة المعالم مع ارتداد قوي من مستوى الدعم 34.00 ج.م وزخم إيجابي ملحوظ في مؤشرات التذبذب.",
+        future_outlook: "استهداف مستويات 42.00 ج.م تمهيداً لاختبار القمة السابقة عند 46.00 ج.م بعائد محتمل يفوق 25% مع تنامي عقود التصدير."
     },
     {
         symbol: "ELWA",
@@ -303,7 +317,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 13.0,
         eps_growth: 8.0,
         rsi: 51.5,
-        description: "سهم نقي 100% (تطهير 0%). استصلاح أراضٍ ومشروعات تنمية عمرانية وزراعية."
+        tech_analysis: "بناء قاعدة سعرية متينة أعلى 0.82 ج.م مع تقارب في المتوسطات المتحركة يشير لقرب حدوث انفراجة سعرية صاعدة.",
+        future_outlook: "كسر حاجز 1.02 ج.م سيدفع السهم سريعاً نحو الهدف 1.15 ج.م مع إعادة تقييم أصول الشركة واستثماراتها التنموية."
     },
     {
         symbol: "FCMD",
@@ -323,7 +338,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 15.0,
         eps_growth: 5.0,
         rsi: 48.0,
-        description: "سهم نقي 100% (تطهير 0%). مستلزمات طبية وتجهيزات مستشفيات وتداول في نطاق ضيق."
+        tech_analysis: "تداول مستقر في نطاق قيعان تاريخية حول 0.38 ج.م، مع انخفاض ملحوظ في معدل التقلب السعري.",
+        future_outlook: "تجاوز المقاومة 0.45 ج.م يمثل بداية دورة صاعدة جديدة نحو المستوى 0.50 ج.م للمضاربين والمستثمرين متوسطي الأجل."
     },
     {
         symbol: "GGRN",
@@ -343,7 +359,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 12.2,
         eps_growth: 14.0,
         rsi: 56.4,
-        description: "سهم نقي 100% (تطهير 0%). زراعة نباتات الجوجوبا والمحاصيل التصديرية ذات العائد المرتفع."
+        tech_analysis: "ارتداد قوي من خط الاتجاه الصاعد عند 1.95 ج.م مع ظهور شمعة شرائية إيجابية على الفاصل اليومي.",
+        future_outlook: "التحرك صوب مستويات 2.40 ج.م ثم 2.65 ج.م مدعوماً بمشاريع زراعة الجوجوبا وزيادة الطلب على المنتجات العضوية."
     },
     {
         symbol: "ICFC",
@@ -363,7 +380,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 9.5,
         eps_growth: 18.0,
         rsi: 58.0,
-        description: "سهم نقي 100% (تطهير 0%). تجارة وتوزيع المخصبات والأسمدة الزراعية مع نمو المبيعات."
+        tech_analysis: "موجة صاعدة مستمرة وثبات قوي فوق دعم 15.20 ج.م مع زخم شرائي يدعمه مؤشر القوة النسبية RSI عند 58.0.",
+        future_outlook: "استهداف مستويات 18.00 ج.م ثم 19.50 ج.م بفضل ارتفاع الطلب المحلي والإقليمي على الأسمدة والمخصبات الزراعية."
     },
     {
         symbol: "IEEC",
@@ -383,7 +401,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 14.5,
         eps_growth: 7.0,
         rsi: 54.0,
-        description: "سهم نقي 100% (تطهير 0%). مقاولات مشروعات مياه وصرف صحي وشبكات بنية تحتية."
+        tech_analysis: "تجميع واضح في المستويات السعرية الأدنى مع ثبات فوق الدعم 0.38 ج.م وتزايد تدريجي في أحجام التداول.",
+        future_outlook: "اختراق مستوى المقاومة 0.50 ج.م يفتح الطريق للوصول إلى 0.56 ج.م محققاً مكاسب سريعة تتجاوز 33%."
     },
     {
         symbol: "INEG",
@@ -403,7 +422,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 16.0,
         eps_growth: 3.5,
         rsi: 49.0,
-        description: "سهم نقي 100% (تطهير 0%). أعمال إنشاءات هياكل معدنية وتركيبات ميكانيكية."
+        tech_analysis: "حركة عرضية في قاع التداول مع دعم صلب عند 0.19 ج.م، ومؤشرات السيولة تعكس تجميعاً هادئاً بدون ضغوط بيعية.",
+        future_outlook: "توقع حركة صاعدة سريعة لاختبار 0.26 ج.م ثم 0.29 ج.م بمجرد دخول سيولة مضاربية في قطاع الإنشاءات الهندسية."
     },
     {
         symbol: "INFI",
@@ -423,7 +443,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 10.1,
         eps_growth: 19.0,
         rsi: 56.5,
-        description: "سهم نقي 100% (تطهير 0%). تصنيع وتجميد وتصدير الحاصلات الغذائية والخضروات."
+        tech_analysis: "اتجاه صاعد مدعوم بالمتوسطات المتحركة الإيجابية، مع ثبات السعر فوق مستوى الدعم 41.50 ج.م وزخم تصاعدي.",
+        future_outlook: "التحرك نحو 48.00 ج.م ثم 52.00 ج.م مدفوعاً بزيادة حجم الصادرات من الخضروات والفواكه المجمدة إلى أوروبا والخليج."
     },
     {
         symbol: "MBSC",
@@ -443,7 +464,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 11.0,
         eps_growth: 16.0,
         rsi: 57.2,
-        description: "سهم نقي 100% (تطهير 0%). تصنيع وتوزيع اللوحات والمعدات الكهربائية ومحطات الشحن."
+        tech_analysis: "ارتداد إيجابي من مستوى الدعم 2.18 ج.م مع تقاطع صاعد للمتوسطات السعرية القصيرة وإشارة دخول على مؤشر الماكد.",
+        future_outlook: "استهداف مستوى 2.65 ج.م ثم 2.90 ج.م بدعم من مشروعات شواحن السيارات الكهربائية واللوحات الكهربائية الذكية."
     },
     {
         symbol: "MILS",
@@ -463,7 +485,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 8.9,
         eps_growth: 18.0,
         rsi: 54.5,
-        description: "سهم نقي 100% (تطهير 0%). قطاع تمويني دفاعي قوي وتوزيعات أرباح منتظمة وثبات سعري."
+        tech_analysis: "سهم دفاعي من الدرجة الأولى يتداول في قناة صاعدة ثابتة فوق 38.50 ج.م مع تدفق نقدي تشغيلي منتظم.",
+        future_outlook: "استهداف مستوى 45.00 ج.م ثم 48.50 ج.م مع ترقب نتائج الأعمال السنوية وعوائد التوزيعات النقدية السخية."
     },
     {
         symbol: "MOSC",
@@ -483,7 +506,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 9.2,
         eps_growth: 14.5,
         rsi: 55.2,
-        description: "سهم نقي 100% (تطهير 0%). إنتاج الزيوت النباتية والمنظفات والأعلاف."
+        tech_analysis: "تماسك قوي أعلى مستوى 31.50 ج.م، وتكوين نموذج صاعد يدعمه تحسن مؤشرات السيولة ومستويات التداول.",
+        future_outlook: "التوجه نحو مستوى المقاومة 37.00 ج.م ثم المستهدف 40.00 ج.م مع خطط تطوير خطوط الإنتاج ورفع الطاقة التكريرية."
     },
     {
         symbol: "NDRL",
@@ -503,13 +527,14 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 10.5,
         eps_growth: 15.0,
         rsi: 53.8,
-        description: "سهم نقي 100% (تطهير 0%). خدمات حفر وصيانة الآبار والمنشآت البترولية."
+        tech_analysis: "حركة صاعدة هادئة فوق الدعم 4.50 ج.م مع إغلاقات إيجابية متتالية واختراق للمتوسط المتحرك 20 يوم.",
+        future_outlook: "فرصة لتحقيق المستهدف 5.30 ج.م ثم 5.75 ج.م مع تزايد أعمال الحفر والمسح البترولي بالبحر المتوسط والصحراء الغربية."
     },
     {
         symbol: "OBRI",
         name_ar: "العبور للاستثمار العقاري",
         name_en: "El Obour Real Estate Investment",
-        sector: "عقارات",
+        sector: "عقارات ومقاولات",
         price: 9.85,
         change: 0.15,
         change_pct: 1.55,
@@ -523,7 +548,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 11.4,
         eps_growth: 13.5,
         rsi: 54.1,
-        description: "سهم نقي 100% (تطهير 0%). مشروعات عمرانية وسكنية بمدينة العبور والمدن الجديدة."
+        tech_analysis: "استقرار سعري أعلى مستوى 9.20 ج.م مع ظهور إشارات شراء واضحة وتراجع حدة البيع في الجلسات السابقة.",
+        future_outlook: "استهداف مستويات 10.80 ج.م ثم 11.60 ج.م مع نمو مبيعات الوحدات السكنية والتجارية في مدينة العبور."
     },
     {
         symbol: "PHGC",
@@ -543,7 +569,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 14.8,
         eps_growth: 11.0,
         rsi: 58.6,
-        description: "سهم نقي 100% (تطهير 0%). معامل تحاليل وخدمات تشخيصية وطبية متكاملة."
+        tech_analysis: "زخم صعودي قوي مع ارتفاع لافت في حجم السيولة واختراق مستوى المقاومة السابق 0.34 ج.م بإشارة إيجابية.",
+        future_outlook: "مواصلة الصعود لاختبار 0.42 ج.م ثم استهداف 0.47 ج.م بعائد محتمل يفوق 30% مع توسعات شبكة المعامل والمراكز الطبية."
     },
     {
         symbol: "PRCL",
@@ -563,7 +590,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 9.8,
         eps_growth: 17.0,
         rsi: 56.7,
-        description: "سهم نقي 100% (تطهير 0%). تصنيع السيراميك والأدوات الصحية ومبيعات محلية وتصديرية."
+        tech_analysis: "نمط وتد صاعد مع ثبات فوق مستوى الدعم 14.10 ج.م، وتقاطع إيجابي لمؤشرات الاتجاه على الفاصل الأسبوعي واليومي.",
+        future_outlook: "استهداف مستوى 16.80 ج.م ثم الوصول لـ 18.00 ج.م مدعوماً بزيادة صادرات السيراميك والأدوات الصحية لأسواق إفريقيا."
     },
     {
         symbol: "SIPC",
@@ -583,13 +611,14 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 13.5,
         eps_growth: 9.5,
         rsi: 55.4,
-        description: "سهم نقي 100% (تطهير 0%). إنتاج المستحضرات الدوائية والبيطرية والمكملات."
+        tech_analysis: "ارتداد سعري من منطقة الدعم 0.88 ج.م مصحوباً بنمو في أحجام التداول اليومية وثبات فوق المتوسط المتحرك.",
+        future_outlook: "استهداف حاجز 1.10 ج.م ثم 1.22 ج.م مع تسجيل مستحضرات وأدوية جديدة وزيادة التوزيع بالصيدليات."
     },
     {
         symbol: "SMFR",
         name_ar: "سماد مصر (إيجيفرت)",
         name_en: "Egypt Fertilizers (Egyfert)",
-        sector: "أسمدة وتجارة",
+        sector: "أسمدة وكيماويات",
         price: 52.00,
         change: 1.20,
         change_pct: 2.36,
@@ -603,7 +632,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 8.6,
         eps_growth: 22.0,
         rsi: 59.5,
-        description: "سهم نقي 100% (تطهير 0%). إنتاج وتوزيع الأسمدة والمخصبات الزراعية المتخصصة."
+        tech_analysis: "مسار صاعد واضح وقوي مع اختراق المقاومة 50.00 ج.م والتماسك فوقها، ومؤشرات الزخم في وضعية شرائية ممتازة.",
+        future_outlook: "الانطلاق نحو المستهدف السعري 57.00 ج.م ثم 62.00 ج.م بدعم من طفرة أرباح قطاع الأسمدة وهوامش التصدير المرتفعة."
     },
     {
         symbol: "VERT",
@@ -623,7 +653,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 12.0,
         eps_growth: 15.0,
         rsi: 57.0,
-        description: "سهم نقي 100% (تطهير 0%). حلول برمجيات ونظم تكنولوجيا معلومات متقدمة."
+        tech_analysis: "نموذج رأس وكتفين مقلوب صاعد فوق الدعم 3.50 ج.م، مع إشارة شراء صريحة من مؤشر القوة النسبية RSI.",
+        future_outlook: "استهداف مستوى 4.20 ج.م ثم 4.60 ج.م مع توسع الشركة في تقديم حلول التحول الرقمي والبرمجيات المتخصصة."
     },
     {
         symbol: "ZEOT",
@@ -643,7 +674,8 @@ const HALAL_STOCKS_DATA = [
         pe_ratio: 10.2,
         eps_growth: 14.0,
         rsi: 53.5,
-        description: "سهم نقي 100% (تطهير 0%). استخلاص وتكرير الزيوت النباتية وإنتاج الصابون والأعلاف."
+        tech_analysis: "حركة تجميعية إيجابية فوق مستوى الدعم 3.15 ج.م مع تقارب خطوط بولينجر باند مشيرة لقرب حدوث حركة انفجارية صاعدة.",
+        future_outlook: "التوجه نحو اختبار المقاومة 3.80 ج.م ثم المستهدف 4.10 ج.م مع تحسن هوامش ربحية عصر وتكرير الزيوت النباتية."
     }
 ];
 
@@ -676,7 +708,6 @@ function initFavorites() {
     if (!Array.isArray(AppState.favorites) || AppState.favorites.length === 0) {
         AppState.favorites = ["CAED", "EGAS", "ELNA", "FNAR", "BIGP"];
     }
-    // تصفية أي سهم قديم غير موجود في قائمة الـ 32 النقية
     AppState.favorites = AppState.favorites.filter(sym => HALAL_STOCKS_DATA.some(s => s.symbol === sym));
     if (AppState.favorites.length === 0) {
         AppState.favorites = ["CAED", "EGAS", "ELNA", "FNAR", "BIGP"];
@@ -828,10 +859,10 @@ function updateLiveClock() {
     }
 
     if (statusEl) {
-        const day = now.getDay(); // 0: Sun, 1: Mon, ... 4: Thu, 5: Fri, 6: Sat
+        const day = now.getDay();
         const hour = now.getHours();
         const min = now.getMinutes();
-        const isTradingDay = (day >= 0 && day <= 4); // Sun to Thu
+        const isTradingDay = (day >= 0 && day <= 4);
         const isTradingHour = isTradingDay && ((hour > 10 || (hour === 10 && min >= 0)) && (hour < 14 || (hour === 14 && min <= 30)));
 
         if (isTradingHour) {
@@ -860,13 +891,11 @@ function renderTopGainerHero() {
     const heroEl = document.getElementById("topGainerHero");
     if (!heroEl) return;
 
-    // فرز الأسهم تنازلياً حسب نسبة الصعود
     const sorted = [...AppState.stocks].sort((a, b) => b.change_pct - a.change_pct);
     const first = sorted[0];
     const second = sorted[1] || sorted[0];
     const third = sorted[2] || sorted[1] || sorted[0];
 
-    // سهم نصيحة الاستثمار (أفضل فرصة شراء بأعلى عائد مستهدف وأفضل مؤشرات)
     const buyPicks = AppState.stocks.filter(s => s.action === "BUY");
     const topInvestmentPick = buyPicks.sort((a, b) => ((b.target - b.price) / b.price) - ((a.target - a.price) / a.price))[0] || first;
     const upsidePct = (((topInvestmentPick.target - topInvestmentPick.price) / topInvestmentPick.price) * 100).toFixed(1);
@@ -1165,7 +1194,6 @@ function renderEndOfDayFullRanking() {
     const container = document.getElementById("eodFullRankingList");
     if (!container) return;
 
-    // فرز جميع الأسهم تنازلياً بحسب نسبة التغير السعري اليومي (من الأعلى ربحاً إلى الأكثر تراجعاً)
     const sorted = [...AppState.stocks].sort((a, b) => b.change_pct - a.change_pct);
 
     container.innerHTML = sorted.map((stock, idx) => {
@@ -1174,7 +1202,6 @@ function renderEndOfDayFullRanking() {
         const isDown = stock.change_pct < 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
 
-        // وسام الترتيب
         let rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs border border-gray-700">${rank}</span>`;
         if (rank === 1) {
             rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xs border border-amber-500/40">🥇</span>`;
@@ -1317,12 +1344,25 @@ function renderStockDetailCard(symbol) {
             </div>
         </div>
 
-        <div class="p-3.5 rounded-xl bg-gray-800/30 border border-gray-800 text-xs leading-relaxed text-gray-300">
-            <span class="text-emerald-400 font-bold flex items-center gap-1.5 mb-1">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>تقرير الفحص والتحليل الفني:</span>
-            </span>
-            ${stock.description}
+        <!-- صندوق تقرير الفحص: مقسم بوضوح إلى التحليل الفني والتوقع المستقبلي -->
+        <div class="space-y-2.5">
+            <!-- 1. التحليل الفني -->
+            <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-800 text-xs">
+                <div class="text-emerald-400 font-bold flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-chart-line text-[11px]"></i>
+                    <span>التحليل الفني:</span>
+                </div>
+                <p class="leading-relaxed text-gray-300">${stock.tech_analysis || `السهم يتداول في مسار صاعد فوق مستوى الدعم ${stock.support.toFixed(2)} ج.م مع ثبات أعلى متوسط 20 يوم وزخم شرائي جيد على مؤشر RSI (${stock.rsi}).`}</p>
+            </div>
+
+            <!-- 2. التوقع المستقبلي -->
+            <div class="p-3.5 rounded-xl bg-gray-800/40 border border-gray-800 text-xs">
+                <div class="text-amber-400 font-bold flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-wand-magic-sparkles text-[11px]"></i>
+                    <span>التوقع المستقبلي:</span>
+                </div>
+                <p class="leading-relaxed text-gray-300">${stock.future_outlook || `استمرار الزخم الإيجابي لاختبار مستوى المقاومة ${stock.resistance.toFixed(2)} ج.م تمهيداً للوصول إلى الهدف المستهدف ${stock.target.toFixed(2)} ج.م بنسبة عائد متوقع +${(((stock.target - stock.price)/stock.price)*100).toFixed(1)}%.`}</p>
+            </div>
         </div>
     `;
 }
@@ -1452,14 +1492,14 @@ function generateMockPriceHistory(symbol, timeframe) {
         count = 7;
         daysStep = 1;
     } else if (timeframe === "1M") {
-        count = 22; // أيام تداول الشهر
+        count = 22;
         daysStep = 1.35;
     } else if (timeframe === "6M") {
         count = 26;
-        daysStep = 7; // كل أسبوع تاريخ محدد
+        daysStep = 7;
     } else if (timeframe === "1Y") {
         count = 24;
-        daysStep = 15; // كل نصف شهر تاريخ محدد
+        daysStep = 15;
     }
 
     const labels = [];
@@ -1467,10 +1507,8 @@ function generateMockPriceHistory(symbol, timeframe) {
     const ema = [];
 
     const now = new Date();
-    // بناء التواريخ الحقيقية رجوعاً من اليوم بتنسيق (DD/MM/YYYY) أو بتوقيت الجلسة اللحظي
     for (let i = 0; i < count; i++) {
         if (isIntraday) {
-            // أوقات جلسة البورصة المصرية من 10:00 ص إلى 02:30 م
             const hours = [10, 10, 11, 11, 12, 12, 13, 13, 14, 14];
             const mins = ["00", "30", "00", "30", "00", "30", "00", "30", "00", "30"];
             const period = hours[i] < 12 ? "ص" : "م";
@@ -1482,8 +1520,6 @@ function generateMockPriceHistory(symbol, timeframe) {
             const dayStr = String(d.getDate()).padStart(2, '0');
             const monthStr = String(d.getMonth() + 1).padStart(2, '0');
             const yearStr = d.getFullYear();
-            
-            // تاريخ صريح ومباشر: DD/MM/YYYY
             labels.push(`${dayStr}/${monthStr}/${yearStr}`);
         }
     }
@@ -1498,7 +1534,6 @@ function generateMockPriceHistory(symbol, timeframe) {
         prices.push(parseFloat(current.toFixed(2)));
     }
 
-    // حساب متوسط متحرك بسيط (SMA / EMA)
     for (let i = 0; i < prices.length; i++) {
         const slice = prices.slice(Math.max(0, i - 4), i + 1);
         const avg = slice.reduce((a, b) => a + b, 0) / slice.length;
