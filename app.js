@@ -682,7 +682,7 @@ const HALAL_STOCKS_DATA = [
 // الحالة العامة للتطبيق (State)
 const AppState = {
     stocks: [...HALAL_STOCKS_DATA],
-    favorites: JSON.parse(localStorage.getItem("egx_halal_favorites") || '["CAED", "EGAS", "ELNA", "FNAR", "BIGP"]'),
+    favorites: [],
     selectedSymbol: "CAED",
     currentTab: "dashboard",
     chartTimeframe: "1M",
@@ -703,25 +703,39 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateLiveClock, 1000);
 });
 
-// إدارة المفضلة (Favorites Management)
+// إدارة المفضلة الدائمة في المتصفح (Persistent Favorites Management)
 function initFavorites() {
-    if (!Array.isArray(AppState.favorites) || AppState.favorites.length === 0) {
-        AppState.favorites = ["CAED", "EGAS", "ELNA", "FNAR", "BIGP"];
+    const saved = localStorage.getItem("egx_pure_favorites_list");
+    if (saved !== null) {
+        try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed)) {
+                // تصفية أي رمز قديم غير موجود بالقائمة
+                AppState.favorites = parsed.filter(sym => HALAL_STOCKS_DATA.some(s => s.symbol === sym));
+            } else {
+                AppState.favorites = [];
+            }
+        } catch (e) {
+            AppState.favorites = [];
+        }
+    } else {
+        // إذا كانت أول زيارة للمستخدم، وضع أسهم افتراضية
+        AppState.favorites = ["CAED", "EGAS", "ELNA"];
+        localStorage.setItem("egx_pure_favorites_list", JSON.stringify(AppState.favorites));
     }
-    AppState.favorites = AppState.favorites.filter(sym => HALAL_STOCKS_DATA.some(s => s.symbol === sym));
-    if (AppState.favorites.length === 0) {
-        AppState.favorites = ["CAED", "EGAS", "ELNA", "FNAR", "BIGP"];
-    }
-    saveFavorites();
+    updateFavoritesBadge();
 }
 
 function saveFavorites() {
-    localStorage.setItem("egx_halal_favorites", JSON.stringify(AppState.favorites));
+    localStorage.setItem("egx_pure_favorites_list", JSON.stringify(AppState.favorites));
     updateFavoritesBadge();
 }
 
 function toggleFavorite(symbol, event) {
-    if (event) event.stopPropagation();
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
     const index = AppState.favorites.indexOf(symbol);
     if (index > -1) {
         AppState.favorites.splice(index, 1);
@@ -729,7 +743,11 @@ function toggleFavorite(symbol, event) {
         AppState.favorites.push(symbol);
     }
     saveFavorites();
-    renderAllViews();
+    renderFavoritesGrid();
+    renderScanTable();
+    if (AppState.selectedSymbol === symbol) {
+        renderStockDetailCard(symbol);
+    }
 }
 
 function isFavorite(symbol) {
