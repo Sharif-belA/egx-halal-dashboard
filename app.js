@@ -1233,23 +1233,43 @@ function renderStockDetailCard(symbol) {
     const isUp = stock.change_pct >= 0;
 
     cardEl.innerHTML = `
-        <div class="flex items-start justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-base shadow-md">
+        <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-3.5">
+                <!-- المربع: رمز السهم -->
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-lg shadow-md shrink-0">
                     ${stock.symbol}
                 </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <h3 class="text-lg font-bold text-white">${stock.name_ar}</h3>
-                        <span class="badge-pure text-emerald-300 text-xs px-2 py-0.5 rounded-md font-semibold flex items-center gap-1">
+                
+                <!-- البيانات مرتبة رأسياً بوضوح -->
+                <div class="space-y-1.5">
+                    <!-- اسم السهم -->
+                    <h3 class="text-xl font-black text-white leading-tight">${stock.name_ar}</h3>
+                    
+                    <!-- تاج نقي (تحت اسم السهم مباشرة) -->
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 rounded-md font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
                             <i class="fa-solid fa-shield-halved text-[10px]"></i>
-                            <span>نقي 100% (تطهير 0.00%)</span>
+                            <span>نقي 100% (تطهير 0%)</span>
                         </span>
                     </div>
-                    <p class="text-xs text-gray-400">${stock.name_en} | قطاع ${stock.sector}</p>
+
+                    <!-- الاسم الإنجليزي واسم القطاع -->
+                    <div class="text-xs text-gray-400 font-medium">
+                        ${stock.name_en}
+                    </div>
+
+                    <!-- تاج القطاع (تحته) -->
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300">
+                            <i class="fa-solid fa-layer-group text-[10px] text-blue-400"></i>
+                            <span>قطاع ${stock.sector}</span>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-xl transition">
+
+            <!-- زر المفضلة -->
+            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-2xl transition hover:scale-110 p-1" title="إضافة / إزالة من المفضلة">
                 <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
             </button>
         </div>
