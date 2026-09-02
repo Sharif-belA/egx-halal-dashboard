@@ -18,7 +18,7 @@ const HALAL_STOCKS_DATA = [
         target: 108.50,
         stop_loss: 89.00,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "3,450,200",
         pe_ratio: 11.2,
         eps_growth: 24.5,
@@ -38,7 +38,7 @@ const HALAL_STOCKS_DATA = [
         target: 31.00,
         stop_loss: 24.90,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "1,820,100",
         pe_ratio: 9.8,
         eps_growth: 18.2,
@@ -58,7 +58,7 @@ const HALAL_STOCKS_DATA = [
         target: 15.20,
         stop_loss: 11.20,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "850,400",
         pe_ratio: 12.4,
         eps_growth: 8.5,
@@ -78,7 +78,7 @@ const HALAL_STOCKS_DATA = [
         target: 130.00,
         stop_loss: 106.00,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "1,240,000",
         pe_ratio: 7.9,
         eps_growth: 16.0,
@@ -98,7 +98,7 @@ const HALAL_STOCKS_DATA = [
         target: 28.00,
         stop_loss: 22.40,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "980,300",
         pe_ratio: 8.4,
         eps_growth: 21.0,
@@ -118,7 +118,7 @@ const HALAL_STOCKS_DATA = [
         target: 44.00,
         stop_loss: 34.80,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "640,200",
         pe_ratio: 13.5,
         eps_growth: 19.4,
@@ -138,7 +138,7 @@ const HALAL_STOCKS_DATA = [
         target: 37.50,
         stop_loss: 29.50,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "1,450,000",
         pe_ratio: 6.8,
         eps_growth: 12.0,
@@ -158,7 +158,7 @@ const HALAL_STOCKS_DATA = [
         target: 12.20,
         stop_loss: 9.40,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "4,200,000",
         pe_ratio: 7.2,
         eps_growth: 15.3,
@@ -178,7 +178,7 @@ const HALAL_STOCKS_DATA = [
         target: 120.00,
         stop_loss: 94.00,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "730,000",
         pe_ratio: 5.9,
         eps_growth: 32.0,
@@ -198,7 +198,7 @@ const HALAL_STOCKS_DATA = [
         target: 5.70,
         stop_loss: 4.30,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "5,100,000",
         pe_ratio: 10.1,
         eps_growth: 17.5,
@@ -218,7 +218,7 @@ const HALAL_STOCKS_DATA = [
         target: 17.80,
         stop_loss: 14.20,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "420,000",
         pe_ratio: 8.9,
         eps_growth: 14.0,
@@ -238,7 +238,7 @@ const HALAL_STOCKS_DATA = [
         target: 185.00,
         stop_loss: 138.00,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "120,000",
         pe_ratio: 11.5,
         eps_growth: 15.0,
@@ -258,7 +258,7 @@ const HALAL_STOCKS_DATA = [
         target: 1.05,
         stop_loss: 0.70,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "6,800,000",
         pe_ratio: 14.0,
         eps_growth: 6.0,
@@ -278,7 +278,7 @@ const HALAL_STOCKS_DATA = [
         target: 3.40,
         stop_loss: 2.30,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "1,150,000",
         pe_ratio: 12.0,
         eps_growth: 11.0,
@@ -298,7 +298,7 @@ const HALAL_STOCKS_DATA = [
         target: 3.45,
         stop_loss: 2.35,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "1,600,000",
         pe_ratio: 15.2,
         eps_growth: 9.0,
@@ -318,7 +318,7 @@ const HALAL_STOCKS_DATA = [
         target: 46.00,
         stop_loss: 32.50,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "380,000",
         pe_ratio: 11.8,
         eps_growth: 16.5,
@@ -338,7 +338,7 @@ const HALAL_STOCKS_DATA = [
         target: 0.32,
         stop_loss: 0.19,
         action: "HOLD",
-        action_ar: "احتفاظ ⚪",
+        action_ar: "احتفاظ",
         volume: "8,900,000",
         pe_ratio: 16.5,
         eps_growth: 4.0,
@@ -358,7 +358,7 @@ const HALAL_STOCKS_DATA = [
         target: 17.50,
         stop_loss: 13.50,
         action: "BUY",
-        action_ar: "شراء 🟢",
+        action_ar: "شراء",
         volume: "710,000",
         pe_ratio: 12.8,
         eps_growth: 20.2,
@@ -543,10 +543,11 @@ function renderTopGainerHero() {
             <!-- 1. الأفضل في الجلسة -->
             <div onclick="selectStock('${first.symbol}')" class="glass-card glass-card-interactive p-4 border-amber-500/40 bg-gradient-to-b from-amber-500/10 to-transparent relative overflow-hidden group">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-amber-400 bg-amber-400/15 px-2 py-0.5 rounded-md border border-amber-400/30 flex items-center gap-1">
-                        🥇 <span>الأفضل في الجلسة</span>
+                    <span class="text-xs font-bold text-amber-400 bg-amber-400/15 px-2 py-0.5 rounded-md border border-amber-400/30 flex items-center gap-1.5">
+                        <i class="fa-solid fa-trophy text-amber-400 text-xs"></i>
+                        <span>الأفضل في الجلسة</span>
                     </span>
-                    <span class="text-xl">🏆</span>
+                    <i class="fa-solid fa-crown text-amber-400 text-lg"></i>
                 </div>
                 <h4 class="font-extrabold text-white text-base mt-1 truncate">${first.name_ar}</h4>
                 <div class="text-xs text-gray-400 mb-3">${first.symbol} | قطاع ${first.sector}</div>
@@ -556,8 +557,9 @@ function renderTopGainerHero() {
                         <span class="text-xl font-black text-white">${first.price.toFixed(2)}</span>
                         <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
                     </div>
-                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        +${first.change_pct.toFixed(2)}% 🚀
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                        <span>+${first.change_pct.toFixed(2)}%</span>
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i>
                     </span>
                 </div>
             </div>
@@ -565,10 +567,11 @@ function renderTopGainerHero() {
             <!-- 2. ثاني أفضل في الجلسة -->
             <div onclick="selectStock('${second.symbol}')" class="glass-card glass-card-interactive p-4 border-slate-400/30 bg-gradient-to-b from-slate-400/5 to-transparent relative overflow-hidden group">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-slate-300 bg-slate-400/15 px-2 py-0.5 rounded-md border border-slate-400/30 flex items-center gap-1">
-                        🥈 <span>ثاني أفضل سهم</span>
+                    <span class="text-xs font-bold text-slate-300 bg-slate-400/15 px-2 py-0.5 rounded-md border border-slate-400/30 flex items-center gap-1.5">
+                        <i class="fa-solid fa-medal text-slate-300 text-xs"></i>
+                        <span>ثاني أفضل سهم</span>
                     </span>
-                    <span class="text-xl">⭐</span>
+                    <i class="fa-solid fa-star text-slate-400 text-lg"></i>
                 </div>
                 <h4 class="font-extrabold text-white text-base mt-1 truncate">${second.name_ar}</h4>
                 <div class="text-xs text-gray-400 mb-3">${second.symbol} | قطاع ${second.sector}</div>
@@ -578,8 +581,9 @@ function renderTopGainerHero() {
                         <span class="text-xl font-black text-white">${second.price.toFixed(2)}</span>
                         <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
                     </div>
-                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        +${second.change_pct.toFixed(2)}% 🟢
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                        <span>+${second.change_pct.toFixed(2)}%</span>
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i>
                     </span>
                 </div>
             </div>
@@ -587,10 +591,11 @@ function renderTopGainerHero() {
             <!-- 3. ثالث أفضل في الجلسة -->
             <div onclick="selectStock('${third.symbol}')" class="glass-card glass-card-interactive p-4 border-orange-500/30 bg-gradient-to-b from-orange-500/5 to-transparent relative overflow-hidden group">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-bold text-orange-300 bg-orange-400/15 px-2 py-0.5 rounded-md border border-orange-400/30 flex items-center gap-1">
-                        🥉 <span>ثالث أفضل سهم</span>
+                    <span class="text-xs font-bold text-orange-300 bg-orange-400/15 px-2 py-0.5 rounded-md border border-orange-400/30 flex items-center gap-1.5">
+                        <i class="fa-solid fa-award text-orange-400 text-xs"></i>
+                        <span>ثالث أفضل سهم</span>
                     </span>
-                    <span class="text-xl">✨</span>
+                    <i class="fa-solid fa-ribbon text-orange-400 text-lg"></i>
                 </div>
                 <h4 class="font-extrabold text-white text-base mt-1 truncate">${third.name_ar}</h4>
                 <div class="text-xs text-gray-400 mb-3">${third.symbol} | قطاع ${third.sector}</div>
@@ -600,8 +605,9 @@ function renderTopGainerHero() {
                         <span class="text-xl font-black text-white">${third.price.toFixed(2)}</span>
                         <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
                     </div>
-                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                        +${third.change_pct.toFixed(2)}% 🟢
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                        <span>+${third.change_pct.toFixed(2)}%</span>
+                        <i class="fa-solid fa-arrow-trend-up text-[10px]"></i>
                     </span>
                 </div>
             </div>
@@ -609,10 +615,11 @@ function renderTopGainerHero() {
             <!-- 4. سهم نصيحة الاستثمار -->
             <div onclick="selectStock('${topInvestmentPick.symbol}')" class="glass-card glass-card-interactive p-4 border-emerald-500/50 bg-gradient-to-b from-emerald-500/15 to-transparent relative overflow-hidden group glow-green">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-xs font-extrabold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1">
-                        💡 <span>سهم نصيحة الاستثمار</span>
+                    <span class="text-xs font-extrabold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1.5">
+                        <i class="fa-solid fa-lightbulb text-emerald-300 text-xs"></i>
+                        <span>سهم نصيحة الاستثمار</span>
                     </span>
-                    <span class="text-xl">💎</span>
+                    <i class="fa-solid fa-gem text-emerald-400 text-lg"></i>
                 </div>
                 <h4 class="font-extrabold text-white text-base mt-1 truncate">${topInvestmentPick.name_ar}</h4>
                 <div class="text-xs text-emerald-400/80 mb-3">${topInvestmentPick.symbol} | الهدف: <b>${topInvestmentPick.target.toFixed(2)} ج.م</b></div>
@@ -622,8 +629,9 @@ function renderTopGainerHero() {
                         <span class="text-xl font-black text-white">${topInvestmentPick.price.toFixed(2)}</span>
                         <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
                     </div>
-                    <span class="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40">
-                        +${upsidePct}% ربح 🎯
+                    <span class="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40 flex items-center gap-1">
+                        <span>+${upsidePct}% ربح</span>
+                        <i class="fa-solid fa-bullseye text-[10px]"></i>
                     </span>
                 </div>
             </div>
@@ -641,17 +649,17 @@ function renderFavoritesGrid() {
 
     const content = favStocks.length === 0 ? `
         <div class="col-span-full text-center py-12 glass-card p-6">
-            <span class="text-4xl block mb-2">⭐</span>
+            <i class="fa-solid fa-star text-3xl text-gray-600 block mb-3"></i>
             <h4 class="text-lg font-bold text-gray-300">لم تقم بإضافة أسهم إلى المفضلة بعد</h4>
-            <p class="text-sm text-gray-500 mt-1">اضغط على علامة النجمة ⭐ بجانب أي سهم في الفحص الشامل لإضافته لقائمتك المفضلة الدائمة.</p>
+            <p class="text-sm text-gray-500 mt-1">اضغط على أيقونة النجمة بجانب أي سهم في الفحص الشامل لإضافته لقائمتك المفضلة الدائمة.</p>
         </div>
     ` : favStocks.map(stock => {
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isUp = stock.change_pct >= 0;
         return `
             <div onclick="selectStock('${stock.symbol}')" class="glass-card glass-card-interactive p-5 relative overflow-hidden ${isSelected ? 'border-emerald-500 glow-green' : ''}">
-                <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn active absolute top-4 left-4 text-xl" title="إزالة من المفضلة">
-                    ⭐
+                <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn active absolute top-4 left-4 text-base text-amber-400 hover:scale-125 transition" title="إزالة من المفضلة">
+                    <i class="fa-solid fa-star"></i>
                 </button>
                 <div class="flex items-center gap-3 mb-3">
                     <div class="w-10 h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center font-bold text-sm text-emerald-400">
@@ -668,8 +676,9 @@ function renderFavoritesGrid() {
                         <span class="text-2xl font-black text-white">${stock.price.toFixed(2)}</span>
                         <span class="text-xs text-gray-400 mr-1">ج.م</span>
                     </div>
-                    <div class="text-sm font-bold ${isUp ? 'text-emerald-400' : 'text-rose-400'}">
-                        ${isUp ? '▲ +' : '▼ '}${stock.change_pct.toFixed(2)}%
+                    <div class="text-sm font-bold flex items-center gap-1 ${isUp ? 'text-emerald-400' : 'text-rose-400'}">
+                        <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'} text-xs"></i>
+                        <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
                     </div>
                 </div>
 
@@ -685,8 +694,9 @@ function renderFavoritesGrid() {
                 </div>
 
                 <div class="mt-3 flex items-center justify-between">
-                    <span class="badge-${stock.action.toLowerCase()} text-xs font-bold px-2.5 py-0.5 rounded-full">
-                        ${stock.action_ar}
+                    <span class="badge-${stock.action.toLowerCase()} text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                        <i class="fa-solid ${stock.action === 'BUY' ? 'fa-circle-check' : stock.action === 'SELL' ? 'fa-circle-xmark' : 'fa-circle-pause'} text-[10px]"></i>
+                        <span>${stock.action === 'BUY' ? 'شراء' : stock.action === 'SELL' ? 'بيع' : 'احتفاظ'}</span>
                     </span>
                     <span class="text-xs text-gray-400">RSI: <b>${stock.rsi}</b></span>
                 </div>
@@ -720,8 +730,8 @@ function renderScanTable() {
         return `
             <tr onclick="selectStock('${stock.symbol}')" class="border-b border-gray-800/60 hover:bg-gray-800/40 cursor-pointer transition ${isSelected ? 'bg-emerald-950/20' : ''}">
                 <td class="py-4 px-4 text-center" onclick="event.stopPropagation()">
-                    <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'active' : 'text-gray-600 hover:text-amber-400'} text-lg">
-                        ${isFav ? '⭐' : '☆'}
+                    <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-base">
+                        <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
                     </button>
                 </td>
                 <td class="py-4 px-4">
@@ -738,18 +748,23 @@ function renderScanTable() {
                 <td class="py-4 px-4 text-sm text-gray-400">${stock.sector}</td>
                 <td class="py-4 px-4 text-left font-black text-white">${stock.price.toFixed(2)} ج.م</td>
                 <td class="py-4 px-4 text-left font-bold ${isUp ? 'text-emerald-400' : 'text-rose-400'}">
-                    ${isUp ? '▲ +' : '▼ '}${stock.change_pct.toFixed(2)}%
+                    <span class="inline-flex items-center gap-1">
+                        <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'} text-xs"></i>
+                        <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
+                    </span>
                 </td>
                 <td class="py-4 px-4 text-sm text-emerald-400 font-semibold">${stock.target.toFixed(2)} ج.م</td>
                 <td class="py-4 px-4 text-sm text-rose-400 font-semibold">${stock.stop_loss.toFixed(2)} ج.م</td>
                 <td class="py-4 px-4 text-center">
-                    <span class="badge-${stock.action.toLowerCase()} text-xs font-bold px-3 py-1 rounded-full inline-block">
-                        ${stock.action_ar}
+                    <span class="badge-${stock.action.toLowerCase()} text-xs font-bold px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                        <i class="fa-solid ${stock.action === 'BUY' ? 'fa-circle-check text-emerald-400' : stock.action === 'SELL' ? 'fa-circle-xmark text-rose-400' : 'fa-circle-pause text-gray-400'} text-[10px]"></i>
+                        <span>${stock.action === 'BUY' ? 'شراء' : stock.action === 'SELL' ? 'بيع' : 'احتفاظ'}</span>
                     </span>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <button onclick="selectStock('${stock.symbol}'); switchTab('dashboard');" class="text-xs font-bold text-gray-300 hover:text-emerald-400 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition">
-                        تحليل 📊
+                    <button onclick="selectStock('${stock.symbol}'); switchTab('dashboard');" class="text-xs font-bold text-gray-300 hover:text-emerald-400 bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg border border-gray-700 transition inline-flex items-center gap-1">
+                        <span>تحليل</span>
+                        <i class="fa-solid fa-chart-simple text-[10px]"></i>
                     </button>
                 </td>
             </tr>
@@ -766,14 +781,17 @@ function renderMorningCards() {
     container.innerHTML = buys.map(s => `
         <div class="glass-card p-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="text-2xl">🟢</span>
+                <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-sm">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
                 <div>
                     <h5 class="font-bold text-white text-sm">${s.name_ar} (${s.symbol})</h5>
                     <p class="text-xs text-gray-400">سعر الدخول: ${s.price.toFixed(2)} ج.م | الهدف: <b class="text-emerald-400">${s.target.toFixed(2)} ج.م</b></p>
                 </div>
             </div>
-            <button onclick="selectStock('${s.symbol}')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition">
-                شارت وتحليل
+            <button onclick="selectStock('${s.symbol}')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition flex items-center gap-1">
+                <span>شارت</span>
+                <i class="fa-solid fa-chart-line text-[10px]"></i>
             </button>
         </div>
     `).join('');
@@ -790,7 +808,6 @@ function selectStock(symbol) {
 
 function renderStockDetailCard(symbol) {
     const cardEl = document.getElementById("selectedStockCard");
-    const aiBoxEl = document.getElementById("aiAnalysisResult");
     const stock = AppState.stocks.find(s => s.symbol === symbol) || AppState.stocks[0];
     if (!cardEl) return;
 
@@ -806,13 +823,16 @@ function renderStockDetailCard(symbol) {
                 <div>
                     <div class="flex items-center gap-2">
                         <h3 class="text-lg font-bold text-white">${stock.name_ar}</h3>
-                        <span class="badge-pure text-xs px-2 py-0.5 rounded-md font-semibold">نقي 100% (تطهير 0%)</span>
+                        <span class="badge-pure text-xs px-2 py-0.5 rounded-md font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                            <span>نقي 100%</span>
+                        </span>
                     </div>
                     <p class="text-xs text-gray-400">${stock.name_en} | قطاع ${stock.sector}</p>
                 </div>
             </div>
-            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'active' : 'text-gray-600 hover:text-amber-400'} text-2xl">
-                ${isFav ? '⭐' : '☆'}
+            <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn ${isFav ? 'text-amber-400' : 'text-gray-600 hover:text-amber-400'} text-xl transition">
+                <i class="fa-${isFav ? 'solid' : 'regular'} fa-star"></i>
             </button>
         </div>
 
@@ -820,7 +840,10 @@ function renderStockDetailCard(symbol) {
             <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
                 <span class="text-xs text-gray-500 block">السعر الحالي</span>
                 <span class="text-xl font-black text-white">${stock.price.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
-                <span class="text-xs font-bold ${isUp ? 'text-emerald-400' : 'text-rose-400'} block">${isUp ? '▲ +' : '▼ '}${stock.change_pct.toFixed(2)}%</span>
+                <span class="text-xs font-bold flex items-center gap-1 ${isUp ? 'text-emerald-400' : 'text-rose-400'} block">
+                    <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : 'fa-arrow-trend-down'} text-[10px]"></i>
+                    <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
+                </span>
             </div>
             <div class="bg-gray-800/40 rounded-xl p-3 border border-gray-800">
                 <span class="text-xs text-gray-500 block">الهدف المستهدف</span>
@@ -840,7 +863,10 @@ function renderStockDetailCard(symbol) {
         </div>
 
         <div class="p-3.5 rounded-xl bg-gray-800/30 border border-gray-800 text-xs leading-relaxed text-gray-300">
-            <span class="text-emerald-400 font-bold block mb-1">💡 ملخص التحليل الفني والمالي:</span>
+            <span class="text-emerald-400 font-bold flex items-center gap-1.5 mb-1">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>ملخص التحليل الفني والمالي:</span>
+            </span>
             ${stock.description}
         </div>
     `;
