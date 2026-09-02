@@ -316,7 +316,7 @@
         <!-- ============================================================ -->
         <section id="tab-reports" class="tab-content hidden space-y-6">
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                 
                 <!-- Morning Recommendations Card -->
                 <div class="glass-card p-6 space-y-4">
@@ -326,7 +326,7 @@
                         </div>
                         <div>
                             <h3 class="text-lg font-bold text-white">توصيات افتتاح جلسة اليوم</h3>
-                            <p class="text-xs text-gray-400">التقرير الصباحي لفرص الشراء للأسهم النقية 100%</p>
+                            <p class="text-xs text-gray-400">التقرير الصباحي لفرص الشراء للأسهم المتوافقة مع الشريعة</p>
                         </div>
                     </div>
                     <div class="space-y-3" id="morningRecommendationsList">
@@ -347,7 +347,7 @@
                             </div>
                         </div>
                         <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                            32 سهماً نقياً معتمداً
+                            32 سهماً معتمداً
                         </span>
                     </div>
 
@@ -356,8 +356,8 @@
                         <span>قائمة الأداء اليومي الكاملة مرتبة من المركز الأول (الأكثر ربحاً) إلى الأخير:</span>
                     </div>
 
-                    <!-- Dynamic Descending Ranking List Container -->
-                    <div class="space-y-2 max-h-[480px] overflow-y-auto pr-1" id="eodFullRankingList">
+                    <!-- Dynamic Full Height Descending Ranking List Container -->
+                    <div class="space-y-2.5" id="eodFullRankingList">
                         <!-- Injected via JavaScript -->
                     </div>
                 </div>
@@ -378,6 +378,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=18.0"></script>
+    <script src="app.js?v=19.0"></script>
 </body>
 </html>
