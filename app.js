@@ -1460,21 +1460,19 @@ function renderScanTable() {
                     </div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
-                        <i class="fa-solid fa-shield-halved text-[10px]"></i>
-                        <span>متوافق مع الشريعة</span>
-                    </span>
-                </td>
-                <td class="py-4 px-4 text-center">
-                    <span class="text-xs font-bold font-mono ${isZeroPurify ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-400 bg-amber-500/10 border-amber-500/20'} px-2.5 py-1 rounded-lg border inline-block">
-                        ${stock.purification_ratio}
-                    </span>
-                </td>
-                <td class="py-4 px-4 text-center">
-                    <span class="text-xs font-bold ${isT0 ? 'text-cyan-300 bg-cyan-500/10 border-cyan-500/30' : 'text-indigo-300 bg-indigo-500/10 border-indigo-500/30'} px-2.5 py-1 rounded-lg border inline-flex items-center gap-1 whitespace-nowrap">
-                        <i class="fa-solid ${isT0 ? 'fa-bolt text-cyan-400' : 'fa-clock text-indigo-400'} text-[9px]"></i>
-                        <span>${stock.settlement}</span>
-                    </span>
+                    <div class="inline-flex items-center justify-center gap-1.5 flex-wrap">
+                        <span class="text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1 whitespace-nowrap">
+                            <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                            <span>متوافق</span>
+                        </span>
+                        <span class="text-xs font-bold font-mono ${isZeroPurify ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-400 bg-amber-500/10 border-amber-500/20'} px-2.5 py-1 rounded-lg border inline-block whitespace-nowrap">
+                            تطهير ${stock.purification_ratio}
+                        </span>
+                        <span class="text-xs font-bold ${isT0 ? 'text-cyan-300 bg-cyan-500/10 border-cyan-500/30' : 'text-indigo-300 bg-indigo-500/10 border-indigo-500/30'} px-2.5 py-1 rounded-lg border inline-flex items-center gap-1 whitespace-nowrap">
+                            <i class="fa-solid ${isT0 ? 'fa-bolt text-cyan-400' : 'fa-clock text-indigo-400'} text-[9px]"></i>
+                            <span>${stock.settlement}</span>
+                        </span>
+                    </div>
                 </td>
                 <td class="py-4 px-4 text-sm text-gray-400">${stock.sector}</td>
                 <td class="py-4 px-4 text-left font-black text-white">${stock.price.toFixed(2)} ج.م</td>
