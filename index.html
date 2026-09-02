@@ -283,43 +283,31 @@
                     </div>
                 </div>
 
-                <!-- End of Day Card -->
+                <!-- End of Day Full Ranking Card -->
                 <div class="glass-card p-6 space-y-4">
-                    <div class="flex items-center gap-3 border-b border-gray-800 pb-3">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
-                            <i class="fa-solid fa-trophy"></i>
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-lg">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">حصاد ختام الجلسة — ترتيب الأسهم بالكامل</h3>
+                                <p class="text-xs text-gray-400">مرتبة تنازلياً من الأعلى ربحاً إلى الأكثر تراجعاً</p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">حصاد ختام الجلسة</h3>
-                            <p class="text-xs text-gray-400">أفضل الأسهم أداءً والرابحين في نهاية اليوم</p>
-                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-gray-800 text-gray-300 border border-gray-700">
+                            18 سهم نقي
+                        </span>
                     </div>
-                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <span>يتم حساب هذا التقرير تلقائياً لتقييم أداء جميع الأسهم النقية وتحديد السهم الأفضل أداءً في اليوم.</span>
+
+                    <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-amber-400"></i>
+                        <span>قائمة الأداء اليومي الكاملة مرتبة من المركز الأول (الأكثر ربحاً) إلى الأخير:</span>
                     </div>
-                    <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-3 text-xs">
-                        <div class="flex items-center justify-between text-white font-bold pb-2 border-b border-gray-800">
-                            <span class="flex items-center gap-2">
-                                <i class="fa-solid fa-crown text-amber-400"></i>
-                                <span>نجم الجلسة: طلعت مصطفى (TMGH)</span>
-                            </span>
-                            <span class="text-emerald-400 font-black">+2.60% <i class="fa-solid fa-arrow-trend-up"></i></span>
-                        </div>
-                        <div class="flex items-center justify-between text-gray-300 pb-2 border-b border-gray-800">
-                            <span class="flex items-center gap-2">
-                                <i class="fa-solid fa-medal text-slate-300"></i>
-                                <span>الوصيف: النساجون الشرقيون (ORWE)</span>
-                            </span>
-                            <span class="text-emerald-400 font-bold">+2.27%</span>
-                        </div>
-                        <div class="flex items-center justify-between text-gray-300">
-                            <span class="flex items-center gap-2">
-                                <i class="fa-solid fa-award text-orange-400"></i>
-                                <span>المركز الثالث: إيديتا للصناعات (EFID)</span>
-                            </span>
-                            <span class="text-emerald-400 font-bold">+2.12%</span>
-                        </div>
+
+                    <!-- Dynamic Descending Ranking List Container -->
+                    <div class="space-y-2 max-h-[480px] overflow-y-auto pr-1" id="eodFullRankingList">
+                        <!-- Injected via JavaScript -->
                     </div>
                 </div>
 

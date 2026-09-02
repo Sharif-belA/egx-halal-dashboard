@@ -517,6 +517,7 @@ function renderAllViews() {
     renderScanTable();
     renderTopGainerHero();
     renderMorningCards();
+    renderEndOfDayFullRanking();
     renderStockDetailCard(AppState.selectedSymbol);
     updateFavoritesBadge();
 }
@@ -795,6 +796,60 @@ function renderMorningCards() {
             </button>
         </div>
     `).join('');
+}
+
+// قائمة حصاد ختام الجلسة مرتبة تنازلياً من الفوز إلى الخسارة (Full EOD Descending Ranking)
+function renderEndOfDayFullRanking() {
+    const container = document.getElementById("eodFullRankingList");
+    if (!container) return;
+
+    // فرز جميع الأسهم تنازلياً بحسب نسبة التغير السعري اليومي (من الأعلى ربحاً إلى الأكثر تراجعاً)
+    const sorted = [...AppState.stocks].sort((a, b) => b.change_pct - a.change_pct);
+
+    container.innerHTML = sorted.map((stock, idx) => {
+        const rank = idx + 1;
+        const isUp = stock.change_pct > 0;
+        const isDown = stock.change_pct < 0;
+        const isSelected = stock.symbol === AppState.selectedSymbol;
+
+        // وسام الترتيب
+        let rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs border border-gray-700">${rank}</span>`;
+        if (rank === 1) {
+            rankBadge = `<span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xs border border-amber-500/40">🥇</span>`;
+        } else if (rank === 2) {
+            rankBadge = `<span class="w-6 h-6 rounded-full bg-slate-400/20 text-slate-300 flex items-center justify-center font-black text-xs border border-slate-400/40">🥈</span>`;
+        } else if (rank === 3) {
+            rankBadge = `<span class="w-6 h-6 rounded-full bg-orange-400/20 text-orange-300 flex items-center justify-center font-black text-xs border border-orange-400/40">🥉</span>`;
+        }
+
+        return `
+            <div onclick="selectStock('${stock.symbol}')" class="glass-card glass-card-interactive p-3 flex items-center justify-between gap-3 text-xs transition ${isSelected ? 'border-emerald-500/80 bg-emerald-950/20' : ''}">
+                <div class="flex items-center gap-2.5">
+                    ${rankBadge}
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-bold text-white text-sm">${stock.name_ar}</span>
+                            <span class="text-[10px] text-gray-500 font-mono">(${stock.symbol})</span>
+                        </div>
+                        <span class="text-[11px] text-gray-400">${stock.sector} | حجم: ${stock.volume}</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="text-left">
+                        <span class="font-black text-white block">${stock.price.toFixed(2)} ج.م</span>
+                        <span class="font-bold inline-flex items-center gap-1 ${isUp ? 'text-emerald-400' : isDown ? 'text-rose-400' : 'text-gray-400'}">
+                            <i class="fa-solid ${isUp ? 'fa-arrow-trend-up' : isDown ? 'fa-arrow-trend-down' : 'fa-minus'} text-[10px]"></i>
+                            <span>${isUp ? '+' : ''}${stock.change_pct.toFixed(2)}%</span>
+                        </span>
+                    </div>
+                    <button onclick="selectStock('${stock.symbol}'); switchTab('dashboard');" class="px-2.5 py-1.5 rounded-lg bg-gray-800 hover:bg-emerald-500/20 text-gray-300 hover:text-emerald-400 border border-gray-700 transition flex items-center gap-1" title="عرض الشارت">
+                        <i class="fa-solid fa-chart-line text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
 // اختيار سهم وعرض بطاقته التفاعلية والشارت
