@@ -1147,9 +1147,14 @@ function renderScanTable() {
                     </div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="text-emerald-300 bg-emerald-500/15 border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full border inline-flex items-center gap-1">
+                    <span class="text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
                         <i class="fa-solid fa-shield-halved text-[10px]"></i>
-                        <span>نقي 100% (تطهير 0%)</span>
+                        <span>نقي 100%</span>
+                    </span>
+                </td>
+                <td class="py-4 px-4 text-center">
+                    <span class="text-xs font-bold font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 inline-block">
+                        ${stock.purification_ratio || '0.00%'}
                     </span>
                 </td>
                 <td class="py-4 px-4 text-sm text-gray-400">${stock.sector}</td>
