@@ -1,219 +1,19 @@
 /**
  * EGX Halal Trading Web Platform & Interactive Dashboard
- * منصة التداول والتحليل للأسهم الحلال (نقي وشبه نقي) بالبورصة المصرية
- * قائمة الأسهم المعتمدة وفقاً لمعايير الفحص الشرعي (32 سهماً)
+ * منصة التداول والتحليل للأسهم المتوافقة مع الشريعة بالبورصة المصرية
+ * قائمة الأسهم المعتمدة وفقاً لمنصة كاشف (Kasheif) الرسمية (32 سهماً) مع نسب التطهير الدقيقة
  */
 
 const HALAL_STOCKS_DATA = [
     {
-        symbol: "BIGP",
-        name_ar: "بي آي جي للتجارة والاستثمار",
-        name_en: "B.I.G Trade & Investment",
-        sector: "تجارة وتوزيع",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 0.24,
-        change: 0.00,
-        change_pct: 0.00,
-        support: 0.21,
-        resistance: 0.28,
-        target: 0.32,
-        stop_loss: 0.19,
-        action: "HOLD",
-        action_ar: "احتفاظ",
-        volume: "8,900,000",
-        pe_ratio: 16.5,
-        eps_growth: 4.0,
-        rsi: 50.0,
-        tech_analysis: "السهم يتداول في مسار عرضي تجميعي مستقر فوق مستوى الدعم 0.21 ج.م مع كثافة تنفيذ وضيق نطاق التذبذب، ومؤشر RSI عند 50 في منطقة حيادية.",
-        future_outlook: "اختراق مستوى المقاومة 0.28 ج.م سيفتح الباب لموجة صاعدة سريعة نحو الهدف 0.32 ج.م بفرصة ربح متوقعة تتجاوز 33%."
-    },
-    {
-        symbol: "CAED",
-        name_ar: "القاهرة للخدمات التعليمية",
-        name_en: "Cairo Education Services",
-        sector: "خدمات تعليمية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 154.00,
-        change: 1.50,
-        change_pct: 0.98,
-        support: 145.00,
-        resistance: 170.00,
-        target: 185.00,
-        stop_loss: 138.00,
-        action: "BUY",
-        action_ar: "شراء",
-        volume: "120,000",
-        pe_ratio: 11.5,
-        eps_growth: 15.0,
-        rsi: 53.0,
-        tech_analysis: "اتجاه صاعد رئيسي وثبات مريح فوق متوسط 20 يوم وخط الدعم 145 ج.م، مع إشارات إيجابية من مؤشرات السيولة والزخم.",
-        future_outlook: "من المتوقع استمرار الزخم الشرائي لاختبار حاجز 170 ج.م ثم الوصول للمستهدف التاريخي 185 ج.م مدعوماً بالتدفقات النقدية التشغيلية القوية لقطاع التعليم."
-    },
-    {
-        symbol: "FIRE",
-        name_ar: "الأولى للاستثمار والتنمية العقارية",
-        name_en: "First Investment & Real Estate",
-        sector: "عقارات ومقاولات",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 4.35,
-        change: 0.09,
-        change_pct: 2.11,
-        support: 4.10,
-        resistance: 4.70,
-        target: 5.10,
-        stop_loss: 3.90,
-        action: "BUY",
-        action_ar: "شراء",
-        volume: "1,250,000",
-        pe_ratio: 10.8,
-        eps_growth: 16.0,
-        rsi: 57.4,
-        tech_analysis: "ارتداد إيجابي قوي من قاع القناة السعرية الصاعدة 4.10 ج.م مع تقاطع إيجابي لمؤشر الماكد وتصاعد في أحجام التداول اليومية.",
-        future_outlook: "يرجح اختبار مستوى المقاومة 4.70 ج.م خلال الجلسات القادمة، والاندفاع نحو المستهدف 5.10 ج.م بنسبة نمو مستهدفة +17.2%."
-    },
-    {
-        symbol: "FNAR",
-        name_ar: "الفنار للمقاولات العمومية والإنشاءات",
-        name_en: "El Fanar Construction",
-        sector: "عقارات ومقاولات",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.25%",
-        price: 12.33,
-        change: -0.22,
-        change_pct: -1.75,
-        support: 11.80,
-        resistance: 14.50,
-        target: 15.20,
-        stop_loss: 11.20,
-        action: "HOLD",
-        action_ar: "احتفاظ",
-        volume: "850,400",
-        pe_ratio: 12.4,
-        eps_growth: 8.5,
-        rsi: 44.2,
-        tech_analysis: "حركة تصحيحية هادئة لإعادة اختبار مستوى الدعم الرئيسي 11.80 ج.م، مع انحسار قوى البيع واقتراب مؤشر RSI من مناطق التشبع البيعي.",
-        future_outlook: "استقرار السهم أعلى 11.80 ج.م يؤهله لمعاودة الانطلاق نحو 14.50 ثم 15.20 ج.م مع تسليمات المشروعات الجديدة."
-    },
-    {
-        symbol: "MISR",
-        name_ar: "إيجي ستون (مصر للأعمال الهندسية)",
-        name_en: "EgyStone (Misr Engineering)",
-        sector: "عقارات ومقاولات",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.30%",
-        price: 18.20,
-        change: 0.35,
-        change_pct: 1.96,
-        support: 17.00,
-        resistance: 20.50,
-        target: 22.00,
-        stop_loss: 16.40,
-        action: "BUY",
-        action_ar: "شراء",
-        volume: "680,000",
-        pe_ratio: 11.2,
-        eps_growth: 14.0,
-        rsi: 55.8,
-        tech_analysis: "اختراق لنموذج مثلث تجميعي صاعد مع ثبات السعر فوق المتوسط المتحرك 50 يوم، وزيادة ملحوظة في طلبات الشراء عند مستوى 17.50 ج.م.",
-        future_outlook: "استمرار المسار الصاعد يستهدف مستوى 20.50 ج.م ثم الوصول للمستهدف النهائي 22.00 ج.م محققاً عائداً متوقعاً يتجاوز 20%."
-    },
-    {
-        symbol: "MOED",
-        name_ar: "المصرية لنظم التعليم الحديثة",
-        name_en: "Modern Education Systems",
-        sector: "خدمات تعليمية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 0.82,
-        change: -0.01,
-        change_pct: -1.20,
-        support: 0.75,
-        resistance: 0.95,
-        target: 1.05,
-        stop_loss: 0.70,
-        action: "HOLD",
-        action_ar: "احتفاظ",
-        volume: "6,800,000",
-        pe_ratio: 14.0,
-        eps_growth: 6.0,
-        rsi: 43.5,
-        tech_analysis: "تذبذب أفقي في نطاق ضيق بين 0.78 و 0.86 ج.م مع بناء مراكز تدريجية في سوق المشروعات الصغيرة والمتوسطة.",
-        future_outlook: "اختراق مستوى المقاومة 0.95 ج.م يمثل إشارة دخول قوية لاستهداف حاجز 1.05 ج.م مع عودة السيولة للمضاربات السريعة."
-    },
-    {
-        symbol: "NEDA",
-        name_ar: "شمال الصعيد للتنمية والإنتاج الزراعي (نيوداب)",
-        name_en: "North Upper Egypt Development",
-        sector: "استثمار زراعي",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 2.75,
-        change: -0.04,
-        change_pct: -1.43,
-        support: 2.50,
-        resistance: 3.15,
-        target: 3.45,
-        stop_loss: 2.35,
-        action: "HOLD",
-        action_ar: "احتفاظ",
-        volume: "1,600,000",
-        pe_ratio: 15.2,
-        eps_growth: 9.0,
-        rsi: 47.1,
-        tech_analysis: "السهم يستند إلى قاعدة دعم أفقية قوية عند 2.50 ج.م مع تناقص ملحوظ في أحجام البيع ما يشير لقرب اكتمال دورة التصحيح.",
-        future_outlook: "يتوقع حدوث ارتداد فني صاعد نحو مستوى 3.15 ج.م ثم 3.45 ج.م بدعم من مشروعات الاستصلاح الزراعي وزيادة الإنتاج."
-    },
-    {
-        symbol: "UPMS",
-        name_ar: "الاتحاد الصيدلي للخدمات الطبية والاستثمار",
-        name_en: "Pharma Union Medical Services",
-        sector: "رعاية صحية وأدوية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
-        price: 3.15,
-        change: 0.06,
-        change_pct: 1.94,
-        support: 2.95,
-        resistance: 3.50,
-        target: 3.85,
-        stop_loss: 2.80,
-        action: "BUY",
-        action_ar: "شراء",
-        volume: "1,420,000",
-        pe_ratio: 12.6,
-        eps_growth: 13.0,
-        rsi: 56.0,
-        tech_analysis: "نمط فني صاعد يعكس تجميعاً هادئاً، مع ثبات السعر فوق المتوسط المتحرك 20 يوم وارتفاع مؤشر RSI إلى 56.0.",
-        future_outlook: "التحرك نحو المقاومة 3.50 ج.م مدعوم بفرص توسع شبكة التوزيع الدوائي واستهداف مستوى 3.85 ج.م بنسبة ربح متوقعة +22.2%."
-    },
-    {
         symbol: "AMES",
-        name_ar: "الإسكندرية للخدمات الطبية (المركز الطبي الجديد)",
+        name_ar: "المركز الطبي الجديد - الإسكندرية للخدمات",
         name_en: "Alexandria Medical Services",
         sector: "رعاية صحية وأدوية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "1.00%",
         price: 19.50,
         change: 0.40,
         change_pct: 2.09,
@@ -232,13 +32,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "BIOC",
-        name_ar: "جلاكسو سميثكلاين / بيوكام",
+        name_ar: "جلاسكو (بيوكام)",
         name_en: "GlaxoSmithKline Egypt / Bioc",
         sector: "رعاية صحية وأدوية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.69%",
         price: 42.80,
         change: 0.70,
         change_pct: 1.66,
@@ -259,11 +59,11 @@ const HALAL_STOCKS_DATA = [
         symbol: "CEFM",
         name_ar: "مطاحن مصر الوسطى",
         name_en: "Middle Egypt Flour Mills",
-        sector: "أغذية ومطاحن",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        sector: "أغذية ومشروبات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "3.80%",
         price: 48.60,
         change: 0.95,
         change_pct: 1.99,
@@ -282,13 +82,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "DCRC",
-        name_ar: "الدلتا للإنشاء والتعمير",
+        name_ar: "دلتا للإنشاء والتعمير",
         name_en: "Delta Construction & Rebuilding",
         sector: "عقارات ومقاولات",
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.35%",
+        purification_ratio: "0.72%",
         price: 26.40,
         change: 0.50,
         change_pct: 1.93,
@@ -313,7 +113,7 @@ const HALAL_STOCKS_DATA = [
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.45%",
+        purification_ratio: "0.06%",
         price: 36.50,
         change: 0.80,
         change_pct: 2.24,
@@ -336,8 +136,8 @@ const HALAL_STOCKS_DATA = [
         name_en: "El Nasr Agricultural Products",
         sector: "استثمار زراعي",
         purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
         purification_ratio: "0.00%",
         price: 36.80,
         change: 0.90,
@@ -357,13 +157,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "ELWA",
-        name_ar: "الوادي العالمية للاستثمار والتنمية",
-        name_en: "El Wadi for International Investment",
-        sector: "استثمار وتنمية",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        name_ar: "الوادي للاستثمار والتنمية",
+        name_en: "El Wadi for Investment & Development",
+        sector: "سياحة واستثمار",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "2.12%",
         price: 0.88,
         change: 0.01,
         change_pct: 1.15,
@@ -388,7 +188,7 @@ const HALAL_STOCKS_DATA = [
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.20%",
+        purification_ratio: "1.31%",
         price: 0.38,
         change: 0.00,
         change_pct: 0.00,
@@ -410,10 +210,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "جو جرين للاستثمار الزراعي والتنمية",
         name_en: "Go Green Agricultural Investment",
         sector: "استثمار زراعي",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.01%",
         price: 2.10,
         change: 0.04,
         change_pct: 1.94,
@@ -434,11 +234,11 @@ const HALAL_STOCKS_DATA = [
         symbol: "ICFC",
         name_ar: "الدولية للأسمدة والكيماويات",
         name_en: "International Fertilizers & Chemicals",
-        sector: "أسمدة وكيماويات",
+        sector: "موارد أساسية وأسمدة",
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.50%",
+        purification_ratio: "1.10%",
         price: 16.40,
         change: 0.35,
         change_pct: 2.18,
@@ -463,7 +263,7 @@ const HALAL_STOCKS_DATA = [
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.40%",
+        purification_ratio: "1.48%",
         price: 0.42,
         change: 0.01,
         change_pct: 2.44,
@@ -488,7 +288,7 @@ const HALAL_STOCKS_DATA = [
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.30%",
+        purification_ratio: "0.52%",
         price: 0.22,
         change: 0.00,
         change_pct: 0.00,
@@ -507,13 +307,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "INFI",
-        name_ar: "الإسماعيلية الوطنية للصناعات الغذائية (فوديكو)",
+        name_ar: "الإسماعيلية الوطنية للصناعات الغذائية - فوديكو",
         name_en: "Ismailia National Food (Foodico)",
         sector: "أغذية ومشروبات",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "1.39%",
         price: 44.50,
         change: 0.90,
         change_pct: 2.06,
@@ -532,38 +332,38 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "MBSC",
-        name_ar: "إم بي للهندسة",
-        name_en: "M.B Engineering",
-        sector: "صناعة وتكنولوجيا",
+        name_ar: "مصر بني سويف للأسمنت",
+        name_en: "Misr Beni Suef Cement",
+        sector: "مواد بناء",
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.40%",
-        price: 2.35,
-        change: 0.05,
-        change_pct: 2.17,
-        support: 2.18,
-        resistance: 2.65,
-        target: 2.90,
-        stop_loss: 2.05,
+        purification_ratio: "1.28%",
+        price: 43.50,
+        change: 0.85,
+        change_pct: 1.99,
+        support: 40.50,
+        resistance: 48.00,
+        target: 52.00,
+        stop_loss: 39.00,
         action: "BUY",
         action_ar: "شراء",
-        volume: "1,850,000",
-        pe_ratio: 11.0,
-        eps_growth: 16.0,
+        volume: "650,000",
+        pe_ratio: 9.8,
+        eps_growth: 18.0,
         rsi: 57.2,
-        tech_analysis: "ارتداد إيجابي من مستوى الدعم 2.18 ج.م مع تقاطع صاعد للمتوسطات السعرية القصيرة وإشارة دخول على مؤشر الماكد.",
-        future_outlook: "استهداف مستوى 2.65 ج.م ثم 2.90 ج.م بدعم من مشروعات شواحن السيارات الكهربائية واللوحات الكهربائية الذكية."
+        tech_analysis: "ارتداد إيجابي من مستوى الدعم 40.50 ج.م مع تقاطع صاعد للمتوسطات السعرية القصيرة وإشارة دخول على مؤشر الماكد.",
+        future_outlook: "استهداف مستوى 48.00 ج.م ثم 52.00 ج.م بدعم من طفرة صادرات الأسمنت والمشروعات القومية للبناء والتشييد."
     },
     {
         symbol: "MILS",
         name_ar: "مطاحن ومخابز شمال القاهرة",
         name_en: "North Cairo Flour Mills",
-        sector: "أغذية ومطاحن",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        sector: "أغذية ومشروبات",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.89%",
         price: 41.20,
         change: 0.70,
         change_pct: 1.73,
@@ -585,10 +385,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "مصر للزيوت والصابون",
         name_en: "Misr Oils & Soap",
         sector: "أغذية ومشروبات",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.08%",
         price: 33.80,
         change: 0.60,
         change_pct: 1.81,
@@ -607,13 +407,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "NDRL",
-        name_ar: "الوطنية لحفر وخدمات البترول",
+        name_ar: "الحفر الوطنية",
         name_en: "National Drilling Company",
-        sector: "خدمات بترولية",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.60%",
+        sector: "طاقة / خدمات مساندة",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
         price: 4.80,
         change: 0.08,
         change_pct: 1.69,
@@ -638,7 +438,7 @@ const HALAL_STOCKS_DATA = [
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.35%",
+        purification_ratio: "0.94%",
         price: 9.85,
         change: 0.15,
         change_pct: 1.55,
@@ -660,10 +460,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "بريميم هيلثكير جروب",
         name_en: "Premium Healthcare Group",
         sector: "رعاية صحية وأدوية",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.25%",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
         price: 0.36,
         change: 0.01,
         change_pct: 2.86,
@@ -682,13 +482,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "PRCL",
-        name_ar: "العامة لمنتجات الخزف والصيني (شيني)",
+        name_ar: "الشركة العامة لمنتجات الخزف والصيني شيني",
         name_en: "General Ceramic & China (Sheeni)",
-        sector: "مواد بناء وصناعة",
+        sector: "مواد بناء",
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.45%",
+        purification_ratio: "0.07%",
         price: 15.20,
         change: 0.30,
         change_pct: 2.01,
@@ -710,10 +510,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "سبأ الدولية للأدوية والصناعات الكيماوية",
         name_en: "Sabaa International Pharma",
         sector: "رعاية صحية وأدوية",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.30%",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
         price: 0.95,
         change: 0.02,
         change_pct: 2.15,
@@ -732,13 +532,13 @@ const HALAL_STOCKS_DATA = [
     },
     {
         symbol: "SMFR",
-        name_ar: "سماد مصر (إيجيفرت)",
+        name_ar: "سماد مصر - إيجيفرت",
         name_en: "Egypt Fertilizers (Egyfert)",
-        sector: "أسمدة وكيماويات",
+        sector: "موارد أساسية وأسمدة",
         purity_type: "SEMI_PURE",
         purity_label: "شبه نقي",
         badge_short: "شبه نقي",
-        purification_ratio: "0.55%",
+        purification_ratio: "1.95%",
         price: 52.00,
         change: 1.20,
         change_pct: 2.36,
@@ -759,11 +559,11 @@ const HALAL_STOCKS_DATA = [
         symbol: "VERT",
         name_ar: "فرتيكا للصناعة والتجارة",
         name_en: "Vertika for Industry & Trade",
-        sector: "تكنولوجيا وبرمجيات",
-        purity_type: "SEMI_PURE",
-        purity_label: "شبه نقي",
-        badge_short: "شبه نقي",
-        purification_ratio: "0.20%",
+        sector: "تجارة وتوكيلات",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
         price: 3.80,
         change: 0.08,
         change_pct: 2.15,
@@ -785,10 +585,10 @@ const HALAL_STOCKS_DATA = [
         name_ar: "الزيوت المستخلصة ومنتجاتها",
         name_en: "Extracted Oils & Derivatives",
         sector: "أغذية ومشروبات",
-        purity_type: "PURE",
-        purity_label: "نقي 100%",
-        badge_short: "نقي",
-        purification_ratio: "0.00%",
+        purity_type: "SEMI_PURE",
+        purity_label: "شبه نقي",
+        badge_short: "شبه نقي",
+        purification_ratio: "0.47%",
         price: 3.40,
         change: 0.05,
         change_pct: 1.49,
@@ -804,6 +604,206 @@ const HALAL_STOCKS_DATA = [
         rsi: 53.5,
         tech_analysis: "حركة تجميعية إيجابية فوق مستوى الدعم 3.15 ج.م مع تقارب خطوط بولينجر باند مشيرة لقرب حدوث حركة انفجارية صاعدة.",
         future_outlook: "التوجه نحو اختبار المقاومة 3.80 ج.م ثم المستهدف 4.10 ج.م مع تحسن هوامش ربحية عصر وتكرير الزيوت النباتية."
+    },
+    {
+        symbol: "BIGP",
+        name_ar: "بي آي جي للتجارة والاستثمار",
+        name_en: "B.I.G Trade & Investment",
+        sector: "تجارة وتوزيع",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 0.24,
+        change: 0.00,
+        change_pct: 0.00,
+        support: 0.21,
+        resistance: 0.28,
+        target: 0.32,
+        stop_loss: 0.19,
+        action: "HOLD",
+        action_ar: "احتفاظ",
+        volume: "8,900,000",
+        pe_ratio: 16.5,
+        eps_growth: 4.0,
+        rsi: 50.0,
+        tech_analysis: "السهم يتداول في مسار عرضي تجميعي مستقر فوق مستوى الدعم 0.21 ج.م مع كثافة تنفيذ وضيق نطاق التذبذب، ومؤشر RSI عند 50 في منطقة حيادية.",
+        future_outlook: "اختراق مستوى المقاومة 0.28 ج.م سيفتح الباب لموجة صاعدة سريعة نحو الهدف 0.32 ج.م بفرصة ربح متوقعة تتجاوز 33%."
+    },
+    {
+        symbol: "CAED",
+        name_ar: "القاهرة للخدمات التعليمية",
+        name_en: "Cairo Education Services",
+        sector: "خدمات تعليمية",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 154.00,
+        change: 1.50,
+        change_pct: 0.98,
+        support: 145.00,
+        resistance: 170.00,
+        target: 185.00,
+        stop_loss: 138.00,
+        action: "BUY",
+        action_ar: "شراء",
+        volume: "120,000",
+        pe_ratio: 11.5,
+        eps_growth: 15.0,
+        rsi: 53.0,
+        tech_analysis: "اتجاه صاعد رئيسي وثبات مريح فوق متوسط 20 يوم وخط الدعم 145 ج.م، مع إشارات إيجابية من مؤشرات السيولة والزخم.",
+        future_outlook: "من المتوقع استمرار الزخم الشرائي لاختبار حاجز 170 ج.م ثم الوصول للمستهدف التاريخي 185 ج.م مدعوماً بالتدفقات النقدية التشغيلية القوية لقطاع التعليم."
+    },
+    {
+        symbol: "FIRE",
+        name_ar: "الأولى للاستثمار والتنمية العقارية",
+        name_en: "First Investment & Real Estate",
+        sector: "عقارات ومقاولات",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 4.35,
+        change: 0.09,
+        change_pct: 2.11,
+        support: 4.10,
+        resistance: 4.70,
+        target: 5.10,
+        stop_loss: 3.90,
+        action: "BUY",
+        action_ar: "شراء",
+        volume: "1,250,000",
+        pe_ratio: 10.8,
+        eps_growth: 16.0,
+        rsi: 57.4,
+        tech_analysis: "ارتداد إيجابي قوي من قاع القناة السعرية الصاعدة 4.10 ج.م مع تقاطع إيجابي لمؤشر الماكد وتصاعد في أحجام التداول اليومية.",
+        future_outlook: "يرجح اختبار مستوى المقاومة 4.70 ج.م خلال الجلسات القادمة، والاندفاع نحو المستهدف 5.10 ج.م بنسبة نمو مستهدفة +17.2%."
+    },
+    {
+        symbol: "FNAR",
+        name_ar: "الفنار للمقاولات العمومية والإنشاءات",
+        name_en: "El Fanar Construction",
+        sector: "عقارات ومقاولات",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 12.33,
+        change: -0.22,
+        change_pct: -1.75,
+        support: 11.80,
+        resistance: 14.50,
+        target: 15.20,
+        stop_loss: 11.20,
+        action: "HOLD",
+        action_ar: "احتفاظ",
+        volume: "850,400",
+        pe_ratio: 12.4,
+        eps_growth: 8.5,
+        rsi: 44.2,
+        tech_analysis: "حركة تصحيحية هادئة لإعادة اختبار مستوى الدعم الرئيسي 11.80 ج.م، مع انحسار قوى البيع واقتراب مؤشر RSI من مناطق التشبع البيعي.",
+        future_outlook: "استقرار السهم أعلى 11.80 ج.م يؤهله لمعاودة الانطلاق نحو 14.50 ثم 15.20 ج.م مع تسليمات المشروعات الجديدة."
+    },
+    {
+        symbol: "MISR",
+        name_ar: "إيجي ستون (مصر للأعمال الهندسية)",
+        name_en: "EgyStone (Misr Engineering)",
+        sector: "عقارات ومقاولات",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 18.20,
+        change: 0.35,
+        change_pct: 1.96,
+        support: 17.00,
+        resistance: 20.50,
+        target: 22.00,
+        stop_loss: 16.40,
+        action: "BUY",
+        action_ar: "شراء",
+        volume: "680,000",
+        pe_ratio: 11.2,
+        eps_growth: 14.0,
+        rsi: 55.8,
+        tech_analysis: "اختراق لنموذج مثلث تجميعي صاعد مع ثبات السعر فوق المتوسط المتحرك 50 يوم، وزيادة ملحوظة في طلبات الشراء عند مستوى 17.50 ج.م.",
+        future_outlook: "استمرار المسار الصاعد يستهدف مستوى 20.50 ج.م ثم الوصول للمستهدف النهائي 22.00 ج.م محققاً عائداً متوقعاً يتجاوز 20%."
+    },
+    {
+        symbol: "MOED",
+        name_ar: "المصرية لنظم التعليم الحديثة",
+        name_en: "Modern Education Systems",
+        sector: "خدمات تعليمية",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 0.82,
+        change: -0.01,
+        change_pct: -1.20,
+        support: 0.75,
+        resistance: 0.95,
+        target: 1.05,
+        stop_loss: 0.70,
+        action: "HOLD",
+        action_ar: "احتفاظ",
+        volume: "6,800,000",
+        pe_ratio: 14.0,
+        eps_growth: 6.0,
+        rsi: 43.5,
+        tech_analysis: "تذبذب أفقي في نطاق ضيق بين 0.78 و 0.86 ج.م مع بناء مراكز تدريجية في سوق المشروعات الصغيرة والمتوسطة.",
+        future_outlook: "اختراق مستوى المقاومة 0.95 ج.م يمثل إشارة دخول قوية لاستهداف حاجز 1.05 ج.م مع عودة السيولة للمضاربات السريعة."
+    },
+    {
+        symbol: "NEDA",
+        name_ar: "شمال الصعيد للتنمية والإنتاج الزراعي (نيوداب)",
+        name_en: "North Upper Egypt Development",
+        sector: "استثمار زراعي",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 2.75,
+        change: -0.04,
+        change_pct: -1.43,
+        support: 2.50,
+        resistance: 3.15,
+        target: 3.45,
+        stop_loss: 2.35,
+        action: "HOLD",
+        action_ar: "احتفاظ",
+        volume: "1,600,000",
+        pe_ratio: 15.2,
+        eps_growth: 9.0,
+        rsi: 47.1,
+        tech_analysis: "السهم يستند إلى قاعدة دعم أفقية قوية عند 2.50 ج.م مع تناقص ملحوظ في أحجام البيع ما يشير لقرب اكتمال دورة التصحيح.",
+        future_outlook: "يتوقع حدوث ارتداد فني صاعد نحو مستوى 3.15 ج.م ثم 3.45 ج.م بدعم من مشروعات الاستصلاح الزراعي وزيادة الإنتاج."
+    },
+    {
+        symbol: "UPMS",
+        name_ar: "الاتحاد الصيدلي للخدمات الطبية والاستثمار",
+        name_en: "Pharma Union Medical Services",
+        sector: "رعاية صحية وأدوية",
+        purity_type: "PURE",
+        purity_label: "شبه نقي (0% تطهير)",
+        badge_short: "0% تطهير",
+        purification_ratio: "0.00%",
+        price: 3.15,
+        change: 0.06,
+        change_pct: 1.94,
+        support: 2.95,
+        resistance: 3.50,
+        target: 3.85,
+        stop_loss: 2.80,
+        action: "BUY",
+        action_ar: "شراء",
+        volume: "1,420,000",
+        pe_ratio: 12.6,
+        eps_growth: 13.0,
+        rsi: 56.0,
+        tech_analysis: "نمط فني صاعد يعكس تجميعاً هادئاً، مع ثبات السعر فوق المتوسط المتحرك 20 يوم وارتفاع مؤشر RSI إلى 56.0.",
+        future_outlook: "التحرك نحو المقاومة 3.50 ج.م مدعوم بفرص توسع شبكة التوزيع الدوائي واستهداف مستوى 3.85 ج.م بنسبة ربح متوقعة +22.2%."
     }
 ];
 
@@ -811,7 +811,7 @@ const HALAL_STOCKS_DATA = [
 const AppState = {
     stocks: [...HALAL_STOCKS_DATA],
     favorites: [],
-    selectedSymbol: "CAED",
+    selectedSymbol: "AMES",
     currentTab: "dashboard",
     chartTimeframe: "1M",
     chartInstance: null,
@@ -847,7 +847,7 @@ function initFavorites() {
             AppState.favorites = [];
         }
     } else {
-        AppState.favorites = ["CAED", "EGAS", "ELNA"];
+        AppState.favorites = ["AMES", "EGAS", "ELNA"];
         localStorage.setItem("egx_pure_favorites_list", JSON.stringify(AppState.favorites));
     }
     updateFavoritesBadge();
@@ -1169,7 +1169,7 @@ function renderFavoritesGrid() {
     ` : favStocks.map(stock => {
         const isSelected = stock.symbol === AppState.selectedSymbol;
         const isUp = stock.change_pct >= 0;
-        const isPure = stock.purity_type === "PURE";
+        const isZeroPurify = stock.purification_ratio === "0.00%";
 
         return `
             <div onclick="selectStock('${stock.symbol}')" class="glass-card glass-card-interactive p-5 relative overflow-hidden ${isSelected ? 'border-emerald-500 glow-green' : ''}">
@@ -1183,7 +1183,7 @@ function renderFavoritesGrid() {
                     <div>
                         <div class="flex items-center gap-1.5">
                             <h4 class="font-bold text-white text-sm leading-tight">${stock.name_ar}</h4>
-                            <span class="${isPure ? 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-400 bg-amber-500/15 border-amber-500/30'} text-[10px] font-bold px-1.5 py-0.2 rounded border">
+                            <span class="${isZeroPurify ? 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-400 bg-amber-500/15 border-amber-500/30'} text-[10px] font-bold px-1.5 py-0.2 rounded border">
                                 ${stock.badge_short}
                             </span>
                         </div>
@@ -1218,7 +1218,7 @@ function renderFavoritesGrid() {
                         <i class="fa-solid ${stock.action === 'BUY' ? 'fa-circle-check' : stock.action === 'SELL' ? 'fa-circle-xmark' : 'fa-circle-pause'} text-[10px]"></i>
                         <span>${stock.action === 'BUY' ? 'شراء' : stock.action === 'SELL' ? 'بيع' : 'احتفاظ'}</span>
                     </span>
-                    <span class="text-xs text-gray-400">تطهير: <b class="${isPure ? 'text-emerald-400' : 'text-amber-400'}">${stock.purification_ratio}</b></span>
+                    <span class="text-xs text-gray-400">تطهير: <b class="${isZeroPurify ? 'text-emerald-400' : 'text-amber-400'}">${stock.purification_ratio}</b></span>
                 </div>
             </div>
         `;
@@ -1240,8 +1240,8 @@ function renderScanTable() {
         const matchesSector = (AppState.sectorFilter === "all") || (s.sector === AppState.sectorFilter);
         const matchesSignal = (AppState.signalFilter === "all") || (s.action === AppState.signalFilter);
         const matchesPurity = (AppState.purityFilter === "all") || 
-                              (AppState.purityFilter === "pure" && s.purity_type === "PURE") ||
-                              (AppState.purityFilter === "semi_pure" && s.purity_type === "SEMI_PURE");
+                              (AppState.purityFilter === "pure" && s.purification_ratio === "0.00%") ||
+                              (AppState.purityFilter === "semi_pure" && s.purification_ratio !== "0.00%");
         return matchesSearch && matchesSector && matchesSignal && matchesPurity;
     });
 
@@ -1264,7 +1264,7 @@ function renderScanTable() {
         const isFav = isFavorite(stock.symbol);
         const isUp = stock.change_pct >= 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
-        const isPure = stock.purity_type === "PURE";
+        const isZeroPurify = stock.purification_ratio === "0.00%";
 
         return `
             <tr onclick="selectStock('${stock.symbol}')" class="border-b border-gray-800/60 hover:bg-gray-800/40 cursor-pointer transition ${isSelected ? 'bg-emerald-950/20' : ''}">
@@ -1285,13 +1285,13 @@ function renderScanTable() {
                     </div>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="${isPure ? 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-300 bg-amber-500/15 border-amber-500/30'} text-xs font-bold px-2.5 py-1 rounded-full border inline-flex items-center gap-1.5 whitespace-nowrap">
-                        <i class="fa-solid ${isPure ? 'fa-shield-halved' : 'fa-shield'} text-[10px]"></i>
-                        <span>${stock.purity_label}</span>
+                    <span class="text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 whitespace-nowrap">
+                        <i class="fa-solid fa-shield-halved text-[10px]"></i>
+                        <span>متوافق مع الشريعة</span>
                     </span>
                 </td>
                 <td class="py-4 px-4 text-center">
-                    <span class="text-xs font-bold font-mono ${isPure ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-400 bg-amber-500/10 border-amber-500/20'} px-2.5 py-1 rounded-lg border inline-block">
+                    <span class="text-xs font-bold font-mono ${isZeroPurify ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : 'text-amber-400 bg-amber-500/10 border-amber-500/20'} px-2.5 py-1 rounded-lg border inline-block">
                         ${stock.purification_ratio}
                     </span>
                 </td>
@@ -1337,7 +1337,7 @@ function renderMorningCards() {
                 <div>
                     <div class="flex items-center gap-1.5">
                         <h5 class="font-bold text-white text-sm">${s.name_ar} (${s.symbol})</h5>
-                        <span class="text-[10px] ${s.purity_type === 'PURE' ? 'text-emerald-400' : 'text-amber-400'} font-semibold">(${s.badge_short})</span>
+                        <span class="text-[10px] ${s.purification_ratio === '0.00%' ? 'text-emerald-400' : 'text-amber-400'} font-semibold">(تطهير: ${s.purification_ratio})</span>
                     </div>
                     <p class="text-xs text-gray-400">سعر الدخول: ${s.price.toFixed(2)} ج.م | الهدف: <b class="text-emerald-400">${s.target.toFixed(2)} ج.م</b></p>
                 </div>
@@ -1362,7 +1362,7 @@ function renderEndOfDayFullRanking() {
         const isUp = stock.change_pct > 0;
         const isDown = stock.change_pct < 0;
         const isSelected = stock.symbol === AppState.selectedSymbol;
-        const isPure = stock.purity_type === "PURE";
+        const isZeroPurify = stock.purification_ratio === "0.00%";
 
         let rankBadge = `<span class="w-6 h-6 rounded-full bg-gray-800 text-gray-400 flex items-center justify-center font-bold text-xs border border-gray-700">${rank}</span>`;
         if (rank === 1) {
@@ -1381,7 +1381,7 @@ function renderEndOfDayFullRanking() {
                         <div class="flex items-center gap-1.5">
                             <span class="font-bold text-white text-sm">${stock.name_ar}</span>
                             <span class="text-[10px] text-gray-500 font-mono">(${stock.symbol})</span>
-                            <span class="${isPure ? 'text-emerald-400' : 'text-amber-400'} text-[10px] font-semibold">• ${stock.badge_short} (${stock.purification_ratio})</span>
+                            <span class="${isZeroPurify ? 'text-emerald-400' : 'text-amber-400'} text-[10px] font-semibold">• تطهير: ${stock.purification_ratio}</span>
                         </div>
                         <span class="text-[11px] text-gray-400">${stock.sector} | حجم: ${stock.volume}</span>
                     </div>
@@ -1420,13 +1420,13 @@ function renderStockDetailCard(symbol) {
 
     const isFav = isFavorite(stock.symbol);
     const isUp = stock.change_pct >= 0;
-    const isPure = stock.purity_type === "PURE";
+    const isZeroPurify = stock.purification_ratio === "0.00%";
 
     cardEl.innerHTML = `
         <div class="flex items-start justify-between gap-2.5">
             <div class="flex items-start gap-3 min-w-0 flex-1">
                 <!-- المربع: رمز السهم -->
-                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl ${isPure ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'} border flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0">
+                <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-2xl ${isZeroPurify ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' : 'bg-amber-500/10 border-amber-500/30 text-amber-400'} border flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0">
                     ${stock.symbol}
                 </div>
                 
@@ -1443,11 +1443,11 @@ function renderStockDetailCard(symbol) {
                         </span>
                     </div>
 
-                    <!-- 3. تحته تاج نقي / شبه نقي -->
+                    <!-- 3. تحته تاج نقي / شبه نقي مع نسبة التطهير -->
                     <div>
-                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold ${isPure ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
-                            <i class="fa-solid ${isPure ? 'fa-shield-halved' : 'fa-shield'} text-[9px]"></i>
-                            <span>${stock.purity_label} (تطهير ${stock.purification_ratio})</span>
+                        <span class="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-md font-bold ${isZeroPurify ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
+                            <i class="fa-solid ${isZeroPurify ? 'fa-shield-halved' : 'fa-shield'} text-[9px]"></i>
+                            <span>شبه نقي (تطهير ${stock.purification_ratio})</span>
                         </span>
                     </div>
                 </div>
