@@ -521,44 +521,113 @@ function renderAllViews() {
     updateFavoritesBadge();
 }
 
-// بطاقة أفضل سهم في اليوم (نجم الجلسة)
+// بطاقات ملخص قمة الجلسة (أفضل 3 أسهم + سهم نصيحة الاستثمار)
 function renderTopGainerHero() {
     const heroEl = document.getElementById("topGainerHero");
     if (!heroEl) return;
 
-    // فرز الأسهم حسب نسبة الصعود
+    // فرز الأسهم تنازلياً حسب نسبة الصعود
     const sorted = [...AppState.stocks].sort((a, b) => b.change_pct - a.change_pct);
-    const best = sorted[0];
+    const first = sorted[0];
+    const second = sorted[1] || sorted[0];
+    const third = sorted[2] || sorted[1] || sorted[0];
+
+    // سهم نصيحة الاستثمار (أفضل فرصة شراء بأعلى عائد مستهدف وأفضل مؤشرات)
+    const buyPicks = AppState.stocks.filter(s => s.action === "BUY");
+    const topInvestmentPick = buyPicks.sort((a, b) => ((b.target - b.price) / b.price) - ((a.target - a.price) / a.price))[0] || first;
+    const upsidePct = (((topInvestmentPick.target - topInvestmentPick.price) / topInvestmentPick.price) * 100).toFixed(1);
 
     heroEl.innerHTML = `
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-2xl shadow-lg glow-gold">
-                    🏆
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+            
+            <!-- 1. الأفضل في الجلسة -->
+            <div onclick="selectStock('${first.symbol}')" class="glass-card glass-card-interactive p-4 border-amber-500/40 bg-gradient-to-b from-amber-500/10 to-transparent relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-amber-400 bg-amber-400/15 px-2 py-0.5 rounded-md border border-amber-400/30 flex items-center gap-1">
+                        🥇 <span>الأفضل في الجلسة</span>
+                    </span>
+                    <span class="text-xl">🏆</span>
                 </div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">نجم الجلسة الأفضل أداءً</span>
-                        <span class="text-xs text-gray-400">تطهير 0.00% ✅</span>
+                <h4 class="font-extrabold text-white text-base mt-1 truncate">${first.name_ar}</h4>
+                <div class="text-xs text-gray-400 mb-3">${first.symbol} | قطاع ${first.sector}</div>
+                
+                <div class="flex items-baseline justify-between pt-2 border-t border-gray-800">
+                    <div>
+                        <span class="text-xl font-black text-white">${first.price.toFixed(2)}</span>
+                        <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mt-1">${best.name_ar} (${best.symbol})</h3>
-                    <p class="text-xs text-gray-400">قطاع: ${best.sector} | حجم تداول: ${best.volume}</p>
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        +${first.change_pct.toFixed(2)}% 🚀
+                    </span>
                 </div>
             </div>
 
-            <div class="flex items-center gap-6">
-                <div class="text-right">
-                    <span class="text-xs text-gray-400 block">سعر الإغلاق الحقيقي</span>
-                    <span class="text-2xl font-black text-white">${best.price.toFixed(2)} <span class="text-xs font-normal text-gray-400">ج.م</span></span>
+            <!-- 2. ثاني أفضل في الجلسة -->
+            <div onclick="selectStock('${second.symbol}')" class="glass-card glass-card-interactive p-4 border-slate-400/30 bg-gradient-to-b from-slate-400/5 to-transparent relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-slate-300 bg-slate-400/15 px-2 py-0.5 rounded-md border border-slate-400/30 flex items-center gap-1">
+                        🥈 <span>ثاني أفضل سهم</span>
+                    </span>
+                    <span class="text-xl">⭐</span>
                 </div>
-                <div class="px-4 py-2 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-center glow-green">
-                    <span class="text-xs block text-emerald-300">نسبة الارتفاع</span>
-                    <span class="text-xl font-black">+${best.change_pct.toFixed(2)}% 🚀</span>
+                <h4 class="font-extrabold text-white text-base mt-1 truncate">${second.name_ar}</h4>
+                <div class="text-xs text-gray-400 mb-3">${second.symbol} | قطاع ${second.sector}</div>
+                
+                <div class="flex items-baseline justify-between pt-2 border-t border-gray-800">
+                    <div>
+                        <span class="text-xl font-black text-white">${second.price.toFixed(2)}</span>
+                        <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
+                    </div>
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        +${second.change_pct.toFixed(2)}% 🟢
+                    </span>
                 </div>
-                <button onclick="selectStock('${best.symbol}')" class="px-4 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold border border-gray-700 transition">
-                    عرض الشارت 📈
-                </button>
             </div>
+
+            <!-- 3. ثالث أفضل في الجلسة -->
+            <div onclick="selectStock('${third.symbol}')" class="glass-card glass-card-interactive p-4 border-orange-500/30 bg-gradient-to-b from-orange-500/5 to-transparent relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-orange-300 bg-orange-400/15 px-2 py-0.5 rounded-md border border-orange-400/30 flex items-center gap-1">
+                        🥉 <span>ثالث أفضل سهم</span>
+                    </span>
+                    <span class="text-xl">✨</span>
+                </div>
+                <h4 class="font-extrabold text-white text-base mt-1 truncate">${third.name_ar}</h4>
+                <div class="text-xs text-gray-400 mb-3">${third.symbol} | قطاع ${third.sector}</div>
+                
+                <div class="flex items-baseline justify-between pt-2 border-t border-gray-800">
+                    <div>
+                        <span class="text-xl font-black text-white">${third.price.toFixed(2)}</span>
+                        <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
+                    </div>
+                    <span class="text-xs font-black text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        +${third.change_pct.toFixed(2)}% 🟢
+                    </span>
+                </div>
+            </div>
+
+            <!-- 4. سهم نصيحة الاستثمار -->
+            <div onclick="selectStock('${topInvestmentPick.symbol}')" class="glass-card glass-card-interactive p-4 border-emerald-500/50 bg-gradient-to-b from-emerald-500/15 to-transparent relative overflow-hidden group glow-green">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-extrabold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-md border border-emerald-500/40 flex items-center gap-1">
+                        💡 <span>سهم نصيحة الاستثمار</span>
+                    </span>
+                    <span class="text-xl">💎</span>
+                </div>
+                <h4 class="font-extrabold text-white text-base mt-1 truncate">${topInvestmentPick.name_ar}</h4>
+                <div class="text-xs text-emerald-400/80 mb-3">${topInvestmentPick.symbol} | الهدف: <b>${topInvestmentPick.target.toFixed(2)} ج.م</b></div>
+                
+                <div class="flex items-baseline justify-between pt-2 border-t border-gray-800">
+                    <div>
+                        <span class="text-xl font-black text-white">${topInvestmentPick.price.toFixed(2)}</span>
+                        <span class="text-[10px] text-gray-400 mr-0.5">ج.م</span>
+                    </div>
+                    <span class="text-xs font-black text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40">
+                        +${upsidePct}% ربح 🎯
+                    </span>
+                </div>
+            </div>
+
         </div>
     `;
 }
