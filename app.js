@@ -1176,18 +1176,23 @@ function renderFavoritesGrid() {
                 <button onclick="toggleFavorite('${stock.symbol}', event)" class="star-btn active absolute top-4 left-4 text-base text-amber-400 hover:scale-125 transition" title="إزالة من المفضلة">
                     <i class="fa-solid fa-star"></i>
                 </button>
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center font-bold text-sm text-emerald-400">
+                <div class="flex items-start gap-3 mb-3 pr-0.5">
+                    <div class="w-10 h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center font-bold text-sm text-emerald-400 shrink-0">
                         ${stock.symbol}
                     </div>
-                    <div>
-                        <div class="flex items-center gap-1.5">
-                            <h4 class="font-bold text-white text-sm leading-tight">${stock.name_ar}</h4>
-                            <span class="${isZeroPurify ? 'text-emerald-400 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-400 bg-amber-500/15 border-amber-500/30'} text-[10px] font-bold px-1.5 py-0.2 rounded border">
-                                ${stock.badge_short}
+                    <div class="min-w-0 flex-1 space-y-1">
+                        <h4 class="font-bold text-white text-xs sm:text-sm leading-tight truncate">${stock.name_ar}</h4>
+                        <!-- تاج نوع القطاع وبجانبه تاج نقي / شبه نقي -->
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="text-[10px] text-blue-300 bg-blue-500/10 border border-blue-500/20 px-1.5 py-0.5 rounded flex items-center gap-1 whitespace-nowrap">
+                                <i class="fa-solid fa-layer-group text-[8px] text-blue-400"></i>
+                                <span>${stock.sector}</span>
+                            </span>
+                            <span class="${isZeroPurify ? 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30' : 'text-amber-300 bg-amber-500/15 border-amber-500/30'} text-[10px] font-bold px-1.5 py-0.5 rounded border flex items-center gap-1 whitespace-nowrap">
+                                <i class="fa-solid ${isZeroPurify ? 'fa-shield-halved' : 'fa-shield'} text-[8px]"></i>
+                                <span>${isZeroPurify ? 'نقي' : 'شبه نقي'}</span>
                             </span>
                         </div>
-                        <span class="text-xs text-gray-400">${stock.sector}</span>
                     </div>
                 </div>
 
@@ -1441,24 +1446,21 @@ function renderStockDetailCard(symbol) {
                     ${stock.symbol}
                 </div>
                 
-                <!-- البيانات مرتبة رأسياً بدون أي تداخل أو خروج -->
+                <!-- البيانات مرتبة بدون أي تداخل أو خروج -->
                 <div class="space-y-1 min-w-0 flex-1 overflow-hidden">
                     <!-- 1. اسم السهم بحجم خط ديناميكي مناسب للمساحة تماماً -->
                     <h3 class="${dynamicFontSize} font-black text-white whitespace-nowrap leading-tight tracking-tight">${stock.name_ar}</h3>
                     
-                    <!-- 2. تحته تاج القطاع -->
-                    <div>
+                    <!-- 2. تحت الاسم: تاج القطاع وبجانبه تاج نقي / شبه نقي -->
+                    <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
                         <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md font-semibold bg-gray-800/90 border border-gray-700 text-blue-300 whitespace-nowrap">
                             <i class="fa-solid fa-layer-group text-[8.5px] text-blue-400"></i>
                             <span>قطاع ${stock.sector}</span>
                         </span>
-                    </div>
 
-                    <!-- 3. تحته تاج نقي / شبه نقي مع نسبة التطهير -->
-                    <div>
                         <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md font-bold ${isZeroPurify ? 'bg-emerald-500/15 border-emerald-500/30 text-emerald-300' : 'bg-amber-500/15 border-amber-500/30 text-amber-300'} border whitespace-nowrap">
                             <i class="fa-solid ${isZeroPurify ? 'fa-shield-halved' : 'fa-shield'} text-[8.5px]"></i>
-                            <span>شبه نقي (تطهير ${stock.purification_ratio})</span>
+                            <span>${isZeroPurify ? 'نقي (0.00% تطهير)' : `شبه نقي (تطهير ${stock.purification_ratio})`}</span>
                         </span>
                     </div>
                 </div>
