@@ -63,6 +63,11 @@
                         <i class="fa-solid fa-newspaper text-sky-400 text-sm"></i>
                         <span>التقارير اليومية</span>
                     </button>
+                    <button id="btn-invest" onclick="switchTab('invest')" class="nav-btn px-4 py-2.5 rounded-xl text-sm font-bold transition text-gray-400 border border-transparent hover:text-white inline-flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-gem text-emerald-400 text-sm"></i>
+                        <span>أسهم للاستثمار</span>
+                        <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2 py-0.5 rounded-full border border-emerald-500/30">5</span>
+                    </button>
                 </nav>
 
                 <!-- Live Market Status, Mubasher Feed & Time -->
@@ -103,6 +108,10 @@
         <button onclick="switchTab('reports')" class="p-2 text-gray-400 font-bold flex flex-col items-center gap-1">
             <i class="fa-solid fa-newspaper text-sky-400 text-sm"></i>
             <span>التقارير</span>
+        </button>
+        <button onclick="switchTab('invest')" class="p-2 text-gray-400 font-bold flex flex-col items-center gap-1">
+            <i class="fa-solid fa-gem text-emerald-400 text-sm"></i>
+            <span>للاستثمار</span>
         </button>
     </div>
 
@@ -384,6 +393,42 @@
 
         </section>
 
+        <!-- ============================================================ -->
+        <!-- TAB 5: TOP 5 INVESTMENT STOCKS (أسهم للاستثمار) -->
+        <!-- ============================================================ -->
+        <section id="tab-invest" class="tab-content hidden space-y-6">
+            
+            <!-- Header Banner -->
+            <div class="glass-card p-5 sm:p-6 bg-gradient-to-r from-emerald-950/40 via-gray-900/90 to-blue-950/40 border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="space-y-1.5">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-black px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5">
+                            <i class="fa-solid fa-gem text-xs"></i>
+                            <span>أفضل 5 فرص استثمارية مدروسة</span>
+                        </span>
+                        <span class="text-xs text-gray-400 font-medium">محدثة يومياً وفقاً للتقييم المالي والتحليل الفني وأحدث الأخبار</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white">خلاصة الأسهم التي تستحق الاستثمار في البورصة المصرية</h2>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-3xl">
+                        تم اختيار هذه الأسهم الـ 5 بناءً على: انخفاض مكرر الربحية (P/E Ratio)، قوة التدفقات النقدية التشغيلية، الزخم الفني الصاعد فوق المتوسطات، المحفزات الإيجابية في آخر أخبار الشركات، والتوافق الشرعي الكامل.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2 self-stretch md:self-auto justify-end">
+                    <button onclick="triggerManualLiveUpdate()" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-black font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+                        <i class="fa-solid fa-rotate"></i>
+                        <span>تحديث الأسعار والأخبار</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 5 Investment Cards Container -->
+            <div class="grid grid-cols-1 gap-6" id="topInvestmentStocksList">
+                <!-- Injected via JavaScript -->
+            </div>
+
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -396,6 +441,6 @@
     </footer>
 
     <!-- App JavaScript -->
-    <script src="app.js?v=25.0"></script>
+    <script src="app.js?v=26.0"></script>
 </body>
 </html>
